@@ -1,0 +1,28 @@
+.screen {
+  background: url('../../assets/images/bg-test.png') center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  height: 100vh;
+
+  padding: 5% 0 8% 0;
+  padding-left: var(--containter-padding);
+  padding-right: var(--containter-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: 30px;
+}
+
+.bubble_wrapper {
+  margin-top: 80px;
+}

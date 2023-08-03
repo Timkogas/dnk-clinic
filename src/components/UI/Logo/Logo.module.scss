@@ -1,5 +1,22 @@
+.block {
+  text-align: center;
+}
+
 .img {
   width: 70px;
   margin: 0 auto;
   display: block;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: 'CeraRoundPro-Black';
+  font-size: 11px;
+  text-transform: uppercase;
+
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color: var(--color-white);
 }

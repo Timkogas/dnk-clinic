@@ -20,6 +20,7 @@ const Button: FC<ButtonProps> = props => {
     text,
     ...otherProps
   } = props
+  
   let outlineStyle
   let frontStyle
   if (theme === ThemeButton.RED) {
