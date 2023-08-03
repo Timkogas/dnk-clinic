@@ -1,0 +1,23 @@
+.screen {
+  background: url('../../assets/images//bg.png') center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  height: 100vh;
+
+  padding: 8% 0;
+  padding-left: var(--containter-padding);
+  padding-right: var(--containter-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btns {
+  width: 100%;
+}
+
+.btn_first {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,62 @@
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke*-1;
+
+  @for $i from $from through $stroke {
+    @for $j from $from through $stroke {
+      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    }
+  }
+
+  @return $shadow;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  font-family: 'CeraRoundPro-Black';
+  font-size: 18px;
+  line-height: 40px;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  text-align: center
+}
+
+//#C30155
+.text {
+  position: relative;
+}
+
+.red {
+  background: linear-gradient(96.63deg, #FE588C 12.93%, #EE175B 94.21%);
+  color: var(--font-color-white);
+  border: 1px solid #FFFFFF;
+  box-shadow: 0px 4px 10px 0px #00000026;
+  box-shadow: 0px -4px 30px 0px #FFFFFF73 inset;
+  border-radius: 10px;
+
+  &_outline {
+    -webkit-text-stroke: 5px var(--font-color-red);;
+    user-select: none;
+    position: absolute;
+    top: 0;
+  }
+
+  &_front {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    color: var(--font-color-white);
+  }
+}
