@@ -1,5 +1,6 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, memo } from 'react';
 import styles from'./Bubble.module.scss'
+import classNames from 'classnames';
 
 type BubbleProps = {
   className?: string;
@@ -13,10 +14,10 @@ const Bubble: FC<BubbleProps> = props => {
   } = props
 
   return (
-    <div className={styles.bubble}>
+    <div className={classNames(styles.bubble, className)}>
       {children}
     </div>
   )
 };
 
-export default Bubble
+export default memo(Bubble)

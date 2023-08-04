@@ -27,6 +27,7 @@ const Button: FC<ButtonProps> = props => {
     frontStyle = styles.red_front
     outlineStyle = styles.red_outline
   }
+
   return (
     <button
       className={classNames(styles.button, [className, styles[theme]])}

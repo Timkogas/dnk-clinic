@@ -1,3 +1,5 @@
+@import "../../assets/styles/media_mixins.scss";
+
 .screen {
   background: url('../../assets/images/bg-test.png') center center;
   background-repeat: no-repeat;
@@ -17,12 +19,20 @@
 .list {
   display: flex;
   gap: 2px;
-  flex-wrap: wrap;
-  justify-content: center;
-
   margin-top: 30px;
 }
 
 .bubble_wrapper {
-  margin-top: 80px;
+  margin-top: 30px;
+  @include _390 {
+    margin-top: 90px;
+  }
+}
+
+.bubble_p {
+  padding: 38px 42px;
+}
+
+.btns {
+  margin-top: 10px;
 }

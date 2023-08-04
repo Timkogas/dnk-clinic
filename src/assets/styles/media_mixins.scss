@@ -1,0 +1,6 @@
+@mixin _390 {
+  @media (min-width: 390px){
+      @content;
+  }
+}
+
