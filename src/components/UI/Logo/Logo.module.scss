@@ -1,5 +1,5 @@
 @import "../../../assets/styles/media_mixins.scss";
-
+@import "../../../assets/styles/mixins.scss";
 .block {
   text-align: center;
 }
@@ -32,5 +32,6 @@
 
   @include _1080 {
     font-size: 15px
-  }
+  };
+  @include none-select;
 }

@@ -1,5 +1,5 @@
 @import "../../assets/styles/media_mixins.scss";
-
+@import "../../assets/styles/mixins.scss";
 .bg {
   min-height: 100vh;
   background: url('../../assets/images/bg-test.png') center center;
@@ -14,7 +14,7 @@
 }
 
 .screen {
-  padding: 5% 0 8% 0;
+  padding: 3% 0 0 0;
   padding-left: var(--containter-padding);
   padding-right: var(--containter-padding);
 
@@ -50,7 +50,8 @@
   @include _1080 {
     font-size: 38px;
     line-height: 39px;
-  }
+  };
+  @include none-select;
 }
 
 .bubble_title_outline {

@@ -15,7 +15,7 @@
 
   @include _360 {
     padding: 5px 0;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 40px;
   }
 
@@ -63,7 +63,6 @@
 
   &_outline {
     -webkit-text-stroke: 5px #006D82;
-    ;
     user-select: none;
     position: absolute;
     top: 0;

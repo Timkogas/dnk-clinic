@@ -5,12 +5,16 @@ import styles from './Result.module.scss'
 import paris from '../../assets/images/results/paris.png'
 import Bubble from '../../components/Bubble/Bubble';
 import Modal from '../../components/UI/Modal/Modal';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Result = () => {
   const [modal, setModal] = useState<boolean>(false)
   const navigate = useNavigate()
+
+  const onClose = useCallback(() => {
+    setModal(false)
+  }, [])
 
   useEffect(() => {
 
@@ -23,27 +27,28 @@ const Result = () => {
     window.addEventListener("popstate", onBack, false);
 
     return () => window.removeEventListener("popstate", onBack, false);
-  }, [navigate, modal])
+  }, [navigate, modal, onClose])
 
 
-  const onClose = () => {
-    setModal(false)
-  }
 
-  const onOpen = () => {
+  const onOpen = useCallback(() => {
     setModal(true)
     window.history.pushState({}, '', null);
-  }
+  }, [])
+
+  const onNext = useCallback(() => {
+    navigate('/secret')
+  }, [navigate])
 
 
   return (
     <>
       <Modal isOpen={modal} onClose={onClose}>
-        <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline}  className={styles.modal_title}/>
+        <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline} className={styles.modal_title} />
 
         <div className={styles.modal_share}>
-          <TextBorder text='в сторис' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise}/>
-          <TextBorder text='на стену' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise}/>
+          <TextBorder text='в сторис' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise} />
+          <TextBorder text='на стену' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise} />
         </div>
 
         <Button theme={ThemeButton.BLUE} text='пройти тест заново' className={styles.modal_btn} />
@@ -67,7 +72,7 @@ const Result = () => {
           </div>
           <div className={styles.btns}>
             <Button theme={ThemeButton.BLUE} text='поделится' onClick={onOpen} />
-            <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' />
+            <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' onClick={onNext} />
           </div>
         </div>
       </div>

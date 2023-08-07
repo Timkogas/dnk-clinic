@@ -1,4 +1,5 @@
 @import "../../../assets/styles/media_mixins.scss";
+@import "../../../assets/styles/mixins.scss";
 
 .checkbox_wrapper {
   display: flex;
@@ -23,6 +24,7 @@
   margin-left: 15px;
   margin-right: 15px;
   position: relative;
+  cursor: pointer;
 
   @include _360 {
     flex:0 0 30px;
@@ -68,6 +70,8 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  @include none-select;
+  cursor: pointer;
   @include _1080 {
     gap: 10px;
     font-size: 26px;

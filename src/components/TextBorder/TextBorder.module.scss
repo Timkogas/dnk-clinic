@@ -3,13 +3,13 @@
 .text {
   position: relative;
   font-family: 'CeraRoundPro-Black';
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
   letter-spacing: 0em;
   text-transform: uppercase;
 
   @include _360 {
-    font-size: 19px;
+    font-size: 21px;
   }
 }
 
