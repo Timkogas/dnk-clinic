@@ -9,14 +9,13 @@ interface Option {
 
 interface CheckboxProps {
   options: Option[];
+  selectedValue: number | null
   onChange?: (value: number) => void;
 }
 
-const CheckBox: FC<CheckboxProps> = ({ options, onChange }) => {
-  const [selectedValue, setSelectedValue] = useState<number | null>(null);
-
+const CheckBox: FC<CheckboxProps> = ({ options, onChange, selectedValue }) => {
+  
   const handleOptionChange = (value: number) => {
-    setSelectedValue(value);
     onChange?.(value);
   };
 

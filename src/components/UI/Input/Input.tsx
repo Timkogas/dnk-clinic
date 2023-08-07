@@ -24,7 +24,6 @@ const Input: FC<InputProps> = props => {
     onChange?.(e.target.value)
   }
 
-
   return (
     <input
       value={value}

@@ -17,19 +17,30 @@ const Test = () => {
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
   const dispatch: AppDispatch = useDispatch()
 
-  const [answer, setAnswer] = useState()
-  const onChangeAnswer = () => {
+  const [age, setAge] = useState<string>('')
+  const [answer, setAnswer] = useState<number | null>(null)
 
+  const onChangeAnswer = (value: number) => {
+    setAnswer(value)
   }
 
+  const onChangeAge = useCallback((value: string) => {
+    const result = value.replace(/\D/g, '')
+    if (result.length > 4) return
+    setAge(result)
+  }, [])
+
   const onNextClick = useCallback(() => {
+    setAnswer(null)
     dispatch(plusStep())
   }, [dispatch])
 
   const onBackClick = useCallback(() => {
+    setAnswer(null)
     dispatch(minusStep())
   }, [dispatch])
 
+  const disabledBtn = (questions[step].first && (age === '')) || (!questions[step].first && !answer)
 
   return (
     <div className={styles.bg}>
@@ -48,12 +59,12 @@ const Test = () => {
           </div>
 
           <div className={styles.bubble_wrapper}>
-            <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline}/>
+            <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline} />
             <Bubble className={questions[step].first ? styles.bubble_first : styles.bubble_second}>
               {questions[step].first ?
-                <Input />
+                <Input type='text' onChange={onChangeAge} value={age} />
                 :
-                <CheckBox options={questions[step].options!} />
+                <CheckBox options={questions[step].options!} onChange={onChangeAnswer} selectedValue={answer} />
               }
             </Bubble>
             <div className={styles.btns}>
@@ -62,7 +73,7 @@ const Test = () => {
                 :
                 <Button theme={ThemeButton.BLUE} text='Назад' onClick={onBackClick} />
               }
-              <Button theme={ThemeButton.RED} text={questions.length - 1 === step ? 'Завершить' : 'Далее'} onClick={onNextClick} />
+              <Button theme={ThemeButton.RED} text={questions.length - 1 === step ? 'Завершить' : 'Далее'} onClick={onNextClick} disabled={disabledBtn} />
             </div>
           </div>
         </div>
