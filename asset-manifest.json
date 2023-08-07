@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.bc1a0993.css",
-    "main.js": "/dnk-clinic/static/js/main.92c54a9d.js",
+    "main.css": "/dnk-clinic/static/css/main.0eb5de90.css",
+    "main.js": "/dnk-clinic/static/js/main.bb979154.js",
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
     "static/media/bg-start-pc.png": "/dnk-clinic/static/media/bg-start-pc.d975af89fbcff855e746.png",
     "static/media/CeraRoundPro-Bold.otf": "/dnk-clinic/static/media/CeraRoundPro-Bold.20247302b83f7510d60b.otf",
@@ -12,11 +12,11 @@
     "static/media/bg-test.png": "/dnk-clinic/static/media/bg-test.d15c6c7aec372cac1c89.png",
     "static/media/bg-start.png": "/dnk-clinic/static/media/bg-start.73aed5ff6f628805b380.png",
     "index.html": "/dnk-clinic/index.html",
-    "main.bc1a0993.css.map": "/dnk-clinic/static/css/main.bc1a0993.css.map",
-    "main.92c54a9d.js.map": "/dnk-clinic/static/js/main.92c54a9d.js.map"
+    "main.0eb5de90.css.map": "/dnk-clinic/static/css/main.0eb5de90.css.map",
+    "main.bb979154.js.map": "/dnk-clinic/static/js/main.bb979154.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc1a0993.css",
-    "static/js/main.92c54a9d.js"
+    "static/css/main.0eb5de90.css",
+    "static/js/main.bb979154.js"
   ]
 }
