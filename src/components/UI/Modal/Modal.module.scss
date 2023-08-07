@@ -1,0 +1,59 @@
+@import "../../../assets/styles/media_mixins.scss";
+
+.Modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 32, 48, 0.274);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 32px;
+  border-radius: 8px;
+  background: var(--color-greenblue);
+  transition: 0.3s opacity ease;
+  opacity: 0;
+  max-width: 85%;
+  position: relative;
+}
+
+.opened {
+  opacity: 1;
+  pointer-events: auto;
+
+  .content {
+    opacity: 1;
+  }
+}
+
+.closed {
+  .content {
+    opacity: 0;
+  }
+}
+
+.close_btn {
+  position: absolute;
+  width: 10px;
+  top: 6px;
+  right: 6px;
+  cursor: pointer;
+  @include _1080 {
+    width: 25px;
+    top: 32px;
+    right: 27px;
+  }
+}
