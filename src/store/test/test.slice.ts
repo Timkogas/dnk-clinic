@@ -83,7 +83,10 @@ export const testSlice = createSlice({
       if (state.questions.length === 0) return
       state.step -= 1;
     },
+    resetSteps: (state) => {
+      state.step = 0
+    }
   },
 })
 
-export const { plusStep, minusStep } = testSlice.actions;
+export const { plusStep, minusStep, resetSteps } = testSlice.actions;

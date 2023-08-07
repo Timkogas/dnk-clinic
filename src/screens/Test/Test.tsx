@@ -7,18 +7,44 @@ import CheckBox from '../../components/UI/CheckBox/CheckBox';
 import Input from '../../components/UI/Input/Input';
 import Logo from '../../components/UI/Logo/Logo';
 import { AppDispatch, AppState } from '../../store/store';
-import { Iquestion } from '../../types/interface';
 import styles from './Test.module.scss'
-import { useCallback, useState } from 'react'
-import { minusStep, plusStep } from '../../store/test/test.slice';
+import { useCallback, useState, useEffect } from 'react'
+import { minusStep, plusStep, resetSteps } from '../../store/test/test.slice';
+import { useNavigate } from 'react-router-dom';
 
 const Test = () => {
 
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
   const dispatch: AppDispatch = useDispatch()
+  
+  const navigate = useNavigate();
 
   const [age, setAge] = useState<string>('')
   const [answer, setAnswer] = useState<number | null>(null)
+
+  useEffect(() => {
+    dispatch(resetSteps())
+  }, [dispatch])
+
+
+  useEffect(() => {
+
+    const onBack = () => {
+
+      if (step > 0) {
+        setAnswer(null)
+        dispatch(minusStep())
+
+      } else if (step === 0) {
+        navigate('/')
+      }
+    }
+
+    window.addEventListener("popstate", onBack, false);
+
+    return () => window.removeEventListener("popstate", onBack, false);
+  }, [step, dispatch, navigate])
+
 
   const onChangeAnswer = (value: number) => {
     setAnswer(value)
@@ -31,6 +57,7 @@ const Test = () => {
   }, [])
 
   const onNextClick = useCallback(() => {
+    window.history.pushState({}, '', null);
     setAnswer(null)
     dispatch(plusStep())
   }, [dispatch])

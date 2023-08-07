@@ -1,4 +1,4 @@
-import { FC, useState, memo } from 'react';
+import { FC, memo } from 'react';
 import styles from './CheckBox.module.scss';
 import classNames from 'classnames';
 
@@ -14,7 +14,7 @@ interface CheckboxProps {
 }
 
 const CheckBox: FC<CheckboxProps> = ({ options, onChange, selectedValue }) => {
-  
+
   const handleOptionChange = (value: number) => {
     onChange?.(value);
   };
