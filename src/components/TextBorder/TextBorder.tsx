@@ -13,6 +13,7 @@ type TextBorderProps = {
   theme: ThemeTextBorder,
   text: string,
   center?: boolean,
+  outlineClass?: string
 }
 
 const TextBorder: FC<TextBorderProps> = props => {
@@ -20,7 +21,8 @@ const TextBorder: FC<TextBorderProps> = props => {
     className,
     theme,
     text,
-    center
+    center,
+    outlineClass
   } = props
 
   let outlineStyle
@@ -40,7 +42,7 @@ const TextBorder: FC<TextBorderProps> = props => {
       <div className={classNames(frontStyle, {[styles.center_border]: center})}>
         {text}
       </div>
-      <div className={classNames(outlineStyle, {[styles.center_border]: center})} >
+      <div className={classNames(outlineStyle, outlineClass, {[styles.center_border]: center})} >
         {text}
       </div>
     </div>

@@ -9,7 +9,7 @@ import Logo from '../../components/UI/Logo/Logo';
 import { AppDispatch, AppState } from '../../store/store';
 import { Iquestion } from '../../types/interface';
 import styles from './Test.module.scss'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { minusStep, plusStep } from '../../store/test/test.slice';
 
 const Test = () => {
@@ -17,6 +17,10 @@ const Test = () => {
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
   const dispatch: AppDispatch = useDispatch()
 
+  const [answer, setAnswer] = useState()
+  const onChangeAnswer = () => {
+
+  }
 
   const onNextClick = useCallback(() => {
     dispatch(plusStep())
@@ -44,7 +48,7 @@ const Test = () => {
           </div>
 
           <div className={styles.bubble_wrapper}>
-            <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center />
+            <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline}/>
             <Bubble className={questions[step].first ? styles.bubble_first : styles.bubble_second}>
               {questions[step].first ?
                 <Input />

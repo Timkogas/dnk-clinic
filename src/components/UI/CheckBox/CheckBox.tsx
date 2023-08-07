@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState, memo } from 'react';
 import styles from './CheckBox.module.scss';
 import classNames from 'classnames';
 
@@ -38,4 +38,4 @@ const CheckBox: FC<CheckboxProps> = ({ options, onChange }) => {
   );
 };
 
-export default CheckBox;
+export default memo(CheckBox);

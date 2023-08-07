@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, memo } from 'react';
 import styles from './TestItem.module.scss'
 import classNames from 'classnames';
 
@@ -21,4 +21,4 @@ const TestItem: FC<TestItemProps> = props => {
   )
 };
 
-export default TestItem
+export default memo(TestItem)

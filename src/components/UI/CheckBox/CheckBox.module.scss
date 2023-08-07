@@ -30,6 +30,12 @@
     height: 30px;
   }
 
+  @include _1080 {
+    flex:0 0 45px;
+    width: 45px;
+    height: 45px;
+  }
+
   &:checked::after {
     content: '';
     position: absolute;
@@ -41,6 +47,10 @@
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background-color: var(--color-white);
+    @include _1080 {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &:focus {
@@ -57,5 +67,10 @@
   color: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 5px
+  gap: 5px;
+  @include _1080 {
+    gap: 10px;
+    font-size: 26px;
+    line-height: 26px;
+  }
 }

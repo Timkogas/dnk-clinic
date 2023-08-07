@@ -1,3 +1,5 @@
+@import "../../../assets/styles/media_mixins.scss";
+
 .button {
   width: 100%;
   display: flex;
@@ -9,7 +11,12 @@
   line-height: 40px;
   letter-spacing: 0em;
   text-transform: uppercase;
-  text-align: center
+  text-align: center;
+
+  @include _1080 {
+    font-size: 23px;
+    padding: 21px 0;
+  }
 }
 
 .text {
@@ -25,7 +32,7 @@
   border-radius: 10px;
 
   &_outline {
-    -webkit-text-stroke: 5px var(--color-red);;
+    -webkit-text-stroke: 5px var(--color-red);
     user-select: none;
     position: absolute;
     top: 0;
@@ -48,7 +55,8 @@
   border-radius: 10px;
 
   &_outline {
-    -webkit-text-stroke: 5px #006D82;;
+    -webkit-text-stroke: 5px #006D82;
+    ;
     user-select: none;
     position: absolute;
     top: 0;

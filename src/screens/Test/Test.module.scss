@@ -1,4 +1,5 @@
 @import "../../assets/styles/media_mixins.scss";
+
 .bg {
   height: 100vh;
   background: url('../../assets/images/bg-test.png') center center;
@@ -11,6 +12,7 @@
     background-size: contain;
   }
 }
+
 .screen {
   padding: 5% 0 8% 0;
   padding-left: var(--containter-padding);
@@ -29,7 +31,7 @@
   }
 
 
-  
+
 }
 
 .list {
@@ -46,15 +48,32 @@
   }
 }
 
+.bubble_title {
+  @include _1080 {
+    font-size: 38px;
+    line-height: 39px;
+  }
+}
+
+.bubble_title_outline {
+  @include _1080 {
+    -webkit-text-stroke: 9px var(--color-greenblue);
+  }
+}
+
 .bubble_wrapper {
   margin-top: 10px;
 
   @include _360 {
     margin-top: 40px;
   }
+
+  @include _1080 {
+    margin-top: 60px;
+  }
 }
 
-.bubble_first{
+.bubble_first {
   padding: 15px 30px;
 
   @include _360 {
@@ -75,6 +94,5 @@
 .btns {
   margin-top: 10px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
-
