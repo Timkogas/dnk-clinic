@@ -1,7 +1,7 @@
 @import "../../assets/styles/media_mixins.scss";
 
 .bg {
-  height: 100vh;
+  min-height: 100vh;
   background: url('../../assets/images/bg-test.png') center center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -27,10 +27,8 @@
   @include _1080 {
     max-width: var(--containter-width);
     margin: 0 auto;
-    padding: 2% 0 3% 0;
+    padding: 2% 0 0 0;
   }
-
-
 
 }
 

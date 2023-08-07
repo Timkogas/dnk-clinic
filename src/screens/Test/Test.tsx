@@ -58,9 +58,10 @@ const Test = () => {
 
   const onNextClick = useCallback(() => {
     window.history.pushState({}, '', null);
+    if (step === questions.length - 1) navigate('/result')
     setAnswer(null)
     dispatch(plusStep())
-  }, [dispatch])
+  }, [dispatch, step, questions, navigate])
 
   const onBackClick = useCallback(() => {
     setAnswer(null)
@@ -73,7 +74,7 @@ const Test = () => {
     <div className={styles.bg}>
       <div className={styles.screen}>
         <div>
-          <Logo subtitle={true} />
+          <Logo subtitle/>
 
           <div className={styles.list}>
             {questions.map((item, i) => {
