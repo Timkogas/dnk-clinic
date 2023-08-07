@@ -1,10 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import { useDispatch } from 'react-redux'
+import { testSlice } from "./test/test.slice"
 
 const makeStore = () => {
     return configureStore({
         reducer: {
-
+            test: testSlice.reducer,
         }
     })
 }

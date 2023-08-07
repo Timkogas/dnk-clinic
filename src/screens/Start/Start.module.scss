@@ -1,10 +1,13 @@
+@import "../../assets/styles/media_mixins.scss";
+
 .screen {
+
   background: url('../../assets/images/bg-start.png') center center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 
   height: 100vh;
-  
+
   padding: 5% 0 8% 0;
   padding-left: var(--containter-padding);
   padding-right: var(--containter-padding);
@@ -12,10 +15,31 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include _1080 {
+    background: url('../../assets/images/bg-start-pc.png') center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 2% 0 4% 0;
+  }
+}
+.bubble_block {
+  @include _1080 {
+    display: none;
+  }
+}
+
+.bubble {
+  width: 100%;
 }
 
 .btns {
   width: 100%;
+
+  @include _1080 {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+  }
 }
 
 .btn_first {

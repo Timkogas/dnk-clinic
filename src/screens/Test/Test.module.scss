@@ -1,12 +1,17 @@
 @import "../../assets/styles/media_mixins.scss";
-
-.screen {
+.bg {
+  height: 100vh;
   background: url('../../assets/images/bg-test.png') center center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
 
-  height: 100vh;
-
+  @include _1080 {
+    background: url('../../assets/images/bg-test-pc.png') center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+.screen {
   padding: 5% 0 8% 0;
   padding-left: var(--containter-padding);
   padding-right: var(--containter-padding);
@@ -14,25 +19,62 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  position: relative;
+
+  @include _1080 {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+    padding: 2% 0 3% 0;
+  }
+
+
+  
 }
 
 .list {
   display: flex;
   gap: 2px;
-  margin-top: 30px;
-}
+  margin-top: 5px;
 
-.bubble_wrapper {
-  margin-top: 30px;
-  @include _390 {
-    margin-top: 90px;
+  @include _360 {
+    margin-top: 20px;
+  }
+
+  @include _1080 {
+    margin-top: 100px;
   }
 }
 
-.bubble_p {
-  padding: 38px 42px;
+.bubble_wrapper {
+  margin-top: 10px;
+
+  @include _360 {
+    margin-top: 40px;
+  }
+}
+
+.bubble_first{
+  padding: 15px 30px;
+
+  @include _360 {
+    padding: 30px 60px;
+    margin-top: 10px;
+  }
+}
+
+.bubble_second {
+  padding: 15px 2px;
+
+  @include _360 {
+    padding: 25px 10px;
+    margin-top: 10px;
+  }
 }
 
 .btns {
   margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
+

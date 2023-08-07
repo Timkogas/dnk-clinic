@@ -1,12 +1,22 @@
+@import "../../../assets/styles/media_mixins.scss";
+
 .block {
   text-align: center;
 }
 
 .img {
-  width: 70px;
+  width: 40px;
   margin: 0 auto;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+
+  @include _360 {
+    width: 60px;
+  }
+
+  @include _1080 {
+    width: 85px;
+  }
 }
 
 .subtitle {
@@ -19,4 +29,8 @@
   text-align: left;
 
   color: var(--color-white);
+
+  @include _1080 {
+    font-size: 15px
+  }
 }

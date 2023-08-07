@@ -1,3 +1,4 @@
+@import "../../assets/styles/media_mixins.scss";
 .item {
   border-radius: 5px;
   border: 1px solid white;
@@ -18,7 +19,12 @@
   height: calc((100vw - var(--containter-padding) * 2 - (2px * 12)) / 13); 
 
   box-shadow: 0px -4px 30px 0px #FFFFFF73 inset;
-  background: linear-gradient(0deg, rgba(217, 217, 217, 0.1), rgba(217, 217, 217, 0.1)),
+  background: linear-gradient(0deg, rgba(217, 217, 217, 0.1), rgba(217, 217, 217, 0.1));
+
+  @include _1080 {
+    width: 39px; 
+    height: 39px; 
+  }
 }
 
 .active {

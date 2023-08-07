@@ -1,22 +1,26 @@
+@import "../../assets/styles/media_mixins.scss";
+
 .text {
   position: relative;
   font-family: 'CeraRoundPro-Black';
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 12px;
+  line-height: 20px;
   letter-spacing: 0em;
   text-transform: uppercase;
+
+  @include _360 {
+    font-size: 19px;
+  }
 }
 
 .red {
-  background: linear-gradient(96.63deg, #FE588C 12.93%, #EE175B 94.21%);
+
   color: var(--color-white);
-  border: 1px solid #FFFFFF;
-  box-shadow: 0px 4px 10px 0px #00000026;
-  box-shadow: 0px -4px 30px 0px #FFFFFF73 inset;
-  border-radius: 10px;
+
 
 
   &_outline {
+    width: 100%;
     -webkit-text-stroke: 5px var(--color-red);
     ;
     user-select: none;
@@ -25,6 +29,7 @@
 
   &_front {
     position: absolute;
+    width: 100%;
     z-index: 1;
     top: 0;
     color: var(--color-white);
@@ -32,16 +37,13 @@
 }
 
 .greenblue {
-  background: linear-gradient(96.63deg, #FE588C 12.93%, #EE175B 94.21%);
+
   color: var(--color-white);
-  border: 1px solid #FFFFFF;
-  box-shadow: 0px 4px 10px 0px #00000026;
-  box-shadow: 0px -4px 30px 0px #FFFFFF73 inset;
-  border-radius: 10px;
+
 
   &_outline {
     -webkit-text-stroke: 5px var(--color-greenblue);
-    ;
+    width: 100%;
     user-select: none;
     top: 0;
     position: absolute;
@@ -49,6 +51,7 @@
 
   &_front {
     position: absolute;
+    width: 100%;
     z-index: 1;
     top: 0;
     color: var(--color-white);

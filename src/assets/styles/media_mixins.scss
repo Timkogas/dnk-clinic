@@ -1,5 +1,11 @@
-@mixin _390 {
-  @media (min-width: 390px){
+@mixin _360 {
+  @media (min-width: 360px){
+      @content;
+  }
+}
+
+@mixin _1080 {
+  @media (min-width: 1080px) and (max-height: 1080px){
       @content;
   }
 }

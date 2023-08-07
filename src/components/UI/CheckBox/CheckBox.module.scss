@@ -1,3 +1,5 @@
+@import "../../../assets/styles/media_mixins.scss";
+
 .checkbox_wrapper {
   display: flex;
   flex-direction: column;
@@ -5,13 +7,14 @@
 }
 
 .checkbox {
+  flex:0 0 25px;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   /* create custom checkbox appearance */
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
   /* background-color only for content */
   background-clip: content-box;
   border: 2px solid #bbbbbb;
@@ -21,12 +24,18 @@
   margin-right: 15px;
   position: relative;
 
+  @include _360 {
+    flex:0 0 30px;
+    width: 30px;
+    height: 30px;
+  }
+
   &:checked::after {
     content: '';
     position: absolute;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -42,7 +51,7 @@
 .option {
   font-family: 'CeraRoundPro-Medium';
   font-size: 18px;
-  line-height: 46px;
+  line-height: 18px;
   letter-spacing: 0em;
   text-transform: capitalize;
   color: var(--color-white);

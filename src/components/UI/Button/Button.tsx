@@ -4,7 +4,8 @@ import styles from './Button.module.scss'
 import classNames from 'classnames';
 
 export enum ThemeButton {
-  RED = 'red'
+  RED = 'red',
+  BLUE = 'blue'
 }
 
 type ButtonProps = {
@@ -26,7 +27,11 @@ const Button: FC<ButtonProps> = props => {
   if (theme === ThemeButton.RED) {
     frontStyle = styles.red_front
     outlineStyle = styles.red_outline
+  } else if (theme === ThemeButton.BLUE) {
+    frontStyle = styles.blue_front
+    outlineStyle = styles.blue_outline
   }
+
 
   return (
     <button
