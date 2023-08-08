@@ -5,6 +5,7 @@ import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBor
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import { useState, useCallback } from 'react'
+import Select from '../../components/UI/Select/Select';
 
 
 interface Iform {
@@ -24,7 +25,7 @@ const SignUp = () => {
       age: '',
       place: '',
       phone: '',
-      sex: '',
+      sex: 'мужской',
     }
   )
 
@@ -41,6 +42,13 @@ const SignUp = () => {
     setData(prevData => ({
       ...prevData,
       phone: value
+    }));
+  }, [])
+
+  const onChangeSex = useCallback((value: string) => {
+    setData(prevData => ({
+      ...prevData,
+      sex: value
     }));
   }, [])
 
@@ -61,7 +69,7 @@ const SignUp = () => {
               <Input light placeholder='Регион' />
               <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber}/>
 
-              <Input light placeholder='Мужской' />
+              <Select options={[{text: 'Мужской', value: 'мужской'}, {text: 'Женский', value: 'женский'}]} value={data.sex} onChange={onChangeSex}/>
 
               <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
             </Bubble>

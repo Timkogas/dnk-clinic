@@ -5,11 +5,16 @@ import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBor
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import classNames from 'classnames';
 import NavBar from '../../components/NavBarLayout/NavBarLayout';
+import { useNavigate } from 'react-router-dom';
 
 
 const Secret = () => {
 
+  const navigate = useNavigate()
 
+  const onSignUp = () => {
+    navigate('/signup')
+  }
 
   return (
     <>
@@ -38,7 +43,7 @@ const Secret = () => {
                   1. Записаться на Чек Ап здоровья
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
               </div>
 
               <div className={styles.recommendations}>
@@ -46,7 +51,7 @@ const Secret = () => {
                   2. Записаться к гинекологу
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
               </div>
 
               <div className={styles.recommendations}>
@@ -54,7 +59,7 @@ const Secret = () => {
                   3. Записаться к специалисту индустрии красоты
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
               </div>
 
             </Bubble>

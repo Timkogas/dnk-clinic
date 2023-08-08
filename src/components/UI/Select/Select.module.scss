@@ -1,0 +1,108 @@
+@import "../../../assets/styles/media_mixins.scss";
+@import "../../../assets/styles/mixins.scss";
+
+.select {
+  background-color: var(--color-light-greenblue);
+  border: 2px solid var(--color-dark-greenblue);
+  border-radius: 10px;
+
+  height: 44px;
+  width: 100%;
+
+  font-family: 'CeraRoundPro-Medium';
+  font-weight: 500;
+  line-height: 46px;
+  letter-spacing: 0.005em;
+  font-size: 16px;
+
+  padding: 0 25px;
+
+  position: relative;
+  cursor: pointer;
+
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+
+  background-color: #D4EDF2;
+  color: #1C1C1C;
+  height: 34px;
+
+  @include _360 {
+    height: 46px;
+    font-size: 19px;
+  }
+
+  @include _1080 {
+    height: 60px;
+  }
+}
+
+.dropDown {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translate(0, -50%);
+
+}
+
+.options {
+  @extend .select;
+  width: 100%;
+  height: 100%;
+
+  &::after {
+    width: 0;
+    height: 0;
+  }
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: max-content;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+  padding: 0;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 45px;
+  width: 100%;
+  padding: 0 25px;
+  @include none-select;
+  border-bottom: 1px solid #DCDCDC;
+
+  @include _360 {
+    height: 46px;
+    font-size: 19px;
+  }
+
+  @include _1080 {
+    height: 60px;
+  }
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+
+  &:first-child {
+    border-top: 2px solid #cccccc;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    border-radius: 0 0 4px 4px;
+  }
+}
