@@ -1,0 +1,79 @@
+@import "../../assets/styles/media_mixins.scss";
+@import "../../assets/styles/mixins.scss";
+
+.bg {
+  min-height: 100vh;
+  background: url('../../assets/images/bg-test.png') center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  @include _1080 {
+    background: url('../../assets/images/bg-test-pc.png') center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.screen {
+  padding: 3% 0 0 0;
+  padding-left: var(--containter-padding);
+  padding-right: var(--containter-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include _1080 {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+    padding: 1% 0 0 0;
+  }
+}
+
+.title {
+  margin: 5px 0;
+
+  @include _360 {
+    margin: 10px 0;
+  }
+
+  ;
+
+  @include _1080 {
+    font-size: 33px;
+    letter-spacing: 0.05em;
+    margin-top: 23px;
+    margin-bottom: 21px;
+  }
+
+  ;
+  @include none-select;
+}
+
+.title_outline {
+  @include _1080 {
+    -webkit-text-stroke: 7px var(--color-greenblue);
+  }
+}
+
+.signup_bubble {
+  padding: 20px 10px;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  @include _1080 {
+    padding: 22px 20px;
+  }
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.block {
+  height: 120px;
+  @include _1080 {
+    height: 140px;
+  }
+}

@@ -13,6 +13,10 @@ const Start = () => {
     navigate("/test");
   }, [navigate])
 
+  const onSignUp = useCallback(() => {
+    navigate("/signup");
+  }, [navigate])
+
   return (
     <>
 
@@ -23,7 +27,7 @@ const Start = () => {
         </div>
         <div className={styles.btns}>
           <Button theme={ThemeButton.RED} text='узнать свой секрет' className={styles.btn_first} onClick={onStart} />
-          <Button theme={ThemeButton.RED} text='записаться' />
+          <Button theme={ThemeButton.RED} text='записаться' onClick={onSignUp}/>
         </div>
       </div>
     </>
