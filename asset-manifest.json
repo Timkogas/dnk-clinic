@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.2a117eeb.css",
-    "main.js": "/dnk-clinic/static/js/main.4c01a943.js",
+    "main.css": "/dnk-clinic/static/css/main.ffde0a61.css",
+    "main.js": "/dnk-clinic/static/js/main.0aff3e5b.js",
     "static/media/paris.png": "/dnk-clinic/static/media/paris.87a2e760ebefde5f9745.png",
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
     "static/media/bg-start-pc.png": "/dnk-clinic/static/media/bg-start-pc.d975af89fbcff855e746.png",
@@ -9,12 +9,14 @@
     "static/media/CeraRoundPro-Medium.otf": "/dnk-clinic/static/media/CeraRoundPro-Medium.8e935ff5f60a3fe9911d.otf",
     "static/media/CeraRoundPro-Black.otf": "/dnk-clinic/static/media/CeraRoundPro-Black.2ac0d48f85dd1796de54.otf",
     "static/media/CeraRoundPro-Regular.otf": "/dnk-clinic/static/media/CeraRoundPro-Regular.6eda5276b71ed83a1884.otf",
+    "static/media/1.png": "/dnk-clinic/static/media/1.7c5abf16118664a7db32.png",
     "static/media/bg-info-pc.png": "/dnk-clinic/static/media/bg-info-pc.c9f664c8f6379ccdad7b.png",
     "static/media/bg-test-pc.png": "/dnk-clinic/static/media/bg-test-pc.2a3370d17698e22e4fcd.png",
     "static/media/bg-test.png": "/dnk-clinic/static/media/bg-test.d15c6c7aec372cac1c89.png",
     "static/media/bg-secret.png": "/dnk-clinic/static/media/bg-secret.fad3856dca69dfac4995.png",
     "static/media/bg-start.png": "/dnk-clinic/static/media/bg-start.73aed5ff6f628805b380.png",
     "static/media/bg-info.png": "/dnk-clinic/static/media/bg-info.66cbdf051049184126c3.png",
+    "static/media/bg-doctors.png": "/dnk-clinic/static/media/bg-doctors.d4907b8b3157d9793ca2.png",
     "static/media/google.png": "/dnk-clinic/static/media/google.e0d75679e4e56ae4ae09.png",
     "static/media/icon-doctors.svg": "/dnk-clinic/static/media/icon-doctors.3326c1f5e23b5cd17adb8674c8c73ea3.svg",
     "static/media/icon-web.svg": "/dnk-clinic/static/media/icon-web.2c73a22d215afa95e506789b3970a4af.svg",
@@ -26,11 +28,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.2a117eeb.css.map": "/dnk-clinic/static/css/main.2a117eeb.css.map",
-    "main.4c01a943.js.map": "/dnk-clinic/static/js/main.4c01a943.js.map"
+    "main.ffde0a61.css.map": "/dnk-clinic/static/css/main.ffde0a61.css.map",
+    "main.0aff3e5b.js.map": "/dnk-clinic/static/js/main.0aff3e5b.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a117eeb.css",
-    "static/js/main.4c01a943.js"
+    "static/css/main.ffde0a61.css",
+    "static/js/main.0aff3e5b.js"
   ]
 }
