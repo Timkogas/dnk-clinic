@@ -1,0 +1,72 @@
+@import "../../assets/styles/media_mixins.scss";
+
+.NavBar {
+  height: 100px;
+  background-color: var(--color-dark-greenblue);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding-top: 20px;
+  @include _1080 {
+    padding-top: 35px;
+    height: 125px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include _360 {
+    padding-left: var(--containter-padding);
+    padding-right: var(--containter-padding);
+  }
+
+  @include _1080 {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+  }
+}
+
+.icon {
+  width: 30px;
+
+  @include _360 {
+    width: 40px;
+  }
+
+  @include _1080 {
+    width: 45px;
+  }
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: #EFEFEF;
+  font-family: 'CeraRoundPro-Regular';
+  font-size: 12px;
+  line-height: 13px;
+  flex-basis: 25%;
+  @include _1080 {
+    font-size: 14px;
+  }
+  &_text {
+    width: 90%;
+
+    @include _360 {
+      width: 85%;
+    }
+  }
+}
+
+.inactive {
+  opacity: 0.3;
+}

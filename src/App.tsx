@@ -3,17 +3,23 @@ import { Route, Routes } from 'react-router-dom';
 import Test from "./screens/Test/Test";
 import Result from "./screens/Result/Result";
 import Secret from "./screens/Secret/Secret";
+import NavBarLayout from "./components/NavBarLayout/NavBarLayout";
 
 
 function App() {
   return (
     <Routes>
 
-        <Route path='/' element={<Start />} />
-        <Route path='/test' element={<Test />} />
-        <Route path='/result' element={<Result />} />
+      <Route path='/' element={<Start />} />
+      <Route path='/test' element={<Test />} />
+      <Route path='/result' element={<Result />} />
 
+      <Route element={<NavBarLayout />}>
         <Route path='/secret' element={<Secret />} />
+        <Route path='/doctors' element={<>doctors</>} />
+        <Route path='/signup' element={<>sign</>} />
+        <Route path='/info' element={<>info</>} />
+      </Route>
 
     </Routes>
   );

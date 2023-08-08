@@ -4,6 +4,7 @@ import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import classNames from 'classnames';
+import NavBar from '../../components/NavBarLayout/NavBarLayout';
 
 
 const Secret = () => {
@@ -33,33 +34,35 @@ const Secret = () => {
               </p>
 
               <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text )}>
+                <p className={classNames(styles.info_text, styles.recommendations_text)}>
                   1. Записаться на Чек Ап здоровья
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
               </div>
 
               <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text )}>
+                <p className={classNames(styles.info_text, styles.recommendations_text)}>
                   2. Записаться к гинекологу
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
               </div>
 
               <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text )}>
+                <p className={classNames(styles.info_text, styles.recommendations_text)}>
                   3. Записаться к специалисту индустрии красоты
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} />
               </div>
 
             </Bubble>
 
             <p className={styles.warning}>*не является медицинской рекомендацией, требуется консультация специалиста</p>
+
           </div>
+          <div className={styles.block}></div>
         </div>
       </div>
     </>
