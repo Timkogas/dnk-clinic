@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.81b6b69f.css",
-    "main.js": "/dnk-clinic/static/js/main.335705ea.js",
+    "main.css": "/dnk-clinic/static/css/main.8ecd7cd7.css",
+    "main.js": "/dnk-clinic/static/js/main.0191d561.js",
     "static/media/paris.png": "/dnk-clinic/static/media/paris.87a2e760ebefde5f9745.png",
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
     "static/media/bg-start-pc.png": "/dnk-clinic/static/media/bg-start-pc.d975af89fbcff855e746.png",
@@ -11,14 +11,19 @@
     "static/media/CeraRoundPro-Regular.otf": "/dnk-clinic/static/media/CeraRoundPro-Regular.6eda5276b71ed83a1884.otf",
     "static/media/bg-test-pc.png": "/dnk-clinic/static/media/bg-test-pc.2a3370d17698e22e4fcd.png",
     "static/media/bg-test.png": "/dnk-clinic/static/media/bg-test.d15c6c7aec372cac1c89.png",
+    "static/media/bg-secret.png": "/dnk-clinic/static/media/bg-secret.fad3856dca69dfac4995.png",
     "static/media/bg-start.png": "/dnk-clinic/static/media/bg-start.73aed5ff6f628805b380.png",
+    "static/media/icon-doctors.svg": "/dnk-clinic/static/media/icon-doctors.3326c1f5e23b5cd17adb8674c8c73ea3.svg",
+    "static/media/icon-file.svg": "/dnk-clinic/static/media/icon-file.e5bbb5fd003b58a465cd0b503504a9fe.svg",
     "index.html": "/dnk-clinic/index.html",
+    "static/media/icon-info.svg": "/dnk-clinic/static/media/icon-info.6d348bf54824903f035efd62268a0a26.svg",
+    "static/media/icon-home.svg": "/dnk-clinic/static/media/icon-home.09dc1ab8c31111835676aae616fd0cba.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.81b6b69f.css.map": "/dnk-clinic/static/css/main.81b6b69f.css.map",
-    "main.335705ea.js.map": "/dnk-clinic/static/js/main.335705ea.js.map"
+    "main.8ecd7cd7.css.map": "/dnk-clinic/static/css/main.8ecd7cd7.css.map",
+    "main.0191d561.js.map": "/dnk-clinic/static/js/main.0191d561.js.map"
   },
   "entrypoints": [
-    "static/css/main.81b6b69f.css",
-    "static/js/main.335705ea.js"
+    "static/css/main.8ecd7cd7.css",
+    "static/js/main.0191d561.js"
   ]
 }
