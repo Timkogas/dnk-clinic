@@ -6,6 +6,8 @@ import Secret from "./screens/Secret/Secret";
 import NavBarLayout from "./components/NavBarLayout/NavBarLayout";
 import SignUp from "./screens/SignUp/SignUp";
 import Info from "./screens/Info/Info";
+import Doctors from "./screens/Doctors/Doctors";
+import Doctor from "./screens/Doctor/Doctor";
 
 
 function App() {
@@ -18,9 +20,10 @@ function App() {
 
       <Route element={<NavBarLayout />}>
         <Route path='/secret' element={<Secret />} />
-        <Route path='/doctors' element={<>doctors</>} />
-        <Route path='/signup' element={<SignUp/>} />
-        <Route path='/info' element={<Info/>} />
+        <Route path='/doctors' element={<Doctors />} />
+        <Route path='/doctors/:id' element={<Doctor />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/info' element={<Info />} />
       </Route>
 
     </Routes>

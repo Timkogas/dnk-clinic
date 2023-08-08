@@ -14,6 +14,7 @@ interface SelectProps {
   className?: string;
   value?: string;
   onChange?: (value: string) => void;
+  doctors?: boolean
 }
 
 const Select: FC<SelectProps> = ({
@@ -21,6 +22,7 @@ const Select: FC<SelectProps> = ({
   className,
   value,
   onChange,
+  doctors,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,14 +41,14 @@ const Select: FC<SelectProps> = ({
       tabIndex={0}
       onClick={toggleDropdown}
     >
-      {value}
+      {doctors ? value === '' ? <p className={styles.placeholder}>Поиск специалиста</p> : value : value}
 
       {/* Render dropdown options only if the dropdown is open */}
       {isOpen && (
-        <div className={styles.options}>
-          {options.map(option => (
+        <div className={classNames(styles.options, {[styles.doctors_options]: doctors})}>
+          {options.map((option,i) => (
             <div
-              key={option.value}
+              key={i}
               className={styles.option}
               onClick={() => handleOptionSelect(option.value)}
             >
@@ -55,7 +57,7 @@ const Select: FC<SelectProps> = ({
           ))}
         </div>
       )}
-      <img src={isOpen ? dropDownActive : dropDown} alt='' className={classNames(styles.dropDown)}/>
+      {doctors ? null : <img src={isOpen ? dropDownActive : dropDown} alt='' className={classNames(styles.dropDown)}/>}
     </div>
   );
 };

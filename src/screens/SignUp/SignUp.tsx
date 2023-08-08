@@ -52,7 +52,6 @@ const SignUp = () => {
     }));
   }, [])
 
-  console.log(data)
   return (
     <>
       <div className={styles.bg}>

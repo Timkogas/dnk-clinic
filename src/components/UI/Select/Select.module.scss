@@ -106,3 +106,21 @@
     border-radius: 0 0 4px 4px;
   }
 }
+
+.placeholder {
+  text-transform: none;
+  color: #96AFB4;
+}
+
+.doctors_options {
+  top: calc(100% + 20px);
+  height: calc(46px * 4);
+
+  @include _360 {
+    height: calc(47px * 6);
+  }
+
+  @include _1080 {
+    height: calc(61px * 8);
+  }
+}

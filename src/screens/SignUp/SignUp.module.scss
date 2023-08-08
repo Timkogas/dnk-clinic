@@ -3,14 +3,13 @@
 
 .bg {
   min-height: 100vh;
-  background: url('../../assets/images/bg-test.png') center center;
+  background: url('../../assets/images/bg-test.png') center top;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100vh;
 
   @include _1080 {
-    background: url('../../assets/images/bg-test-pc.png') center center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
+    background-size: auto contain;
   }
 }
 
@@ -22,6 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   @include _1080 {
     max-width: var(--containter-width);
     margin: 0 auto;
@@ -31,6 +31,7 @@
 
 .title {
   margin: 5px 0;
+  letter-spacing: 0.05em;
 
   @include _360 {
     margin: 10px 0;
@@ -62,6 +63,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+
   @include _1080 {
     padding: 22px 20px;
   }
@@ -73,6 +75,7 @@
 
 .block {
   height: 120px;
+
   @include _1080 {
     height: 140px;
   }

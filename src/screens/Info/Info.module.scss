@@ -3,14 +3,13 @@
 
 .bg {
   min-height: 100vh;
-  background: url('../../assets/images/bg-info.png') center center;
+  background: url('../../assets/images/bg-info.png') center top;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100% 100vh;
 
   @include _1080 {
-    background: url('../../assets/images/bg-info-pc.png') center center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: url('../../assets/images/bg-info-pc.png') center top no-repeat;
+    background-size: auto contain;
   }
 }
 

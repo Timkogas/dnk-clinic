@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 const NavBarLayout = () => {
-  const allActive = window.location.href.includes('secret')
   return (
     <>
       <Outlet />
@@ -17,22 +16,22 @@ const NavBarLayout = () => {
       <div className={styles.NavBar}>
         <div className={styles.content}>
 
-          <NavLink to='/' className={({ isActive }) => (isActive || allActive ? styles.link : classNames(styles.inactive, styles.link) )}>
+          <NavLink to='/' className={({ isActive }) => (isActive ||  window.location.href.includes('secret') ? styles.link : classNames(styles.inactive, styles.link) )}>
             <img src={home} alt='icon' className={styles.icon} />
             Главная
           </NavLink>
 
-          <NavLink to='/doctors' className={({ isActive }) => (isActive || allActive  ? styles.link : classNames(styles.inactive, styles.link) )}>
+          <NavLink to='/doctors' className={({ isActive }) => (isActive ||  window.location.href.includes('secret')  ? styles.link : classNames(styles.inactive, styles.link) )}>
             <img src={doctors} alt='icon' className={styles.icon} />
             Врачи
           </NavLink>
 
-          <NavLink to='/signup' className={({ isActive }) => (isActive || allActive  ? styles.link : classNames(styles.inactive, styles.link) )}>
+          <NavLink to='/signup' className={({ isActive }) => (isActive ||  window.location.href.includes('secret')  ? styles.link : classNames(styles.inactive, styles.link) )}>
             <img src={file} alt='icon' className={styles.icon} />
             Записаться
           </NavLink>
 
-          <NavLink to='/info' className={({ isActive }) => (isActive || allActive  ? styles.link : classNames(styles.inactive, styles.link) )}>
+          <NavLink to='/info' className={({ isActive }) => (isActive ||  window.location.href.includes('secret')  ? styles.link : classNames(styles.inactive, styles.link) )}>
             <img src={info} alt='icon' className={styles.icon} />
             <span className={styles.link_text}>
               Информация о клинике
