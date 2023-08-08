@@ -51,6 +51,11 @@
   top: 6px;
   right: 6px;
   cursor: pointer;
+  @include _360 {
+    width: 15px;
+    top: 15px;
+    right: 15px;
+  }
   @include _1080 {
     width: 25px;
     top: 32px;

@@ -90,7 +90,7 @@ export const Modal: FC<ModalProps> = (props: ModalProps) => {
             onClick={onContentClick}
           >
             {children}
-            <img src={close} alt='' className={styles.close_btn} onClick={onClose}/>
+            <img src={close} alt='' className={styles.close_btn} onClick={closeHandler}/>
           </div>
         </div>
       </div>

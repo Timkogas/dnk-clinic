@@ -37,7 +37,7 @@ const Secret = () => {
                   1. Записаться на Чек Ап здоровья
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
               </div>
 
               <div className={styles.recommendations}>
@@ -45,7 +45,7 @@ const Secret = () => {
                   2. Записаться к гинекологу
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
               </div>
 
               <div className={styles.recommendations}>
@@ -53,7 +53,7 @@ const Secret = () => {
                   3. Записаться к специалисту индустрии красоты
                 </p>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
+                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline}/>
               </div>
 
             </Bubble>

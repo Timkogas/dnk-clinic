@@ -12,6 +12,7 @@ type ButtonProps = {
   className?: string;
   theme: ThemeButton,
   text: string,
+  outlineClass?: string,
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: FC<ButtonProps> = props => {
@@ -19,6 +20,8 @@ const Button: FC<ButtonProps> = props => {
     className,
     theme,
     text,
+    outlineClass,
+    disabled,
     ...otherProps
   } = props
   
@@ -35,15 +38,16 @@ const Button: FC<ButtonProps> = props => {
 
   return (
     <button
-      className={classNames(styles.button, [className, styles[theme]])}
+      className={classNames(styles.button, [className, styles[theme]], {[styles.disabled]: disabled})}
+      disabled={disabled}
       {...otherProps}
     >
-      <div className={styles.text}>
+      <div className={classNames(styles.text, {[styles.disabled]: disabled})}>
       {text}
-        <div className={classNames(frontStyle)}>
+        <div className={classNames(frontStyle, {[styles.disabled]: disabled})}>
           {text}
         </div>
-        <div className={classNames(outlineStyle)} >
+        <div className={classNames(outlineStyle, outlineClass, {[styles.disabled]: disabled})} >
           {text}
         </div>
       </div>

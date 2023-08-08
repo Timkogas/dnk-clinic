@@ -45,13 +45,10 @@ const Result = () => {
     <>
       <Modal isOpen={modal} onClose={onClose}>
         <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline} className={styles.modal_title} />
-
-        <div className={styles.modal_share}>
-          <TextBorder text='в сторис' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise} />
-          <TextBorder text='на стену' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_share_outline} className={styles.modal_share_choise} />
+        <div className={styles.modal_btns}>
+          <Button theme={ThemeButton.BLUE} text='в сторис' className={styles.modal_btn} />
+          <Button theme={ThemeButton.BLUE} text='на стену' className={styles.modal_btn} />
         </div>
-
-        <Button theme={ThemeButton.BLUE} text='пройти тест заново' className={styles.modal_btn} />
       </Modal>
 
       <div className={styles.bg}>
