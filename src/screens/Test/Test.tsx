@@ -16,11 +16,13 @@ const Test = () => {
 
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
   const dispatch: AppDispatch = useDispatch()
-  
+
   const navigate = useNavigate();
 
   const [age, setAge] = useState<string>('')
   const [answer, setAnswer] = useState<number | null>(null)
+
+  const first = questions[step].first
 
   useEffect(() => {
     dispatch(resetSteps())
@@ -58,23 +60,25 @@ const Test = () => {
 
   const onNextClick = useCallback(() => {
     window.history.pushState({}, '', null);
-    if (step === questions.length - 1) navigate('/result')
+    const result = first ? age : answer
+    dispatch(plusStep(Number(result)))
     setAnswer(null)
-    dispatch(plusStep())
-  }, [dispatch, step, questions, navigate])
+    if (step === questions.length - 1) navigate('/result')
+  }, [dispatch, step, questions, navigate, answer, age, first])
 
   const onBackClick = useCallback(() => {
     setAnswer(null)
     dispatch(minusStep())
   }, [dispatch])
 
-  const disabledBtn = (questions[step].first && (age === '')) || (!questions[step].first && !answer)
+
+  const disabledBtn = (first && (age === '')) || (!first && !answer)
 
   return (
     <div className={styles.bg}>
       <div className={styles.screen}>
         <div>
-          <Logo subtitle/>
+          <Logo subtitle />
 
           <div className={styles.list}>
             {questions.map((item, i) => {
@@ -88,15 +92,15 @@ const Test = () => {
 
           <div className={styles.bubble_wrapper}>
             <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline} />
-            <Bubble className={questions[step].first ? styles.bubble_first : styles.bubble_second}>
-              {questions[step].first ?
+            <Bubble className={first ? styles.bubble_first : styles.bubble_second}>
+              {first ?
                 <Input type='text' onChange={onChangeAge} value={age} />
                 :
                 <CheckBox options={questions[step].options!} onChange={onChangeAnswer} selectedValue={answer} />
               }
             </Bubble>
             <div className={styles.btns}>
-              {questions[step].first ?
+              {first ?
                 null
                 :
                 <Button theme={ThemeButton.BLUE} text='Назад' onClick={onBackClick} />

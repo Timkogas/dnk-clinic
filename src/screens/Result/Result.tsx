@@ -7,10 +7,23 @@ import Bubble from '../../components/Bubble/Bubble';
 import Modal from '../../components/UI/Modal/Modal';
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, AppState } from '../../store/store';
+import { getResult } from '../../store/test/test.slice';
 
 const Result = () => {
-  const [modal, setModal] = useState<boolean>(false)
+
   const navigate = useNavigate()
+  const { result } = useSelector((state: AppState) => state.test, shallowEqual)
+  const dispatch: AppDispatch = useDispatch()
+
+  const [modal, setModal] = useState<boolean>(false)
+
+  useEffect(() => {
+    dispatch(getResult())
+  }, [dispatch])
+
+
 
   const onClose = useCallback(() => {
     setModal(false)
@@ -57,14 +70,13 @@ const Result = () => {
           <div>
             <TextBorder text='твой архетип здоровья' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
             <div className={styles.img_block}>
-              <img alt='result' src={paris} className={styles.img} />
+              <img alt='result' src={result.img} className={styles.img} />
               <div className={styles.name_block}>
-                <TextBorder text='Парижанка' theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
+                <TextBorder text={result.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
               </div>
             </div>
             <Bubble className={styles.info_bubble}>
-              <p className={styles.info}>Богатый внутренний мир и врожденный интеллект интуитивно управляют организмом и не дают ему пуститься во все тяжкие. Спорт появляется в жизни тогда, когда организм сам приводит тебя в спортзал.
-                При этом стремление к интеллектуальному развитию часто заставляет тебя вести малоподвижный образ жизни.</p>
+              <p className={styles.info}>{result.description}</p>
             </Bubble>
           </div>
           <div className={styles.btns}>

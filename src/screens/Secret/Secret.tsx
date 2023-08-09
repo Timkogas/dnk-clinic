@@ -4,12 +4,13 @@ import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import classNames from 'classnames';
-import NavBar from '../../components/NavBarLayout/NavBarLayout';
 import { useNavigate } from 'react-router-dom';
+import { AppState } from '../../store/store';
+import { shallowEqual, useSelector } from 'react-redux';
 
 
 const Secret = () => {
-
+  const { result } = useSelector((state: AppState) => state.test, shallowEqual)
   const navigate = useNavigate()
 
   const onSignUp = () => {
@@ -27,41 +28,29 @@ const Secret = () => {
 
             <Bubble className={styles.info_bubble}>
               <p className={styles.info_text}>
-                <span className={styles.info_bold}> Твой секрет долголетия: </span>Добавь в жизнь побольше движения и спорта! Твой потенциал – долгие, счастливые годы.
+                <span className={styles.info_bold}> Твой секрет долголетия: </span> {result.secret}
               </p>
 
               <p className={styles.info_text}>
-                <span className={styles.info_bold}> Потенциальные проблемы: </span> Кишечник, гинекология, проблемы с кожей.
+                <span className={styles.info_bold}> Потенциальные проблемы: </span> {result.problems}
               </p>
 
               <p className={styles.info_text}>
                 <span className={styles.info_bold}> Рекомендуем:*   </span>
               </p>
 
-              <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text)}>
-                  1. Записаться на Чек Ап здоровья
-                </p>
+              {result.recommendations.map((rec, i) => {
+                return (
+                  <div className={styles.recommendations} key={i}>
 
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
-              </div>
+                    <p className={classNames(styles.info_text, styles.recommendations_text)}>
+                      {rec}
+                    </p>
 
-              <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text)}>
-                  2. Записаться к гинекологу
-                </p>
-
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
-              </div>
-
-              <div className={styles.recommendations}>
-                <p className={classNames(styles.info_text, styles.recommendations_text)}>
-                  3. Записаться к специалисту индустрии красоты
-                </p>
-
-                <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
-              </div>
-
+                    <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
+                  </div>
+                )
+              })}
             </Bubble>
 
             <p className={styles.warning}>*не является медицинской рекомендацией, требуется консультация специалиста</p>
