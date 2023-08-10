@@ -32,7 +32,6 @@ const Test = () => {
   useEffect(() => {
 
     const onBack = () => {
-
       if (step > 0) {
         setAnswer(null)
         dispatch(minusStep())
@@ -67,9 +66,8 @@ const Test = () => {
   }, [dispatch, step, questions, navigate, answer, age, first])
 
   const onBackClick = useCallback(() => {
-    setAnswer(null)
-    dispatch(minusStep())
-  }, [dispatch])
+    window.history.go(-1)
+  }, [])
 
 
   const disabledBtn = (first && (age === '')) || (!first && !answer)

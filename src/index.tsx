@@ -5,7 +5,9 @@ import App from './App';
 import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import bridge from '@vkontakte/vk-bridge'
 
+bridge.send("VKWebAppInit");
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

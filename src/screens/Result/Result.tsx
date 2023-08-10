@@ -2,7 +2,6 @@ import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBor
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import Logo from '../../components/UI/Logo/Logo';
 import styles from './Result.module.scss'
-import paris from '../../assets/images/results/paris.png'
 import Bubble from '../../components/Bubble/Bubble';
 import Modal from '../../components/UI/Modal/Modal';
 import { useState, useEffect, useCallback } from 'react';
@@ -23,7 +22,15 @@ const Result = () => {
     dispatch(getResult())
   }, [dispatch])
 
+  useEffect(() => {
+    const onBack = () => {
+      if (window.history.length > 15) {
+        window.history.go(-16);
+      }
+    }
 
+    window.addEventListener("popstate", onBack, false);
+  }, [dispatch])
 
   const onClose = useCallback(() => {
     setModal(false)
