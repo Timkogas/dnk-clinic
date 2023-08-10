@@ -4,9 +4,10 @@ import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import Select from '../../components/UI/Select/Select';
-
+import { AppState } from '../../store/store';
+import { shallowEqual, useSelector } from 'react-redux';
 
 interface Iform {
   name: string;
@@ -18,6 +19,9 @@ interface Iform {
 }
 
 const SignUp = () => {
+
+  const { user } = useSelector((state: AppState) => state.user, shallowEqual)
+  console.log(user)
   const [data, setData] = useState<Iform>(
     {
       name: '',
@@ -29,12 +33,44 @@ const SignUp = () => {
     }
   )
 
+  useEffect(() => {
+    setData({
+      name: user?.first_name ? user?.first_name : '',
+      secondName: user?.last_name ? user?.last_name : '',
+      age: '',
+      place: user?.city?.title ? user?.city?.title : '',
+      phone: '',
+      sex: user.sex ? user.sex === 1 ? 'женский' : 'мужской' : 'мужской',
+    })
+  }, [user])
+
   const onChangeAge = useCallback((value: string) => {
     const result = value.replace(/\D/g, '')
     if (result.length > 4) return
     setData(prevData => ({
       ...prevData,
       age: result
+    }));
+  }, [])
+
+  const onChangeFirstName = useCallback((value: string) => {
+    setData(prevData => ({
+      ...prevData,
+      name: value
+    }));
+  }, [])
+
+  const onChangeSecondName = useCallback((value: string) => {
+    setData(prevData => ({
+      ...prevData,
+      secondName: value
+    }));
+  }, [])
+
+  const onChangePlace = useCallback((value: string) => {
+    setData(prevData => ({
+      ...prevData,
+      place: value
     }));
   }, [])
 
@@ -62,13 +98,13 @@ const SignUp = () => {
             <TextBorder text='записаться' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
 
             <Bubble className={styles.signup_bubble}>
-              <Input light placeholder='Имя' />
-              <Input light placeholder='Фамилия' />
+              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} />
+              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} />
               <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} />
-              <Input light placeholder='Регион' />
-              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber}/>
+              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} />
+              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} />
 
-              <Select options={[{text: 'Мужской', value: 'мужской'}, {text: 'Женский', value: 'женский'}]} value={data.sex} onChange={onChangeSex}/>
+              <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} />
 
               <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
             </Bubble>

@@ -5,10 +5,18 @@ import styles from './Start.module.scss'
 import { useCallback, useEffect } from 'react';
 
 import bubble from '../../assets/images/start-bubble.png'
+import { AppDispatch } from '../../store/store';
+import { useDispatch } from 'react-redux';
+import { getVKUser } from '../../store/user/user.slice';
 
 
 const Start = () => {
   const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch()
+
+  useEffect(()=>{
+   dispatch(getVKUser())
+  }, [dispatch])
 
   const onStart = useCallback(() => {
     navigate("/test");

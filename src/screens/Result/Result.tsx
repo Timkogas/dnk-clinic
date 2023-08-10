@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../../store/store';
 import { getResult } from '../../store/test/test.slice';
-
+import bridge from '@vkontakte/vk-bridge';
 const Result = () => {
 
   const navigate = useNavigate()
@@ -61,13 +61,35 @@ const Result = () => {
   }, [navigate])
 
 
+  const onWall = useCallback(() => {
+    const name = result.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
+    const message = `Мой архетип здоровья: ${name} \n ${result.description}`;
+    bridge.send('VKWebAppShowWallPostBox', {
+      message: message,
+      attachments: 'photo276669821_456262032, https://vk.com/app51725961'
+    }).catch(() => console.log('error'))
+  }, [result])
+
+  const onStory = useCallback(() => {
+    bridge.send('VKWebAppShowStoryBox', {
+      background_type: 'image',
+      url: 'https://sun9-24.userapi.com/impg/UYm2xyWyscamP0dOxAidIkgy1KrrWqaYWbFvRg/BclWEXCfVs8.jpg?size=640x640&quality=96&sign=08f01cfe465905c57b09b372b4392f3e&type=album',
+      attachment: {
+        text: 'open',
+        type: 'url',
+        url: 'https://vk.com/app51725961',
+      },
+    }).catch(() => console.log('error'))
+  }, [])
+
+
   return (
     <>
       <Modal isOpen={modal} onClose={onClose}>
         <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline} className={styles.modal_title} />
         <div className={styles.modal_btns}>
-          <Button theme={ThemeButton.BLUE} text='в сторис' className={styles.modal_btn} />
-          <Button theme={ThemeButton.BLUE} text='на стену' className={styles.modal_btn} />
+          <Button theme={ThemeButton.BLUE} text='в сторис' className={styles.modal_btn} onClick={onStory}/>
+          <Button theme={ThemeButton.BLUE} text='на стену' className={styles.modal_btn} onClick={onWall} />
         </div>
       </Modal>
 
