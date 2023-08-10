@@ -8,6 +8,7 @@ import SignUp from "./screens/SignUp/SignUp";
 import Info from "./screens/Info/Info";
 import Doctors from "./screens/Doctors/Doctors";
 import Doctor from "./screens/Doctor/Doctor";
+import Young from "./screens/Young/Young";
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
       <Route path='/' element={<Start />} />
       <Route path='/test' element={<Test />} />
       <Route path='/result' element={<Result />} />
+      <Route path='/young' element={<Young />} />
+
 
       <Route element={<NavBarLayout />}>
         <Route path='/secret' element={<Secret />} />

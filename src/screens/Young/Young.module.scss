@@ -1,0 +1,80 @@
+@import "../../assets/styles/media_mixins.scss";
+@import "../../assets/styles/mixins.scss";
+
+.bg {
+  min-height: 100vh;
+  background: url('../../assets/images/bg-test.png') center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  @include _1080 {
+    background: url('../../assets/images/bg-test-pc.png') center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.screen {
+  padding: 3% 0 0 0;
+  padding-left: var(--containter-padding);
+  padding-right: var(--containter-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  @include _1080 {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+    padding: 2% 0 0 0;
+  }
+
+}
+
+.bubble_wrapper {
+  margin-top: 10px;
+
+  @include _360 {
+    margin-top: 40px;
+  }
+
+  @include _1080 {
+    margin-top: 30px;
+  }
+}
+
+.bubble_first {
+  padding: 15px 10px;
+  font-family: 'CeraRoundPro-Medium';
+  box-shadow: none;
+  border: none;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  color: var(--color-white);
+
+  @include _360 {
+    padding: 30px 20px;
+    margin-top: 10px;
+  }
+
+  @include _1080 {
+    font-size: 25px;
+    line-height: 25px;
+  }
+}
+
+.btn {
+  margin-top: 15px;
+
+  @include _360 {
+    margin-top: 25px;
+  }
+
+  @include _1080 {
+    margin-top: 40px;
+  }
+
+}
