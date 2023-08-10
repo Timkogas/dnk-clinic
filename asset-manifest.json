@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.4b036b25.css",
-    "main.js": "/dnk-clinic/static/js/main.d5408806.js",
+    "main.css": "/dnk-clinic/static/css/main.323d337a.css",
+    "main.js": "/dnk-clinic/static/js/main.a2427b4f.js",
     "static/media/princess.png": "/dnk-clinic/static/media/princess.ce097884f0c2cfd2a209.png",
     "static/media/fairy.png": "/dnk-clinic/static/media/fairy.1dea637a8801d08e6236.png",
     "static/media/zolyshka.png": "/dnk-clinic/static/media/zolyshka.abdaf7ee4cfab00966c6.png",
@@ -11,10 +11,12 @@
     "static/media/paris.png": "/dnk-clinic/static/media/paris.823762db07ac4c4c4801.png",
     "static/media/provincialka.png": "/dnk-clinic/static/media/provincialka.f30fec973c8617248dac.png",
     "static/media/scarlett.png": "/dnk-clinic/static/media/scarlett.986eaabc6317438bd643.png",
+    "static/media/imperator.png": "/dnk-clinic/static/media/imperator.7450e28642c84e723542.png",
     "static/media/koroleva.png": "/dnk-clinic/static/media/koroleva.11385d38e26e9a01b54a.png",
     "static/media/fair.png": "/dnk-clinic/static/media/fair.1d8373c13f86a8df5d17.png",
     "static/media/tamerlan.png": "/dnk-clinic/static/media/tamerlan.b5bcdd4a2d0fedc87083.png",
     "static/media/natasha.png": "/dnk-clinic/static/media/natasha.7a20adf19b2c090a2ab0.png",
+    "static/media/merlin.png": "/dnk-clinic/static/media/merlin.a67fe92a096d7a7ae645.png",
     "static/media/egypt.png": "/dnk-clinic/static/media/egypt.e6dbf60454d2c2b757a0.png",
     "static/media/dub.png": "/dnk-clinic/static/media/dub.1821601329b61b073ebc.png",
     "static/media/koko.png": "/dnk-clinic/static/media/koko.26a55129645d3df4126d.png",
@@ -60,11 +62,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.4b036b25.css.map": "/dnk-clinic/static/css/main.4b036b25.css.map",
-    "main.d5408806.js.map": "/dnk-clinic/static/js/main.d5408806.js.map"
+    "main.323d337a.css.map": "/dnk-clinic/static/css/main.323d337a.css.map",
+    "main.a2427b4f.js.map": "/dnk-clinic/static/js/main.a2427b4f.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b036b25.css",
-    "static/js/main.d5408806.js"
+    "static/css/main.323d337a.css",
+    "static/js/main.a2427b4f.js"
   ]
 }
