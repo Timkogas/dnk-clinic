@@ -10,8 +10,8 @@
   z-index: 1;
   padding-top: 20px;
   @include _1080 {
-    padding-top: 35px;
-    height: 125px;
+    padding-top: 15px;
+    height: 90px;
   }
 }
 
@@ -39,7 +39,7 @@
   }
 
   @include _1080 {
-    width: 45px;
+    width: 35px;
   }
 }
 

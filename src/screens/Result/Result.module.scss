@@ -55,12 +55,16 @@
 }
 
 .img {
+  height: 250px;
   width: 100%;
+
   border-radius: 11px;
   margin-top: 10px;
 }
 
 .name_block {
+  background-color: var(--color-dark-greenblue);
+  opacity: 0.9;
   position: absolute;
   bottom: 4px;
   width: 100%;

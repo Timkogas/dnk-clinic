@@ -6,10 +6,12 @@
   background: url('../../assets/images/bg-doctors.png') center top;
   background-repeat: no-repeat;
   background-size: 100% 100vh;
-
+  background-attachment: fixed;
+  
   @include _1080 {
     background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
     background-size: auto contain;
+    background-attachment: fixed;
   }
 }
 
@@ -21,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  background-attachment: fixed;
   @include _1080 {
     max-width: var(--containter-width);
     margin: 0 auto;
@@ -148,6 +150,6 @@
   height: 120px;
 
   @include _1080 {
-    height: 140px;
+    height: 110px;
   }
 }

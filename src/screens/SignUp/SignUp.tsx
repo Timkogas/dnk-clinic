@@ -98,13 +98,13 @@ const SignUp = () => {
             <TextBorder text='записаться' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
 
             <Bubble className={styles.signup_bubble}>
-              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} />
-              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} />
-              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} />
-              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} />
-              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} />
+              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input}/>
+              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input}/>
+              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input}/>
+              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} className={styles.input}/>
+              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input}/>
 
-              <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} />
+              <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input}/>
 
               <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
             </Bubble>

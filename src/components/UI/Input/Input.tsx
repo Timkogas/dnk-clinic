@@ -52,12 +52,12 @@ const Input: FC<InputProps> = props => {
             (value, mask) => onChange?.(value)
           }
           placeholder='+7'
-          className={classNames(styles.input, { [styles.light]: light })}
+          className={classNames(styles.input, { [styles.light]: light }, className)}
         /> :
         <input
           value={value}
           onChange={onChangeHandler}
-          className={classNames(styles.input, { [styles.light]: light })}
+          className={classNames(styles.input, { [styles.light]: light }, className)}
           {...otherProps}
         />}
 

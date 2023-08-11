@@ -66,14 +66,14 @@ const Result = () => {
     const message = `Мой архетип здоровья: ${name} \n ${result.description}`;
     bridge.send('VKWebAppShowWallPostBox', {
       message: message,
-      attachments: 'photo276669821_456262032, https://vk.com/app51725961'
+      attachments: 'photo-201393242_457239037, https://vk.com/app51725961'
     }).catch(() => console.log('error'))
   }, [result])
 
   const onStory = useCallback(() => {
     bridge.send('VKWebAppShowStoryBox', {
       background_type: 'image',
-      url: 'https://sun9-24.userapi.com/impg/UYm2xyWyscamP0dOxAidIkgy1KrrWqaYWbFvRg/BclWEXCfVs8.jpg?size=640x640&quality=96&sign=08f01cfe465905c57b09b372b4392f3e&type=album',
+      url: 'https://sun9-55.userapi.com/impg/GB2xLNiVSZht8rVl_tnJQi7EuieNNX8W1Ru00Q/eJbZYhcHdgA.jpg?size=960x636&quality=95&sign=b71ed56e678d1c616256f2d845e82965&type=album',
       attachment: {
         text: 'open',
         type: 'url',
