@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100vh;
 
-  @include _1080 {
+  @include _800 {
     background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
     background-size: auto contain;
   }
@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include _1080 {
+  @include _800 {
     max-width: var(--containter-width);
     margin: 0 auto;
     padding: 1% 0 0 0;
@@ -39,11 +39,10 @@
 
   ;
 
-  @include _1080 {
-    font-size: 33px;
+  @include _800 {
     letter-spacing: 0.05em;
-    margin-top: 23px;
-    margin-bottom: 21px;
+    font-size: 25px;
+    line-height: 29px;
   }
 
   ;
@@ -51,8 +50,8 @@
 }
 
 .title_outline {
-  @include _1080 {
-    -webkit-text-stroke: 7px var(--color-greenblue);
+  @include _800 {
+    -webkit-text-stroke: 6px var(--color-greenblue);
   }
 }
 
@@ -64,13 +63,16 @@
   flex-direction: column;
   gap: 10px;
 
-  @include _1080 {
+  @include _800 {
     padding: 22px 20px;
   }
 }
 
 .input {
-  height: 50px;
+  @include _800 {
+    height: 45px;
+    font-size: 15px;
+  }
 }
 
 .btn {
@@ -81,7 +83,7 @@
 .block {
   height: 120px;
 
-  @include _1080 {
+  @include _800 {
     height: 110px;
   }
 }

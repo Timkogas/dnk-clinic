@@ -32,10 +32,10 @@
     height: 30px;
   }
 
-  @include _1080 {
-    flex:0 0 45px;
-    width: 45px;
-    height: 45px;
+  @include _800  {
+    flex:0 0 33px;
+    width: 33px;
+    height: 33px;
   }
 
   &:checked::after {
@@ -49,9 +49,9 @@
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background-color: var(--color-white);
-    @include _1080 {
-      width: 18px;
-      height: 18px;
+    @include _800  {
+      width: 12px;
+      height: 12px;
     }
   }
 
@@ -71,9 +71,9 @@
   gap: 5px;
   @include none-select;
   cursor: pointer;
-  @include _1080 {
-    gap: 10px;
-    font-size: 26px;
-    line-height: 26px;
+  @include _800  {
+    gap: 2px;
+    font-size: 19px;
+    line-height: 22px;
   }
 }

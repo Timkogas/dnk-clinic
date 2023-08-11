@@ -17,6 +17,7 @@ const Result = () => {
   const dispatch: AppDispatch = useDispatch()
 
   const [modal, setModal] = useState<boolean>(false)
+  const [PC, setPC] = useState<boolean>(false)
 
   useEffect(() => {
     dispatch(getResult())
@@ -29,7 +30,21 @@ const Result = () => {
       }
     }
 
+    const handleResize = () => {
+      if (window.innerWidth >= 800) {
+        setPC(true)
+      } else {
+        setPC(false)
+      }
+    };
+
     window.addEventListener("popstate", onBack, false);
+    window.addEventListener('resize', handleResize);
+
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [dispatch])
 
   const onClose = useCallback(() => {
@@ -99,7 +114,7 @@ const Result = () => {
           <div>
             <TextBorder text='твой архетип здоровья' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
             <div className={styles.img_block}>
-              <img alt='result' src={result.img} className={styles.img} />
+              <img alt='result' src={PC ? result.imgPc : result.img} className={styles.img} />
               <div className={styles.name_block}>
                 <TextBorder text={result.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
               </div>

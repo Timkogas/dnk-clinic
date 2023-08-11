@@ -42,9 +42,8 @@ const Secret = () => {
               {result.recommendations.map((rec, i) => {
                 return (
                   <div className={styles.recommendations} key={i}>
-
                     <p className={classNames(styles.info_text, styles.recommendations_text)}>
-                      {rec}
+                    {i + 1}. {rec}
                     </p>
 
                     <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />

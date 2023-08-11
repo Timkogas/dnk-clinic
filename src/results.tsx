@@ -34,6 +34,43 @@ import zolyshka from './assets/images/results/zolyshka.png'
 import merlin from './assets/images/results/merlin.png'
 import imperator from './assets/images/results/imperator.png'
 
+
+import alexPc from './assets/images/results/alex-pc.png'
+import batmanPc from './assets/images/results/batman-pc.png'
+import benderPc from './assets/images/results/bender-pc.png'
+import businessWomenPc from './assets/images/results/business-women-pc.png'
+import championPc from './assets/images/results/champion-pc.png'
+import cherchillPc from './assets/images/results/cherchill-pc.png'
+import cowboyPc from './assets/images/results/cowboy-pc.png'
+import dankoPc from './assets/images/results/danko-pc.png'
+import darkPc from './assets/images/results/dark-pc.png'
+import dobrynyaPc from './assets/images/results/dobrynya-pc.png'
+import dubPc from './assets/images/results/dub-pc.png'
+import dulPc from './assets/images/results/dul-pc.png'
+import dumovochkaPc from './assets/images/results/dumovochka-pc.png'
+import egyptPc from './assets/images/results/egypt-pc.png'
+import fairPc from './assets/images/results/fair-pc.png'
+import fairyPc from './assets/images/results/fairy-pc.png'
+import kokoPc from './assets/images/results/koko-pc.png'
+import korolevaPc from './assets/images/results/koroleva-pc.png'
+import machoPc from './assets/images/results/macho-pc.png'
+import malvinaPc from './assets/images/results/malvina-pc.png'
+import motherPc from './assets/images/results/mother-pc.png'
+import natashaPc from './assets/images/results/natasha-pc.png'
+import parisPc from './assets/images/results/paris-pc.png'
+import princessPc from './assets/images/results/princess-pc.png'
+import prometeiPc from './assets/images/results/prometei-pc.png'
+import provincialkaPc from './assets/images/results/provincialka-pc.png'
+import rusalkaPc from './assets/images/results/rusalka-pc.png'
+import scarlettPc from './assets/images/results/scarlett-pc.png'
+import skrudjPc from './assets/images/results/skrudj-pc.png'
+import tamerlanPc from './assets/images/results/tamerlan-pc.png'
+import vampPc from './assets/images/results/vamp-pc.png'
+import xozayikaPc from './assets/images/results/xozayika-pc.png'
+import zolyshkaPc from './assets/images/results/zolyshka-pc.png'
+import merlinPc from './assets/images/results/merlin-pc.png'
+import imperatorPc from './assets/images/results/imperator-pc.png'
+
 export type resultName = 'парижанка' | 'дюймовочка' | 'клеопатра' | 'мальвина' | 'жанна д’арк' | 'наташа ростова' | 'принцесса' | 'королева' | 'золушка' | 'женщина-вамп' | 'чемпионка' | 'мать тереза' | 'фея' | 'коко шанель' | 'русалка' | 'бизнес-леди' | 'скарлетт' | 'дульсинея' | 'провинциалка' | 'хозяйка медной горы' | 'бэтмен' | 'добрыня' | 'мачо' | 'александр македонский' | 'данко' | 'тамерлан' | 'остап бендер' | 'ковбой' | 'прометей' | 'пожарный' | 'поддубный' | 'скрудж макдак' | 'черчилль' | 'мэрилин монро' | 'императрица'
 
 export interface Iresult {
@@ -43,6 +80,7 @@ export interface Iresult {
   problems: string;
   recommendations: string[];
   img: string;
+  imgPc: string;
 }
 
 
@@ -58,7 +96,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: paris
+    img: paris,
+    imgPc: parisPc,
   },
   {
     name: 'дюймовочка',
@@ -70,7 +109,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу',
     ],
-    img: dumovochka
+    img: dumovochka,
+    imgPc: dumovochkaPc,
   },
   {
     name: 'клеопатра',
@@ -82,7 +122,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: egypt
+    img: egypt,
+    imgPc: egyptPc,
   },
   {
     name: 'мальвина',
@@ -93,7 +134,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: malvina
+    img: malvina,
+    imgPc: malvinaPc,
   },
   {
     name: 'жанна д’арк',
@@ -105,7 +147,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к дерматологу'
     ],
-    img: dark
+    img: dark,
+    imgPc: darkPc,
   },
   {
     name: 'наташа ростова',
@@ -118,7 +161,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу',
     ],
-    img: natasha
+    img: natasha,
+    imgPc: natashaPc,
   },
   {
     name: 'принцесса',
@@ -131,7 +175,8 @@ export const results: Iresult[] = [
       'Записаться к ЛОРу',
       'Записаться к гинекологу',
     ],
-    img: princess
+    img: princess,
+    imgPc: princessPc,
   },
   {
     name: 'королева',
@@ -143,7 +188,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: koroleva
+    img: koroleva,
+    imgPc: korolevaPc,
   },
   {
     name: 'золушка',
@@ -155,7 +201,8 @@ export const results: Iresult[] = [
       'Записаться к пластическому хирургу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: zolyshka
+    img: zolyshka,
+    imgPc: zolyshkaPc,
   },
   {
     name: 'женщина-вамп',
@@ -168,7 +215,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу',
     ],
-    img: vamp
+    img: vamp,
+    imgPc: vampPc,
   },
   {
     name: 'чемпионка',
@@ -181,7 +229,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу',
     ],
-    img: champion
+    img: champion,
+    imgPc: championPc,
   },
   {
     name: 'мать тереза',
@@ -193,7 +242,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу'
     ],
-    img: mother
+    img: mother,
+    imgPc: motherPc,
   },
   {
     name: 'фея',
@@ -205,7 +255,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты'
     ],
-    img: fairy
+    img: fairy,
+    imgPc: fairyPc,
   },
   {
     name: 'коко шанель',
@@ -217,7 +268,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу'
     ],
-    img: koko
+    img: koko,
+    imgPc: kokoPc,
   },
   {
     name: 'русалка',
@@ -229,7 +281,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты'
     ],
-    img: rusalka
+    img: rusalka,
+    imgPc: rusalkaPc,
   },
   {
     name: 'бизнес-леди',
@@ -241,7 +294,8 @@ export const results: Iresult[] = [
       'Записаться к урологу',
       'Записаться к специалисту индустрии красоты'
     ],
-    img: businessWomen
+    img: businessWomen,
+    imgPc: businessWomenPc,
   },
   {
     name: 'скарлетт',
@@ -253,7 +307,8 @@ export const results: Iresult[] = [
       'Записаться к эндокринологу',
       'Записаться к гинекологу'
     ],
-    img: scarlett
+    img: scarlett,
+    imgPc: scarlettPc,
   },
   {
     name: 'дульсинея',
@@ -264,7 +319,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья',
       'Записаться к гинекологу',
     ],
-    img: dul
+    img: dul,
+    imgPc: dulPc,
   },
   {
     name: 'провинциалка',
@@ -276,7 +332,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту индустрии красоты',
       'Записаться к гинекологу',
     ],
-    img: provincialka
+    img: provincialka,
+    imgPc: provincialkaPc,
   },
   {
     name: 'хозяйка медной горы',
@@ -288,7 +345,8 @@ export const results: Iresult[] = [
       'Записаться к пластическому хирургу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: xozayika
+    img: xozayika,
+    imgPc: xozayikaPc,
   },
   {
     name: 'бэтмен',
@@ -299,7 +357,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту пластической хирургии',
       'Записаться к урологу',
     ],
-    img: batman
+    img: batman,
+    imgPc: batmanPc,
   },
   {
     name: 'добрыня',
@@ -310,7 +369,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
       'Записаться к урологу',
     ],
-    img: dobrynya
+    img: dobrynya,
+    imgPc: dobrynyaPc,
   },
   {
     name: 'мачо',
@@ -321,7 +381,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
       'Записаться к урологу',
     ],
-    img: macho
+    img: macho,
+    imgPc: machoPc,
   },
   {
     name: 'александр македонский',
@@ -332,7 +393,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
       'Записаться к урологу',
     ],
-    img: alex
+    img: alex,
+    imgPc: alexPc,
   },
   {
     name: 'данко',
@@ -344,7 +406,8 @@ export const results: Iresult[] = [
       'Записаться к урологу',
       'Записаться к эндокринологу',
     ],
-    img: danko
+    img: danko,
+    imgPc: dankoPc,
   },
   {
     name: 'тамерлан',
@@ -355,18 +418,8 @@ export const results: Iresult[] = [
       'Записаться к эндокринологу',
       'Записаться на Чек Ап здоровья',
     ],
-    img: tamerlan
-  },
-  {
-    name: 'тамерлан',
-    description: 'И целого мира мало – это про тебя. Ты жаден до впечатлений, новых эмоций и открытий. Препятствия только раззадоривают тебя, вызывая спортивный азарт и интерес. Вижу цель и не вижу препятствий. Но при этом препятствия никуда не уходят. Они есть, и это отражаются на твоем здоровье…',
-    secret: 'Не забывай включать режим «осторожность». Профилактика и паузы в делах помогут тебе. Эти простые правила помогут тебе прожить долгие и счастливые годы!',
-    problems: 'Сердечные заболевания, дисбаланс веса, эндокринолог.',
-    recommendations: [
-      'Записаться к эндокринологу',
-      'Записаться на Чек Ап здоровья',
-    ],
-    img: tamerlan
+    img: tamerlan,
+    imgPc: tamerlanPc,
   },
   {
     name: 'остап бендер',
@@ -378,7 +431,8 @@ export const results: Iresult[] = [
       'Записаться к урологу',
       'Записаться к эндокринологу',
     ],
-    img: bender
+    img: bender,
+    imgPc: benderPc,
   },
   {
     name: 'ковбой',
@@ -390,7 +444,8 @@ export const results: Iresult[] = [
       'Записаться к специалисту по пересадке волос',
       'Записаться к урологу',
     ],
-    img: cowboy
+    img: cowboy,
+    imgPc: cowboyPc,
   },
   {
     name: 'прометей',
@@ -402,7 +457,8 @@ export const results: Iresult[] = [
       'Записаться на Чек Ап здоровья',
       'Записаться к урологу',
     ],
-    img: prometei
+    img: prometei,
+    imgPc: prometeiPc,
   },
   {
     name: 'пожарный',
@@ -414,7 +470,8 @@ export const results: Iresult[] = [
       'Записаться к урологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: fair
+    img: fair,
+    imgPc: fairPc,
   },
   {
     name: 'поддубный',
@@ -426,7 +483,8 @@ export const results: Iresult[] = [
       'Записаться к урологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: dub
+    img: dub,
+    imgPc: dubPc,
   },
   {
     name: 'скрудж макдак',
@@ -438,7 +496,8 @@ export const results: Iresult[] = [
       'Записаться к эндокринологу',
       'Записаться к урологу',
     ],
-    img: skrudj
+    img: skrudj,
+    imgPc: skrudjPc,
   },
   {
     name: 'черчилль',
@@ -450,7 +509,8 @@ export const results: Iresult[] = [
       'Записаться к кардиологу',
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
     ],
-    img: cherchill
+    img: cherchill,
+    imgPc: cherchillPc,
   },
   {
     name: 'мэрилин монро',
@@ -462,7 +522,8 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: merlin
+    img: merlin,
+    imgPc: merlinPc,
   },
 
   {
@@ -475,6 +536,7 @@ export const results: Iresult[] = [
       'Записаться к гинекологу',
       'Записаться к специалисту индустрии красоты',
     ],
-    img: imperator
+    img: imperator,
+    imgPc: imperatorPc,
   },
 ]

@@ -7,8 +7,8 @@
   background-repeat: no-repeat;
   background-size: 100% 100vh;
 
-  @include _1080 {
-    background: url('../../assets/images/bg-info-pc.png') center top no-repeat;
+  @include _800  {
+    background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
     background-size: auto contain;
   }
 }
@@ -22,7 +22,7 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include _1080 {
+  @include _800  {
     max-width: var(--containter-width);
     margin: 0 auto;
     padding: 1% 0 0 0;
@@ -35,9 +35,9 @@
   font-size: 20px;
   color: var(--color-white);
   margin-bottom: 10px;
-  @include _1080 {
-    font-size: 28px;
-    margin-bottom: 14px;
+  @include _800  {
+    font-size: 22px;
+    margin-bottom: 10px;
   }
 }
 
@@ -53,9 +53,9 @@
   @include _360 {
     font-size: 18px;
   }
-  @include _1080 {
+  @include _800  {
     padding: 22px 20px;
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 23px;
   }
 }
@@ -74,10 +74,9 @@
 
 .icon {
   width: 15px;
-  @include _1080 {
-    width: 17px;
+  @include _800  {
     &:nth-child(1) {
-      margin-top: 7px;
+      margin-top: 4px;
     }
   }
 }
@@ -100,7 +99,7 @@
 .block {
   height: 120px;
 
-  @include _1080 {
+  @include _800  {
     height: 90px;
   }
 }

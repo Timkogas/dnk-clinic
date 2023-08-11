@@ -18,7 +18,7 @@
   color: white;
   padding: 0 25px;
 
-  @include _1080 {
+  @include _800  {
     height: 49px;
   }
 }
@@ -35,7 +35,7 @@
     font-size: 19px;
   }
 
-  @include _1080 {
+  @include _800  {
     height: 60px;
   }
 }

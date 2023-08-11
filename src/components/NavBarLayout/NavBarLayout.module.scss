@@ -9,8 +9,8 @@
   left: 0;
   z-index: 1;
   padding-top: 20px;
-  @include _1080 {
-    padding-top: 15px;
+  @include _800  {
+    padding-top: 20px;
     height: 90px;
   }
 }
@@ -25,7 +25,7 @@
     padding-right: var(--containter-padding);
   }
 
-  @include _1080 {
+  @include _800  {
     max-width: var(--containter-width);
     margin: 0 auto;
   }
@@ -38,8 +38,8 @@
     width: 40px;
   }
 
-  @include _1080 {
-    width: 35px;
+  @include _800  {
+    width: 25px;
   }
 }
 
@@ -55,8 +55,8 @@
   font-size: 12px;
   line-height: 13px;
   flex-basis: 25%;
-  @include _1080 {
-    font-size: 14px;
+  @include _800  {
+    font-size: 11px;
   }
   &_text {
     width: 90%;

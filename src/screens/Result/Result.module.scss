@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
-  @include _1080 {
+  @include _800 {
     background: url('../../assets/images/bg-test-pc.png') center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -25,7 +25,7 @@
 
   position: relative;
 
-  @include _1080 {
+  @include _800 {
     max-width: var(--containter-width);
     margin: 0 auto;
     padding: 1% 0 0 0;
@@ -33,21 +33,20 @@
 }
 
 .title {
-  @include _1080 {
-    font-size: 33px;
-    line-height: 10px;
+  @include _800 {
+    font-size: 25px;
+    line-height: 27px;
     letter-spacing: 0.05em;
-    margin-top: 23px;
-    margin-bottom: 11px;
-  };
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  ;
   @include none-select;
 }
 
 .title_outline {
   -webkit-text-stroke: 6px var(--color-greenblue);
-  @include _1080 {
-    -webkit-text-stroke: 7px var(--color-greenblue);
-  }
 }
 
 .img_block {
@@ -55,16 +54,12 @@
 }
 
 .img {
-  height: 250px;
   width: 100%;
-
   border-radius: 11px;
   margin-top: 10px;
 }
 
 .name_block {
-  background-color: var(--color-dark-greenblue);
-  opacity: 0.9;
   position: absolute;
   bottom: 4px;
   width: 100%;
@@ -74,16 +69,20 @@
   align-items: center;
   justify-content: center;
 
-  @include _1080 {
-    height: 50px;
+  @include _800 {
+    background-color: #00495636;
   }
 }
 
 .name {
   font-size: 16px;
-  @include _1080 {
-    font-size: 22px;
-  };
+  letter-spacing: 0.05em;
+
+  @include _800 {
+    font-size: 18px;
+  }
+
+  ;
   @include none-select;
 }
 
@@ -97,8 +96,9 @@
     padding: 40px 17px 30px 17px;
   }
 
-  @include _1080 {
-    padding: 40px 17px 50px 17px;
+  @include _800 {
+    height: 184px;
+    padding: 40px 9px 10px 9px;
   }
 }
 
@@ -109,8 +109,9 @@
   text-align: center;
   color: var(--color-white);
 
-  @include _1080 {
-    font-size: 17px;
+  @include _800 {
+    font-size: 13px;
+    line-height: 16px;
   }
 }
 
@@ -119,25 +120,27 @@
   flex-direction: column;
   margin-top: 10px;
   gap: 10px;
-  @include _1080 {
-    margin-bottom: 30px;
-  }
+
 }
 
 .modal_title {
   margin-top: 10px;
   margin-bottom: 20px;
-  @include _1080 {
+
+  @include _800 {
     font-size: 36px;
     margin-top: 60px;
     margin-bottom: 50px;
-  };
+  }
+
+  ;
   @include none-select;
 }
 
 .modal_title_outline {
   -webkit-text-stroke: 5px #006D82;
-  @include _1080 {
+
+  @include _800 {
     -webkit-text-stroke: 9px #006D82;
   }
 }
@@ -150,9 +153,9 @@
   flex-direction: column;
   gap: 10px;
 
-  @include _1080 {
-    gap: 20px;
-  };
+  @include _800 {
+    gap: 15px;
+  }
 }
 
 .modal_share_outline {
@@ -168,7 +171,7 @@
     font-size: 20px;
   }
 
-  @include _1080 {
+  @include _800 {
     padding: 0px;
     font-size: 26px;
   }

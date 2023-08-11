@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   background-size: 100% 100vh;
 
-  @include _1080 {
+  @include _800  {
     background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
     background-size: auto contain;
   }
@@ -22,41 +22,10 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include _1080 {
+  @include _800  {
     max-width: var(--containter-width);
     margin: 0 auto;
     padding: 1% 0 0 0;
-  }
-}
-
-.title {
-  margin: 5px 0;
-  letter-spacing: 0.05em;
-
-  @include _360 {
-    margin: 10px 0;
-  }
-
-  ;
-
-  @include _1080 {
-    font-size: 33px;
-    letter-spacing: 0.05em;
-    margin-top: 23px;
-    margin-bottom: 21px;
-  }
-
-  ;
-  @include none-select;
-}
-
-.title_outline {
-  @include _1080 {
-    -webkit-text-stroke: 6px var(--color-greenblue);
-  }
-
-  @include _1080 {
-    -webkit-text-stroke: 7px var(--color-greenblue);
   }
 }
 
@@ -65,31 +34,9 @@
   box-shadow: none;
   border: none;
 
-  @include _1080 {
-    padding: 22px 20px;
+  @include _800  {
+    padding: 17px 12px;
   }
-}
-
-.select_doctors {
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  font-family: 'CeraRoundPro-Medium';
-  color: var(--color-white);
-  font-size: 17px;
-  margin-bottom: 10px;
-
-  @include _1080 {
-    font-size: 26.37px;
-  }
-}
-
-.list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 10px;
 }
 
 .first_block {
@@ -97,7 +44,7 @@
   align-items: flex-start;;
   gap: 10px;
 
-  @include _1080 {
+  @include _800  {
     gap: 14px;
   }
 }
@@ -114,15 +61,18 @@
   line-height: 20px;
   color: var(--color-white);
 
-  @include _1080 {
-    font-size: 28px;
-    line-height: 28px;
+  @include _800  {
+    font-size: 21px;
+    line-height: 21px;
   }
 }
 
 .title {
   margin-top: -4px;
   font-size: 14px;
+  @include _800  {
+    font-size: 12px;
+  }
 }
 
 .title_outline {
@@ -139,7 +89,7 @@
   justify-content: center;
   flex-basis: 70%;
 
-  @include _1080 {
+  @include _800  {
 
     flex-basis: 60%;
 
@@ -150,7 +100,7 @@
 .bubble_img {
   width: 80%;
 
-  @include _1080 {
+  @include _800  {
     width: 70%;
   }
 }
@@ -158,24 +108,24 @@
 .second_block {
   margin-top: 20px;
   font-family: 'CeraRoundPro-Regular';
-  font-size: 18px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 17px;
   color: var(--color-white);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 30px;
-
-  @include _1080 {
-    font-size: 16px;
-    line-height: 21px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  @include _800  {
+    font-size: 12px;
+    line-height: 16px;
   }
 }
 
 .block {
   height: 120px;
 
-  @include _1080 {
+  @include _800  {
     height: 110px;
   }
 }

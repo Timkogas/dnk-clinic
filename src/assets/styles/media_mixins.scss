@@ -4,8 +4,8 @@
   }
 }
 
-@mixin _1080 {
-  @media (min-width: 1000px){
+@mixin _800 {
+  @media (min-width: 799px){
       @content;
   }
 }

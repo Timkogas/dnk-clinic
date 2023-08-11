@@ -16,15 +16,15 @@
   flex-direction: column;
   justify-content: space-between;
 
-  @include _1080 {
-    background: url('../../assets/images/bg-start-pc.png') 53.5% center;
+  @include _800  {
+    background: url('../../assets/images/bg-start-pc.png') center center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 2% 0 3% 0;
+    padding: 2% 0 10% 0;
   }
 }
 .bubble_block {
-  @include _1080 {
+  @include _800  {
     display: none;
   }
 }
@@ -36,7 +36,7 @@
 .btns {
   width: 100%;
 
-  @include _1080 {
+  @include _800  {
     max-width: var(--containter-width);
     margin: 0 auto;
   }
