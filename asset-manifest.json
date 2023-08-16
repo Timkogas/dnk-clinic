@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.d092e290.css",
-    "main.js": "/dnk-clinic/static/js/main.835fe860.js",
+    "main.css": "/dnk-clinic/static/css/main.4b4c3563.css",
+    "main.js": "/dnk-clinic/static/js/main.d66f21aa.js",
     "static/media/princess.png": "/dnk-clinic/static/media/princess.ce097884f0c2cfd2a209.png",
     "static/media/fairy.png": "/dnk-clinic/static/media/fairy.1dea637a8801d08e6236.png",
     "static/media/zolyshka.png": "/dnk-clinic/static/media/zolyshka.abdaf7ee4cfab00966c6.png",
@@ -96,11 +96,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.d092e290.css.map": "/dnk-clinic/static/css/main.d092e290.css.map",
-    "main.835fe860.js.map": "/dnk-clinic/static/js/main.835fe860.js.map"
+    "main.4b4c3563.css.map": "/dnk-clinic/static/css/main.4b4c3563.css.map",
+    "main.d66f21aa.js.map": "/dnk-clinic/static/js/main.d66f21aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.d092e290.css",
-    "static/js/main.835fe860.js"
+    "static/css/main.4b4c3563.css",
+    "static/js/main.d66f21aa.js"
   ]
 }
