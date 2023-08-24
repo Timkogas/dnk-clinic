@@ -35,10 +35,10 @@
 .list {
   display: flex;
   gap: 2px;
-  margin-top: 5px;
+  margin-top: 3vh;
 
   @include _360 {
-    margin-top: 20px;
+    margin-top: 12vh;
   }
 
   @include _800  {

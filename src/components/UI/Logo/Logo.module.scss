@@ -9,6 +9,7 @@
   margin: 0 auto;
   display: block;
   margin-bottom: 5px;
+  @include none-select;
 
   @include _360 {
     width: 50px;
@@ -26,6 +27,7 @@
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+  @include none-select;
 
   color: var(--color-white);
 

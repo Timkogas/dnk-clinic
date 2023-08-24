@@ -70,9 +70,9 @@ const Test = () => {
     if (step === questions.length - 1) navigate('/result')
   }, [dispatch, step, questions, navigate, answer, age, first])
 
-  const onBackClick = useCallback(() => {
+  const onBackClick = () => {
     window.history.go(-1)
-  }, [])
+  }
 
 
   const disabledBtn = (first && (age === '')) || (!first && !answer)

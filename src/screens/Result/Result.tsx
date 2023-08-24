@@ -76,26 +76,26 @@ const Result = () => {
   }, [navigate])
 
 
-  const onWall = useCallback(() => {
+  const onWall = () => {
     const name = result.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
-    const message = `Мой архетип здоровья: ${name} \n ${result.description}`;
+    const message = `Мой архетип здоровья: ${name} \n\n ${result.description}`;
     bridge.send('VKWebAppShowWallPostBox', {
       message: message,
-      attachments: 'photo-201393242_457239037, https://vk.com/app51725961'
+      attachments: `${result.postUrl}, https://vk.com/app51725961`
     }).catch(() => console.log('error'))
-  }, [result])
+  }
 
-  const onStory = useCallback(() => {
+  const onStory = () => {
     bridge.send('VKWebAppShowStoryBox', {
       background_type: 'image',
-      url: 'https://sun9-55.userapi.com/impg/GB2xLNiVSZht8rVl_tnJQi7EuieNNX8W1Ru00Q/eJbZYhcHdgA.jpg?size=960x636&quality=95&sign=b71ed56e678d1c616256f2d845e82965&type=album',
+      url: result.storyUrl,
       attachment: {
         text: 'open',
         type: 'url',
         url: 'https://vk.com/app51725961',
       },
     }).catch(() => console.log('error'))
-  }, [])
+  }
 
 
   return (
@@ -111,7 +111,7 @@ const Result = () => {
       <div className={styles.bg}>
         <div className={styles.screen}>
           <Logo subtitle />
-          <div>
+          <div className={styles.block}>
             <TextBorder text='твой архетип здоровья' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
             <div className={styles.img_block}>
               <img alt='result' src={PC ? result.imgPc : result.img} className={styles.img} />
@@ -124,7 +124,7 @@ const Result = () => {
             </Bubble>
           </div>
           <div className={styles.btns}>
-            <Button theme={ThemeButton.BLUE} text='поделится' onClick={onOpen} />
+            <Button theme={ThemeButton.BLUE} text='поделиться' onClick={onOpen} />
             <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' onClick={onNext} />
           </div>
         </div>

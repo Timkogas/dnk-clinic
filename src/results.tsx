@@ -81,6 +81,8 @@ export interface Iresult {
   recommendations: string[];
   img: string;
   imgPc: string;
+  storyUrl: string;
+  postUrl: string;
 }
 
 
@@ -98,6 +100,8 @@ export const results: Iresult[] = [
     ],
     img: paris,
     imgPc: parisPc,
+    storyUrl: 'https://sun9-79.userapi.com/impg/fy16ltkszjGppEkKI9-2D-pt6luaocVt7XIacw/sJxjqk4LmlY.jpg?size=1080x1920&quality=95&sign=39d075c354944dea23e578fab26e4917&type=album',
+    postUrl: 'photo-221991753_457239057',
   },
   {
     name: 'дюймовочка',
@@ -111,6 +115,8 @@ export const results: Iresult[] = [
     ],
     img: dumovochka,
     imgPc: dumovochkaPc,
+    storyUrl: 'https://sun9-77.userapi.com/impg/Y-JzGwT1H-wkK1lIle6QyEQ8j6OdLk07Mqic6g/0IK8RHWf7ME.jpg?size=1080x1920&quality=95&sign=b3ab207f7f87aaea0479e031a8c4e784&type=album',
+    postUrl: 'photo-221991753_457239088',
   },
   {
     name: 'клеопатра',
@@ -124,6 +130,8 @@ export const results: Iresult[] = [
     ],
     img: egypt,
     imgPc: egyptPc,
+    storyUrl: 'https://sun9-16.userapi.com/impg/XDj-h8_aD1eOwI6KM_G2QhMwF1EmxV80rSL2bA/zWml4ONUqRw.jpg?size=1080x1920&quality=95&sign=010eb174aae92105f4bff460bbf29461&type=album',
+    postUrl: 'photo-221991753_457239056',
   },
   {
     name: 'мальвина',
@@ -136,6 +144,8 @@ export const results: Iresult[] = [
     ],
     img: malvina,
     imgPc: malvinaPc,
+    storyUrl: 'https://sun9-22.userapi.com/impg/3Vx8swN-8_aAoyRyeNeVf20yJUe17d2FBIQ2bQ/LxclKiITzSc.jpg?size=1080x1920&quality=95&sign=26f64f8d88d3775bcd91250048423759&type=album',
+    postUrl: 'photo-221991753_457239055',
   },
   {
     name: 'жанна д’арк',
@@ -149,6 +159,8 @@ export const results: Iresult[] = [
     ],
     img: dark,
     imgPc: darkPc,
+    storyUrl: 'https://sun9-19.userapi.com/impg/0mn7oBKIcLhMQ6Fo7b8Bj1eURzpMvZN-f-J9Jw/_WRn-VSVVrE.jpg?size=1080x1920&quality=95&sign=19bf7fb85e4bab898717cb00bafdf26c&type=album',
+    postUrl: 'photo-221991753_457239054',
   },
   {
     name: 'наташа ростова',
@@ -163,6 +175,8 @@ export const results: Iresult[] = [
     ],
     img: natasha,
     imgPc: natashaPc,
+    storyUrl: 'https://sun9-56.userapi.com/impg/G_ZUwLWVSdLAMCy9zGRcLtuCKwuv9E5V1dnOuQ/Zh8z_9CWUi0.jpg?size=1080x1920&quality=95&sign=d5fe2a39382052fb2bb05644774ac474&type=album',
+    postUrl: 'photo-221991753_457239058',
   },
   {
     name: 'принцесса',
@@ -177,6 +191,8 @@ export const results: Iresult[] = [
     ],
     img: princess,
     imgPc: princessPc,
+    storyUrl: 'https://sun9-77.userapi.com/impg/zPP6567f2Yoy7waUFYry8-CjFtqvLT2TGNsrdw/93iMfB1EvdE.jpg?size=1080x1920&quality=95&sign=1cf41557cd91c8d9320b72d9586e1463&type=album',
+    postUrl: 'photo-221991753_457239059',
   },
   {
     name: 'королева',
@@ -190,6 +206,8 @@ export const results: Iresult[] = [
     ],
     img: koroleva,
     imgPc: korolevaPc,
+    storyUrl: 'https://sun9-18.userapi.com/impg/BDnR2x6xzCaHALJCJ_Ff7922V1w2MZuMXAxcQA/RXFm5mU4CQ0.jpg?size=1080x1920&quality=95&sign=0dbf428dc531f60b535db699c20a205a&type=album',
+    postUrl: 'photo-221991753_457239060',
   },
   {
     name: 'золушка',
@@ -203,6 +221,8 @@ export const results: Iresult[] = [
     ],
     img: zolyshka,
     imgPc: zolyshkaPc,
+    storyUrl: 'https://sun9-79.userapi.com/impg/V8Hig20xYb1g6ZzqGlwyB5fK0-lqkthqjnkdSQ/BHAbA4PMHdk.jpg?size=1080x1920&quality=95&sign=b4b7e4a842e79e01263c0237a02940f8&type=album',
+    postUrl: 'photo-221991753_457239061',
   },
   {
     name: 'женщина-вамп',
@@ -217,6 +237,8 @@ export const results: Iresult[] = [
     ],
     img: vamp,
     imgPc: vampPc,
+    storyUrl: 'https://sun9-77.userapi.com/impg/41k6IJFPl-tu2Vb5gTSjsu8dt6G2DGfA6KcPXw/sJzcO66wyIs.jpg?size=1080x1920&quality=95&sign=67f146a4c5c8d92aa087d72919137de4&type=album',
+    postUrl: 'photo-221991753_457239064',
   },
   {
     name: 'чемпионка',
@@ -231,6 +253,8 @@ export const results: Iresult[] = [
     ],
     img: champion,
     imgPc: championPc,
+    storyUrl: 'https://sun9-26.userapi.com/impg/wKHXivZjxr3-eGDq2PoZ8rMJ2bL3U48goE3Pdw/Z-_LbsAk8gA.jpg?size=1080x1920&quality=95&sign=c48f089f3aa65c0d5cbad659c8a647df&type=album',
+    postUrl: 'photo-221991753_457239065',
   },
   {
     name: 'мать тереза',
@@ -244,6 +268,8 @@ export const results: Iresult[] = [
     ],
     img: mother,
     imgPc: motherPc,
+    storyUrl: 'https://sun9-48.userapi.com/impg/ebLQJOxf3Wf1gm-GSwx424fKqZ03bg63pH02JQ/QVro6JoRBuI.jpg?size=1080x1920&quality=95&sign=942c7e9ba283664d3a57af6501c52279&type=album',
+    postUrl: 'photo-221991753_457239066',
   },
   {
     name: 'фея',
@@ -257,6 +283,8 @@ export const results: Iresult[] = [
     ],
     img: fairy,
     imgPc: fairyPc,
+    storyUrl: 'https://sun9-49.userapi.com/impg/cXVnhZWVES-vv3W-iU8U8danZSKuPh3xnxb8Mg/9ZBeMpTZxe4.jpg?size=1080x1920&quality=95&sign=adfd431b72098d378c74e5675a05422f&type=album',
+    postUrl: 'photo-221991753_457239067',
   },
   {
     name: 'коко шанель',
@@ -270,6 +298,8 @@ export const results: Iresult[] = [
     ],
     img: koko,
     imgPc: kokoPc,
+    storyUrl: 'https://sun9-10.userapi.com/impg/IEeJ3jrEkoBMO4PNOO9pNAe868lSzGC-jeL2vw/tDyKIrzbheg.jpg?size=1080x1920&quality=95&sign=5bcad9f83651e6ea4346371b116c2374&type=album',
+    postUrl: 'photo-221991753_457239068',
   },
   {
     name: 'русалка',
@@ -283,6 +313,8 @@ export const results: Iresult[] = [
     ],
     img: rusalka,
     imgPc: rusalkaPc,
+    storyUrl: 'https://sun9-9.userapi.com/impg/f-0jdJMAo54DejuRKXrCE_L1qBr45iNd81hClg/hd502qmSuP0.jpg?size=1080x1920&quality=95&sign=13174cbdcac3781be8531aebb0b7d972&type=album',
+    postUrl: 'photo-221991753_457239069',
   },
   {
     name: 'бизнес-леди',
@@ -296,6 +328,8 @@ export const results: Iresult[] = [
     ],
     img: businessWomen,
     imgPc: businessWomenPc,
+    storyUrl: 'https://sun9-17.userapi.com/impg/qfKDsbxx4h5R18fsAqiGwk4ixoI9eVqVBZo76w/_2P9Ajvd5YA.jpg?size=1080x1920&quality=95&sign=60b2c4b9440d0ef76224247dcf2e12fd&type=album',
+    postUrl: 'photo-221991753_457239070',
   },
   {
     name: 'скарлетт',
@@ -309,6 +343,8 @@ export const results: Iresult[] = [
     ],
     img: scarlett,
     imgPc: scarlettPc,
+    storyUrl: 'https://sun9-31.userapi.com/impg/AFvU6JLRIG06YUfQmWXzbU2Ijf7k5KCf-YWWNw/_8lfXPQ9RaE.jpg?size=1080x1920&quality=95&sign=b67da626ed81c103b7a969b47e05a1b2&type=album',
+    postUrl: 'photo-221991753_457239071',
   },
   {
     name: 'дульсинея',
@@ -321,6 +357,8 @@ export const results: Iresult[] = [
     ],
     img: dul,
     imgPc: dulPc,
+    storyUrl: 'https://sun9-60.userapi.com/impg/V1e_g_nYlhadJmaCK-IyRXR_mCj-8abal5S9zQ/zWxc3fVbGjM.jpg?size=1080x1920&quality=95&sign=e9ce39581eb11c79636007cf02d2b946&type=album',
+    postUrl: 'photo-221991753_457239072',
   },
   {
     name: 'провинциалка',
@@ -334,6 +372,8 @@ export const results: Iresult[] = [
     ],
     img: provincialka,
     imgPc: provincialkaPc,
+    storyUrl: 'https://sun9-34.userapi.com/impg/AsvjNxLq1ffgzQVXKG5CP_OY8Zsq9alP2pt3sg/Bsnd235lbVA.jpg?size=1080x1920&quality=95&sign=09e87f2fc53f99d35c50d73cedccbdf8&type=album',
+    postUrl: 'photo-221991753_457239073',
   },
   {
     name: 'хозяйка медной горы',
@@ -347,6 +387,8 @@ export const results: Iresult[] = [
     ],
     img: xozayika,
     imgPc: xozayikaPc,
+    storyUrl: 'https://sun9-72.userapi.com/impg/vUKVcgPkKmR0vKgAmTIv7lpVCdUnmv09K1fe3A/bC2BGI4A79c.jpg?size=1080x1920&quality=95&sign=79f89f614c9101035f5d0d9e9969f54d&type=album',
+    postUrl: 'photo-221991753_457239074',
   },
   {
     name: 'бэтмен',
@@ -359,6 +401,8 @@ export const results: Iresult[] = [
     ],
     img: batman,
     imgPc: batmanPc,
+    storyUrl: 'https://sun9-31.userapi.com/impg/LCTkfTSkr4mdDRRlIm-LO-5lUyLAJJn7HRS5Ww/kXlF7kfD9UI.jpg?size=1080x1920&quality=95&sign=1cfe4e3db9f45c06c5f001b71a5e9d60&type=album',
+    postUrl: 'photo-221991753_457239075',
   },
   {
     name: 'добрыня',
@@ -371,6 +415,8 @@ export const results: Iresult[] = [
     ],
     img: dobrynya,
     imgPc: dobrynyaPc,
+    storyUrl: 'https://sun9-74.userapi.com/impg/4m1Z94lk26QY9X5ms9AMqZ8AuqEC_epk2mz9zg/jfsRHDpfGZ8.jpg?size=1080x1920&quality=95&sign=ad8c3b87f958588e3a696f37b4647ccc&type=album',
+    postUrl: 'photo-221991753_457239076',
   },
   {
     name: 'мачо',
@@ -383,18 +429,22 @@ export const results: Iresult[] = [
     ],
     img: macho,
     imgPc: machoPc,
+    storyUrl: 'https://sun9-9.userapi.com/impg/_5b0XcGm-glnDfvwS3h_9gaP_5NyuOnSHEuncg/MP4mVQOWaF4.jpg?size=1080x1920&quality=95&sign=74d88a81c20cf2c1597e9ec48beb0daa&type=album',
+    postUrl: 'photo-221991753_457239077',
   },
   {
     name: 'александр македонский',
     description: '«Пришел, увидел, победил». То про тебя. Ты не любишь проигрывать и все сделаешь, чтобы победить. Это касается всех сфер твоей жизни. И за ценой ты не постоишь. Но вот только цена может быть очень высокой!',
     secret: 'Научись принимать поражения. Они точно будут в твоей жизни. Твой потенциал – долгие, счастливые годы.',
-    problems: 'Кожные заболевания, проблемы с волосами, возможен дисбаланс веса, гинекология, неприятие внешнего вида, проблемы в интимной жизни, цистит.',
+    problems: 'Нарушение сна, кожные заболевания, возможны инфекционные заболевания.',
     recommendations: [
       'Записаться на Чек Ап здоровья 1 раз в 12 месяцев',
       'Записаться к урологу',
     ],
     img: alex,
     imgPc: alexPc,
+    storyUrl: 'https://sun9-30.userapi.com/impg/EQeH35DUEhAqWDZ7CN-tH00ihF2jFL__aMV6Xw/JOmsto6xZUI.jpg?size=1080x1920&quality=95&sign=211f63a952baed765fc1d965248a7bc0&type=album',
+    postUrl: 'photo-221991753_457239078',
   },
   {
     name: 'данко',
@@ -408,6 +458,8 @@ export const results: Iresult[] = [
     ],
     img: danko,
     imgPc: dankoPc,
+    storyUrl: 'https://sun9-63.userapi.com/impg/De_ZlC5NT3E2xdVQ3AbXC8r62c0IrXpp4vl0rA/beZLdL7UF3E.jpg?size=1080x1920&quality=95&sign=0efd00ec5681047d01a70a0df735e107&type=album',
+    postUrl: 'photo-221991753_457239079',
   },
   {
     name: 'тамерлан',
@@ -420,6 +472,8 @@ export const results: Iresult[] = [
     ],
     img: tamerlan,
     imgPc: tamerlanPc,
+    storyUrl: 'https://sun9-41.userapi.com/impg/orfwxqu5BEqVC8ByZyrGdssbz6IUuq1A4fC-3w/vhfCASAj8cE.jpg?size=1080x1920&quality=95&sign=e9d3152e84bb67f56ba414c84f1f3f21&type=album',
+    postUrl: 'photo-221991753_457239080',
   },
   {
     name: 'остап бендер',
@@ -433,6 +487,8 @@ export const results: Iresult[] = [
     ],
     img: bender,
     imgPc: benderPc,
+    storyUrl: 'https://sun9-41.userapi.com/impg/hSQn1P2yaSPL-vkhRhig3zqplPqnZV8BUmQn0A/bCFG9DgD7GQ.jpg?size=1080x1920&quality=95&sign=279450524ad9931c51b06b1962b8e8a5&type=album',
+    postUrl: 'photo-221991753_457239081',
   },
   {
     name: 'ковбой',
@@ -446,6 +502,8 @@ export const results: Iresult[] = [
     ],
     img: cowboy,
     imgPc: cowboyPc,
+    storyUrl: 'https://sun9-69.userapi.com/impg/Byl2fxvR8I0R9DlgRj6vzTkFeN1LwBCN1UZqYQ/uFe3pLa9BIQ.jpg?size=1080x1920&quality=95&sign=3b455306ec6c8d15f6baebb579754e23&type=album',
+    postUrl: 'photo-221991753_457239082',
   },
   {
     name: 'прометей',
@@ -459,6 +517,8 @@ export const results: Iresult[] = [
     ],
     img: prometei,
     imgPc: prometeiPc,
+    storyUrl: 'https://sun9-45.userapi.com/impg/gW7iUGS8x_SYk0AsarTAmQkWndTSHqrnegpcjQ/W6EQkyQ6AxQ.jpg?size=1080x1920&quality=95&sign=2d199131ad5d21eb9465b57930161397&type=album',
+    postUrl: 'photo-221991753_457239083',
   },
   {
     name: 'пожарный',
@@ -472,10 +532,12 @@ export const results: Iresult[] = [
     ],
     img: fair,
     imgPc: fairPc,
+    storyUrl: 'https://sun9-30.userapi.com/impg/YyEYZ98rHjeTrQqwEYCk1eluDh-zxNX_9A7eGw/vYAxugH2kYU.jpg?size=1080x1920&quality=95&sign=ee72d37a298a33b7494a572ae2a16d16&type=album',
+    postUrl: 'photo-221991753_457239084',
   },
   {
     name: 'поддубный',
-    description: 'Ты очень многого добилась. Дом – полная чаша. Но каждый день ты живешь с мыслью, как бы это все сохранить??? Следишь за политическими телеграм-каналами, смотришь на курс валют, опасаешься новых пандемий. Страх за детей и близких часто провоцирует тебя на тотальный контроль всего, что происходит в твоей жизни. И иногда тянет на сладенькое….',
+    description: 'Нет таких трудностей, которые бы тебя страшили. Наоборот, ты рад им. Каждое жизненное испытание для тебя – еще одно доказательство твоей могучей силы! Это вызывает у людей восхищение, а у тебя вызывает с годами большое количество дискомфорта…',
     secret: 'Просто перестань что-то доказывать окружающим. Достаточно того, что тебя любят твои близкие, и они верят в твою силу!',
     problems: 'Сердце, нервная система, раннее облысение, потенция.',
     recommendations: [
@@ -485,6 +547,8 @@ export const results: Iresult[] = [
     ],
     img: dub,
     imgPc: dubPc,
+    storyUrl: 'https://sun9-62.userapi.com/impg/NlyScfZyo7SjA3n6OzFZ6ixJLYaFz1hTq8nIIQ/QAM7GeYl02M.jpg?size=1080x1920&quality=95&sign=f110a610ef617426ab986316fac891d8&type=album',
+    postUrl: 'photo-221991753_457239085',
   },
   {
     name: 'скрудж макдак',
@@ -498,6 +562,8 @@ export const results: Iresult[] = [
     ],
     img: skrudj,
     imgPc: skrudjPc,
+    storyUrl: 'https://sun9-40.userapi.com/impg/7Scgln3jCzpq-qcC5OkG8N2w2vinactvcN-5jw/rv4ZpdY_hJ8.jpg?size=1080x1920&quality=95&sign=e1ac033fed833b187d7ba90a76d1b7fa&type=album',
+    postUrl: 'photo-221991753_457239086',
   },
   {
     name: 'черчилль',
@@ -511,6 +577,8 @@ export const results: Iresult[] = [
     ],
     img: cherchill,
     imgPc: cherchillPc,
+    storyUrl: 'https://sun9-29.userapi.com/impg/vVjqXi8ni5nihfs_MtSt5GEGGAoARx-ih1-Mmw/Givw9CqnmMU.jpg?size=1080x1920&quality=95&sign=079d38cf20806d70d96fc325ef60fc47&type=album',
+    postUrl: 'photo-221991753_457239087',
   },
   {
     name: 'мэрилин монро',
@@ -524,6 +592,8 @@ export const results: Iresult[] = [
     ],
     img: merlin,
     imgPc: merlinPc,
+    storyUrl: 'https://sun9-1.userapi.com/impg/Twhcbv60ZB-BStE6LFh95WTrimO5uSS4YAg-WA/smMvs3FJ58s.jpg?size=1080x1920&quality=95&sign=6e7bcb4249f3689c68f5ce55afdc2c2b&type=album',
+    postUrl: 'photo-221991753_457239062',
   },
 
   {
@@ -538,5 +608,7 @@ export const results: Iresult[] = [
     ],
     img: imperator,
     imgPc: imperatorPc,
+    storyUrl: 'https://sun9-16.userapi.com/impg/oCgtT1pfKbkVGdm2gSx6o9SojZ08TSlhtm-LQQ/v2ihx7se36E.jpg?size=1080x1920&quality=95&sign=6059abf1f307f4920b2ee9722ffa7958&type=album',
+    postUrl: 'photo-221991753_457239063',
   },
 ]

@@ -267,7 +267,6 @@ export const testSlice = createSlice({
       state.step += 1;
     },
     minusStep: (state) => {
-      if (state.questions.length === 0) return
       state.answers.pop()
       state.step -= 1;
     },
@@ -275,6 +274,7 @@ export const testSlice = createSlice({
       state.step = 0
       state.answers = []
       state.result = results[0]
+      state.questions = questions
     },
     getResult: (state) => {
       const a = state.answers

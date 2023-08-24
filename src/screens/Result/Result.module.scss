@@ -57,6 +57,7 @@
   width: 100%;
   border-radius: 11px;
   margin-top: 10px;
+  @include none-select;
 }
 
 .name_block {
@@ -91,7 +92,6 @@
   border: none;
   padding: 35px 17px 10px 17px;
   margin-top: -30px;
-
   @include _360 {
     padding: 40px 17px 30px 17px;
   }
@@ -108,11 +108,15 @@
   line-height: 18px;
   text-align: center;
   color: var(--color-white);
-
+  @include none-select;
   @include _800 {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 12.5px;
+    line-height: 14px;
   }
+}
+
+.block {
+  @include none-select;
 }
 
 .btns {
