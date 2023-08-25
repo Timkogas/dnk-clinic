@@ -1,13 +1,16 @@
+import { doctors } from './../doctors';
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import { useDispatch } from 'react-redux'
 import { testSlice } from "./test/test.slice"
 import { userSlice } from "./user/user.slice"
+import { doctorsSlice } from './doctors/doctors.slice';
 
 const makeStore = () => {
     return configureStore({
         reducer: {
             test: testSlice.reducer,
-            user: userSlice.reducer
+            user: userSlice.reducer,
+            doctors: doctorsSlice.reducer
         }
     })
 }

@@ -22,7 +22,7 @@ const Info = () => {
           <Logo subtitle />
 
           <div>
-            <p className={styles.title}>Единый контактный центр</p>
+            <TextBorder className={styles.title} text='Единый контактный центр' theme={ThemeTextBorder.GREENBLUE} center></TextBorder>
             <Bubble className={styles.info_bubble}>
               <div className={styles.info}>
                 <img src={phone} alt='icon' className={styles.icon} />
@@ -51,7 +51,7 @@ const Info = () => {
 
 
           </div>
-          <p className={styles.title}>Скачайте наше приложение</p>
+          <TextBorder className={styles.title} text='Скачайте наше приложение' theme={ThemeTextBorder.GREENBLUE} center></TextBorder>
           <div className={styles.markets}>
             <img src={google} alt='google' className={styles.market} />
             <img src={apple} alt='apple' className={styles.market} />

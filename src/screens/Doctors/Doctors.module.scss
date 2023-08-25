@@ -106,13 +106,15 @@
   background: #F8F8F8;
   border: none;
   box-shadow: none;
-  padding: 10px 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .bubble_img {
-  width: 80%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .name {
@@ -124,7 +126,7 @@
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 80%;
+  width: 93%;
 
   @include _800 {
     font-size: 14px;

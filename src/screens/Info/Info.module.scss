@@ -31,12 +31,10 @@
 
 
 .title {
-  font-family:'CeraRoundPro-Medium';
-  font-size: 20px;
-  color: var(--color-white);
+  font-size: 16px;
   margin-bottom: 10px;
   @include _800  {
-    font-size: 22px;
+    font-size: 19px;
     margin-bottom: 10px;
   }
 }
@@ -46,6 +44,7 @@
   box-shadow: none;
   border: none;
   margin-bottom: 10px;
+
 
   font-family:'CeraRoundPro-Medium';
   color: #8DD2DE;

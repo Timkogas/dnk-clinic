@@ -1,5 +1,5 @@
 @import "../../../assets/styles/media_mixins.scss";
-
+@import "../../../assets/styles/mixins.scss";
 .button {
   width: 100%;
   display: flex;
@@ -12,7 +12,7 @@
   letter-spacing: 0em;
   text-transform: uppercase;
   text-align: center;
-
+  @include none-select;
   @include _360 {
     padding: 5px 0;
     font-size: 17px;

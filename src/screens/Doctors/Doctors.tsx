@@ -3,12 +3,13 @@ import styles from './Doctors.module.scss'
 import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
 import Select from '../../components/UI/Select/Select';
-import { useState, useCallback, useMemo } from 'react';
-import doctorImg from '../../assets/images/doctors/1.png'
+import { useState, useCallback } from 'react';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { doctors } from '../../doctors';
 
 const options = [
+  { text: 'Все врачи', value: '' },
   { text: 'Терапевт', value: 'Терапевт' },
   { text: 'Акушер-гинеколог', value: 'Акушер-гинеколог' },
   { text: 'Акушер-гинеколог', value: 'Акушер-гинеколог' },
@@ -27,26 +28,10 @@ const Doctors = () => {
     setType(value);
   }, [])
 
-  const list = useMemo(() => {
-    if (type === 'Терапевт') {
-      return [
-        { name: 'Иванова Ивана Ивановна', img: doctorImg },
-        { name: 'Иванова Ивана Ивановна', img: doctorImg },
-        { name: 'Иванова Ивана Ивановна', img: doctorImg },
-        { name: 'Иванова Ивана Ивановна', img: doctorImg },
-      ]
-    } else if (type === 'Акушер-гинеколог') {
-      return [
-        { name: 'Иванова Ивана Ивановна', img: doctorImg },
-        { name: 'Иванова Ивана Ивановна', img: doctorImg }
-      ]
-    }
-  }, [type])
-
   const navigate = useNavigate();
 
-  const onMore = useCallback(() => {
-    navigate("/doctors/1");
+  const onMore = useCallback((id: number) => {
+    navigate(`/doctors/${id}`);
   }, [navigate])
 
   return (
@@ -65,14 +50,14 @@ const Doctors = () => {
                 <>
                   <p className={styles.subtitle}>{type}</p>
                   <div className={styles.list}>
-                    {list?.map((element, i) => {
+                    {doctors?.map((el, i) => {
                       return (
-                        <Bubble className={styles.bubble_card} key={i}>
+                        <Bubble className={styles.bubble_card} key={el.id}>
                           <Bubble className={styles.bubble_img_wrapper}>
-                            <img src={element.img} alt='doctor' className={styles.bubble_img} />
+                            <img src={el.img} alt='doctor' className={styles.bubble_img} />
                           </Bubble>
-                          <p className={styles.name}>{element.name}</p>
-                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={onMore} />
+                          <p className={styles.name}>{el.name}</p>
+                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el.id) }} />
                         </Bubble>
                       )
                     })}
@@ -82,47 +67,23 @@ const Doctors = () => {
                 <>
                   <p className={styles.subtitle}>Терапевт</p>
                   <div className={styles.list}>
-                    <Bubble className={styles.bubble_card}>
-                      <Bubble className={styles.bubble_img_wrapper}>
-                        <img src={doctorImg} alt='doctor' className={styles.bubble_img} />
-                      </Bubble>
-                      <p className={styles.name}>Иванова Ивана Ивановна</p>
-                      <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={onMore} />
-                    </Bubble>
 
-                    <Bubble className={styles.bubble_card}>
-                      <Bubble className={styles.bubble_img_wrapper}>
-                        <img src={doctorImg} alt='doctor' className={styles.bubble_img} />
-                      </Bubble>
-                      <p className={styles.name}>Иванова Ивана Ивановна</p>
-                      <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={onMore} />
-                    </Bubble>
+                    {doctors?.map((el, i) => {
+                      return (
+                        <Bubble className={styles.bubble_card} key={el.id}>
+                          <Bubble className={styles.bubble_img_wrapper}>
+                            <img src={el.img} alt='doctor' className={styles.bubble_img} />
+                          </Bubble>
+                          <p className={styles.name}>{el.name}</p>
+                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el.id) }} />
+                        </Bubble>
+                      )
+                    })}
                     <div>
 
                     </div>
                   </div>
 
-                  <p className={styles.subtitle}>Акушер-гинеколог</p>
-                  <div className={styles.list}>
-                    <Bubble className={styles.bubble_card}>
-                      <Bubble className={styles.bubble_img_wrapper}>
-                        <img src={doctorImg} alt='doctor' className={styles.bubble_img} />
-                      </Bubble>
-                      <p className={styles.name}>Иванова Ивана Ивановна</p>
-                      <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={onMore} />
-                    </Bubble>
-
-                    <Bubble className={styles.bubble_card}>
-                      <Bubble className={styles.bubble_img_wrapper}>
-                        <img src={doctorImg} alt='doctor' className={styles.bubble_img} />
-                      </Bubble>
-                      <p className={styles.name}>Иванова Ивана Ивановна</p>
-                      <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={onMore} />
-                    </Bubble>
-                    <div>
-
-                    </div>
-                  </div>
                 </>
 
               }
