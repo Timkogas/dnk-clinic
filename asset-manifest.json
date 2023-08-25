@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.c3958821.css",
-    "main.js": "/dnk-clinic/static/js/main.714a2780.js",
+    "main.css": "/dnk-clinic/static/css/main.465a8ec2.css",
+    "main.js": "/dnk-clinic/static/js/main.7c39966b.js",
     "static/media/princess.png": "/dnk-clinic/static/media/princess.ce097884f0c2cfd2a209.png",
     "static/media/fairy.png": "/dnk-clinic/static/media/fairy.1dea637a8801d08e6236.png",
     "static/media/zolyshka.png": "/dnk-clinic/static/media/zolyshka.abdaf7ee4cfab00966c6.png",
@@ -40,6 +40,7 @@
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
     "static/media/princess-pc.png": "/dnk-clinic/static/media/princess-pc.164b96d576c1239b314e.png",
     "static/media/fairy-pc.png": "/dnk-clinic/static/media/fairy-pc.ca07c3c6030683eeb085.png",
+    "static/media/1.png": "/dnk-clinic/static/media/1.b4f78850859a67acee2c.png",
     "static/media/dobrynya-pc.png": "/dnk-clinic/static/media/dobrynya-pc.2bc81f9f468210596062.png",
     "static/media/provincialka-pc.png": "/dnk-clinic/static/media/provincialka-pc.77a6b468509d519732b2.png",
     "static/media/scarlett-pc.png": "/dnk-clinic/static/media/scarlett-pc.641e60520d194c9a6f13.png",
@@ -78,7 +79,6 @@
     "static/media/mother-pc.png": "/dnk-clinic/static/media/mother-pc.2644ebed5fb2e40a20e7.png",
     "static/media/prometei-pc.png": "/dnk-clinic/static/media/prometei-pc.ef58f86ec0a7718dbf52.png",
     "static/media/dumovochka-pc.png": "/dnk-clinic/static/media/dumovochka-pc.10f2bb506aca0bfcce20.png",
-    "static/media/1.png": "/dnk-clinic/static/media/1.7c5abf16118664a7db32.png",
     "static/media/bg-test.png": "/dnk-clinic/static/media/bg-test.d15c6c7aec372cac1c89.png",
     "static/media/bg-secret.png": "/dnk-clinic/static/media/bg-secret.fad3856dca69dfac4995.png",
     "static/media/bg-test-pc.png": "/dnk-clinic/static/media/bg-test-pc.e2a0a78ffef941141144.png",
@@ -96,11 +96,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.c3958821.css.map": "/dnk-clinic/static/css/main.c3958821.css.map",
-    "main.714a2780.js.map": "/dnk-clinic/static/js/main.714a2780.js.map"
+    "main.465a8ec2.css.map": "/dnk-clinic/static/css/main.465a8ec2.css.map",
+    "main.7c39966b.js.map": "/dnk-clinic/static/js/main.7c39966b.js.map"
   },
   "entrypoints": [
-    "static/css/main.c3958821.css",
-    "static/js/main.714a2780.js"
+    "static/css/main.465a8ec2.css",
+    "static/js/main.7c39966b.js"
   ]
 }
