@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.465a8ec2.css",
-    "main.js": "/dnk-clinic/static/js/main.7c39966b.js",
+    "main.css": "/dnk-clinic/static/css/main.11084e6f.css",
+    "main.js": "/dnk-clinic/static/js/main.fa55721c.js",
     "static/media/princess.png": "/dnk-clinic/static/media/princess.ce097884f0c2cfd2a209.png",
     "static/media/fairy.png": "/dnk-clinic/static/media/fairy.1dea637a8801d08e6236.png",
     "static/media/zolyshka.png": "/dnk-clinic/static/media/zolyshka.abdaf7ee4cfab00966c6.png",
@@ -38,13 +38,22 @@
     "static/media/mother.png": "/dnk-clinic/static/media/mother.0970802bba325ae6304e.png",
     "static/media/dumovochka.png": "/dnk-clinic/static/media/dumovochka.0023c8a9f0ccf72a6db9.png",
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
+    "static/media/ElenaV.png": "/dnk-clinic/static/media/ElenaV.31e3d4e5e8d49c73d904.png",
+    "static/media/MarinaY.png": "/dnk-clinic/static/media/MarinaY.45d067f673462bc2c730.png",
+    "static/media/OlgaA.png": "/dnk-clinic/static/media/OlgaA.81b44a2a03384e4579d4.png",
+    "static/media/NataliV.png": "/dnk-clinic/static/media/NataliV.9a375ac9a1cb906354ed.png",
+    "static/media/ElenaG.png": "/dnk-clinic/static/media/ElenaG.b350f7eadac84cfa4a48.png",
+    "static/media/TatianaB.png": "/dnk-clinic/static/media/TatianaB.499a9c18383d62f85579.png",
+    "static/media/KseniaI.png": "/dnk-clinic/static/media/KseniaI.052d0cb1a70153bc2e9b.png",
     "static/media/princess-pc.png": "/dnk-clinic/static/media/princess-pc.164b96d576c1239b314e.png",
     "static/media/fairy-pc.png": "/dnk-clinic/static/media/fairy-pc.ca07c3c6030683eeb085.png",
-    "static/media/1.png": "/dnk-clinic/static/media/1.b4f78850859a67acee2c.png",
+    "static/media/ElenaS.png": "/dnk-clinic/static/media/ElenaS.b4f78850859a67acee2c.png",
     "static/media/dobrynya-pc.png": "/dnk-clinic/static/media/dobrynya-pc.2bc81f9f468210596062.png",
     "static/media/provincialka-pc.png": "/dnk-clinic/static/media/provincialka-pc.77a6b468509d519732b2.png",
     "static/media/scarlett-pc.png": "/dnk-clinic/static/media/scarlett-pc.641e60520d194c9a6f13.png",
     "static/media/zolyshka-pc.png": "/dnk-clinic/static/media/zolyshka-pc.5b2ad9fdfed014f7b30e.png",
+    "static/media/NikolaiS.png": "/dnk-clinic/static/media/NikolaiS.9ff3b57d9cba82c7fbc8.png",
+    "static/media/IvanI.png": "/dnk-clinic/static/media/IvanI.98fbfbec91f9f562064f.png",
     "static/media/rusalka-pc.png": "/dnk-clinic/static/media/rusalka-pc.8857cb7ab8f6b19afd04.png",
     "static/media/CeraRoundPro-Bold.otf": "/dnk-clinic/static/media/CeraRoundPro-Bold.20247302b83f7510d60b.otf",
     "static/media/fair-pc.png": "/dnk-clinic/static/media/fair-pc.df3bb4ed0161f7b127ed.png",
@@ -96,11 +105,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.465a8ec2.css.map": "/dnk-clinic/static/css/main.465a8ec2.css.map",
-    "main.7c39966b.js.map": "/dnk-clinic/static/js/main.7c39966b.js.map"
+    "main.11084e6f.css.map": "/dnk-clinic/static/css/main.11084e6f.css.map",
+    "main.fa55721c.js.map": "/dnk-clinic/static/js/main.fa55721c.js.map"
   },
   "entrypoints": [
-    "static/css/main.465a8ec2.css",
-    "static/js/main.7c39966b.js"
+    "static/css/main.11084e6f.css",
+    "static/js/main.fa55721c.js"
   ]
 }
