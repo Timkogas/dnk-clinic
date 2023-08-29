@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.064d896a.css",
+    "main.css": "/dnk-clinic/static/css/main.8234edc6.css",
     "main.js": "/dnk-clinic/static/js/main.f60257a3.js",
     "static/media/princess.png": "/dnk-clinic/static/media/princess.ce097884f0c2cfd2a209.png",
     "static/media/fairy.png": "/dnk-clinic/static/media/fairy.1dea637a8801d08e6236.png",
@@ -105,11 +105,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.400c6e220b0574e34cb2985e65de874d.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2486e4c1f952a935988421116905fb51.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.5fec2cd8bd08bf32fb33ec73b3b6bcf4.svg",
-    "main.064d896a.css.map": "/dnk-clinic/static/css/main.064d896a.css.map",
+    "main.8234edc6.css.map": "/dnk-clinic/static/css/main.8234edc6.css.map",
     "main.f60257a3.js.map": "/dnk-clinic/static/js/main.f60257a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.064d896a.css",
+    "static/css/main.8234edc6.css",
     "static/js/main.f60257a3.js"
   ]
 }
