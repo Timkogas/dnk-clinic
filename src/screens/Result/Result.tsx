@@ -4,12 +4,15 @@ import Logo from '../../components/UI/Logo/Logo';
 import styles from './Result.module.scss'
 import Bubble from '../../components/Bubble/Bubble';
 import Modal from '../../components/UI/Modal/Modal';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../../store/store';
 import { getResult } from '../../store/test/test.slice';
 import bridge from '@vkontakte/vk-bridge';
+import classNames from 'classnames';
+
+
 const Result = () => {
 
   const navigate = useNavigate()
@@ -18,6 +21,25 @@ const Result = () => {
 
   const [modal, setModal] = useState<boolean>(false)
   const [PC, setPC] = useState<boolean>(false)
+
+  const [isTrimmed, setIsTrimmed] = useState(false);
+  const textRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      const { current } = textRef;
+      if (current.scrollHeight === current.offsetHeight) {
+        setIsTrimmed(true);
+      }
+    }
+  }, []);
+
+
+  const handleShowMore = () => {
+    if (textRef.current) {
+      setIsTrimmed(true);
+    }
+  };
 
   useEffect(() => {
     dispatch(getResult())
@@ -96,18 +118,16 @@ const Result = () => {
       },
     }).catch(() => console.log('error'))
   }
-
-
+  console.log(isTrimmed)
   return (
     <>
       <Modal isOpen={modal} onClose={onClose}>
         <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline} className={styles.modal_title} />
         <div className={styles.modal_btns}>
-          <Button theme={ThemeButton.BLUE} text='в сторис' className={styles.modal_btn} onClick={onStory}/>
+          <Button theme={ThemeButton.BLUE} text='в сторис' className={styles.modal_btn} onClick={onStory} />
           <Button theme={ThemeButton.BLUE} text='на стену' className={styles.modal_btn} onClick={onWall} />
         </div>
       </Modal>
-
       <div className={styles.bg}>
         <div className={styles.screen}>
           <Logo subtitle />
@@ -119,8 +139,23 @@ const Result = () => {
                 <TextBorder text={result.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
               </div>
             </div>
-            <Bubble className={styles.info_bubble}>
-              <p className={styles.info}>{result.description}</p>
+            <Bubble className={classNames(styles.info_bubble, {[styles.info_bubble_expanded]: isTrimmed})}>
+              <div
+                className={classNames(styles.info_wrapper, {[styles.info_bubble_expanded]: isTrimmed})}
+                ref={textRef}
+              >
+                <p className={styles.info}>
+                  {result.description}
+                </p>
+              </div>
+              {!isTrimmed ?
+                <span
+                  className={styles.link}
+                  onClick={handleShowMore}
+                >
+                  Узнать больше
+                </span> : null
+              }
             </Bubble>
           </div>
           <div className={styles.btns}>

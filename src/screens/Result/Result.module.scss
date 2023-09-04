@@ -58,13 +58,15 @@
   border-radius: 11px;
   margin-top: 10px;
   @include none-select;
+  position: relative;
+  z-index: 1;
 }
 
 .name_block {
   position: absolute;
   bottom: 4px;
   width: 100%;
-  height: 38px;
+  height: 14%;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -90,29 +92,76 @@
 .info_bubble {
   box-shadow: none;
   border: none;
-  padding: 35px 17px 10px 17px;
+  padding: 35px 17px 15px 17px;
   margin-top: -30px;
+  height: 23vh;
+  position: relative;
+
   @include _360 {
-    padding: 40px 17px 30px 17px;
+    padding: 40px 17px 15px 17px;
   }
 
   @include _800 {
-    height: 184px;
-    padding: 40px 9px 10px 9px;
+    padding: 40px 9px 15px 9px;
   }
 }
 
 .info {
   font-family: 'CeraRoundPro-Regular';
-  font-size: 15px;
+  font-size: 18px;
   line-height: 18px;
   text-align: center;
   color: var(--color-white);
+
   @include none-select;
-  @include _800 {
-    font-size: 12.5px;
-    line-height: 14px;
+
+  &_wrapper {
+    height: 15vh;
+    overflow: hidden;
+    position: relative;
+
   }
+
+  @include _800 {
+    font-size: 15px;
+    line-height: 15px;
+  }
+}
+
+.link {
+  position: absolute;
+  bottom: 0px;
+  font-family: 'CeraRoundPro-Regular';
+  font-size: 17px;
+  line-height: 16px;
+
+  color: var(--color-white);
+  cursor: pointer;
+  right: 50%;
+  transform: translateX(50%);
+  width: 100%;
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  text-decoration: underline;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -39px;
+    width: 100%;
+    height: 40px;
+    // background: linear-gradient(to bottom, transparent 0%, red 20%, red 40%);
+    background-image: linear-gradient(to bottom, rgba(2, 112, 132, 0.2), rgba(2, 112, 132, 1));;
+  }
+
+  background-color: var(--color-greenblue);
+  border-radius: 0 0 10px 10px;
+}
+
+.info_bubble_expanded {
+  height: max-content;
 }
 
 .block {

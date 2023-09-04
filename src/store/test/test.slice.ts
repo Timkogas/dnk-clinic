@@ -35,11 +35,11 @@ const questions: Iquestion[] = [
   },
   {
     question: 'Во сколько вы ели вчера последний раз?',
-    options: [{ text: 'После 20:00', value: 1 }, { text: 'До 19:00', value: 2 }, { text: 'После 19:00', value: 3 }]
+    options: [{ text: 'После 20:00', value: 1 }, { text: 'До 19:00', value: 2 }, { text: 'Не помню', value: 3 }]
   },
   {
     question: 'Когда вы последний раз употребляли алкоголь?',
-    options: [{ text: '3 дня назад', value: 1 }, { text: 'Неделю назад', value: 2 }, { text: 'Не помню, давно', value: 3 }, { text: 'Вчера', value: 4 }]
+    options: [{ text: '3 дня назад', value: 1 }, { text: 'Неделю назад', value: 2 }, { text: 'Не помню, давно', value: 3 }, { text: 'Вчера', value: 4 }, { text: 'Никогда', value: 5 }]
   },
   {
     question: 'Когда последний раз вы проходили профилактический медосмотр? ',
@@ -191,6 +191,7 @@ const mapOptions: { [key: string]: number } = {
   'Б': 2,
   'В': 3,
   'Г': 4,
+  'Д': 5,
 }
 
 const isMatching = (answers: string, userAnswers: number[], circle: number = 0): boolean => {
