@@ -11,10 +11,13 @@ import styles from './Test.module.scss'
 import { useCallback, useState, useEffect } from 'react'
 import { minusStep, plusStep, resetSteps } from '../../store/test/test.slice';
 import { useNavigate } from 'react-router-dom';
+import { calculateAge } from '../../helpers';
 
 const Test = () => {
 
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
+  const { user } = useSelector((state: AppState) => state.user, shallowEqual)
+
   const dispatch: AppDispatch = useDispatch()
 
   const navigate = useNavigate();
@@ -27,6 +30,10 @@ const Test = () => {
   useEffect(() => {
     dispatch(resetSteps())
   }, [dispatch])
+
+  useEffect(() => {
+    setAge(user.bdate ? user.bdate?.length > 6 ? calculateAge(user.bdate).toString() : '' : '',)
+  }, [user])
 
 
   useEffect(() => {
@@ -53,7 +60,7 @@ const Test = () => {
 
   const onChangeAge = useCallback((value: string) => {
     const result = value.replace(/\D/g, '')
-    if (result.length > 4) return
+    if (result.length > 3) return
     setAge(result)
   }, [])
 

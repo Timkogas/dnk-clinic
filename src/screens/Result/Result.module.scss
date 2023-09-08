@@ -116,10 +116,9 @@
   @include none-select;
 
   &_wrapper {
-    height: 15vh;
+    height: calc(23vh - 32px - 15px);
     overflow: hidden;
     position: relative;
-
   }
 
   @include _800 {
@@ -153,7 +152,8 @@
     width: 100%;
     height: 40px;
     // background: linear-gradient(to bottom, transparent 0%, red 20%, red 40%);
-    background-image: linear-gradient(to bottom, rgba(2, 112, 132, 0.2), rgba(2, 112, 132, 1));;
+    background-image: linear-gradient(to bottom, rgba(2, 112, 132, 0.2), rgba(2, 112, 132, 1));
+    ;
   }
 
   background-color: var(--color-greenblue);
@@ -173,6 +173,11 @@
   flex-direction: column;
   margin-top: 10px;
   gap: 10px;
+
+  &_second {
+    display: flex;
+    gap: 10px
+  }
 
 }
 

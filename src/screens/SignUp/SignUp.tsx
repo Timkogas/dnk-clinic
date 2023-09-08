@@ -8,6 +8,8 @@ import { useState, useCallback, useEffect } from 'react'
 import Select from '../../components/UI/Select/Select';
 import { AppState } from '../../store/store';
 import { shallowEqual, useSelector } from 'react-redux';
+import { calculateAge } from '../../helpers';
+import bridge from '@vkontakte/vk-bridge';
 
 interface Iform {
   name: string;
@@ -21,7 +23,7 @@ interface Iform {
 const SignUp = () => {
 
   const { user } = useSelector((state: AppState) => state.user, shallowEqual)
-  console.log(user)
+
   const [data, setData] = useState<Iform>(
     {
       name: '',
@@ -34,10 +36,26 @@ const SignUp = () => {
   )
 
   useEffect(() => {
+    bridge.send('VKWebAppGetPhoneNumber')
+      .then((data) => {
+        if (data.phone_number) {
+          setData(prevData => ({
+            ...prevData,
+            phone: data.phone_number.toString()
+          }));
+        }
+      })
+      .catch((error) => {
+        // Ошибка
+        console.log(error);
+      });
+  }, [])
+
+  useEffect(() => {
     setData({
       name: user?.first_name ? user?.first_name : '',
       secondName: user?.last_name ? user?.last_name : '',
-      age: '',
+      age: user.bdate ? user.bdate?.length > 6 ? calculateAge(user.bdate).toString() : '' : '',
       place: user?.city?.title ? user?.city?.title : '',
       phone: '',
       sex: user.sex ? user.sex === 1 ? 'женский' : 'мужской' : 'мужской',
@@ -46,7 +64,7 @@ const SignUp = () => {
 
   const onChangeAge = useCallback((value: string) => {
     const result = value.replace(/\D/g, '')
-    if (result.length > 4) return
+    if (result.length > 3) return
     setData(prevData => ({
       ...prevData,
       age: result
@@ -98,13 +116,13 @@ const SignUp = () => {
             <TextBorder text='записаться' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
 
             <Bubble className={styles.signup_bubble}>
-              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input}/>
-              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input}/>
-              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input}/>
-              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} className={styles.input}/>
-              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input}/>
+              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input} />
+              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input} />
+              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} />
+              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} className={styles.input} />
+              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
 
-              <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input}/>
+              <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 
               <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
             </Bubble>

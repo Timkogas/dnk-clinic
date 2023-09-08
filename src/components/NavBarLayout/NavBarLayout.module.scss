@@ -16,9 +16,9 @@
 }
 
 .content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Задаем 4 колонки с равной шириной */
+
 
   @include _360 {
     padding-left: var(--containter-padding);

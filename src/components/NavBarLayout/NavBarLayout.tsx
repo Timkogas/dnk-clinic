@@ -34,7 +34,7 @@ const NavBarLayout = () => {
           <NavLink to='/info' className={({ isActive }) => (isActive ||  window.location.href.includes('secret')  ? styles.link : classNames(styles.inactive, styles.link) )}>
             <img src={info} alt='icon' className={styles.icon} />
             <span className={styles.link_text}>
-              Информация о клинике
+              Информация
             </span>
           </NavLink>
 

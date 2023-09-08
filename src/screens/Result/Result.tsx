@@ -97,6 +97,10 @@ const Result = () => {
     navigate('/secret')
   }, [navigate])
 
+  const onRepeat = useCallback(() => {
+    navigate('/test')
+  }, [navigate])
+
 
   const onWall = () => {
     const name = result.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
@@ -118,7 +122,7 @@ const Result = () => {
       },
     }).catch(() => console.log('error'))
   }
-  console.log(isTrimmed)
+
   return (
     <>
       <Modal isOpen={modal} onClose={onClose}>
@@ -139,9 +143,9 @@ const Result = () => {
                 <TextBorder text={result.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
               </div>
             </div>
-            <Bubble className={classNames(styles.info_bubble, {[styles.info_bubble_expanded]: isTrimmed})}>
+            <Bubble className={classNames(styles.info_bubble, { [styles.info_bubble_expanded]: isTrimmed })}>
               <div
-                className={classNames(styles.info_wrapper, {[styles.info_bubble_expanded]: isTrimmed})}
+                className={classNames(styles.info_wrapper, { [styles.info_bubble_expanded]: isTrimmed })}
                 ref={textRef}
               >
                 <p className={styles.info}>
@@ -159,8 +163,12 @@ const Result = () => {
             </Bubble>
           </div>
           <div className={styles.btns}>
-            <Button theme={ThemeButton.BLUE} text='поделиться' onClick={onOpen} />
             <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' onClick={onNext} />
+            <div className={styles.btns_second}>
+              <Button theme={ThemeButton.BLUE} text='поделиться' onClick={onOpen} />
+              <Button theme={ThemeButton.BLUE} text='пройти заново' onClick={onRepeat} />
+            </div>
+
           </div>
         </div>
       </div>
