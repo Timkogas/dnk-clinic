@@ -130,7 +130,7 @@ const Result = () => {
 
 
   const onWall = () => {
-    if (archetype) {
+    if (archetypeUse) {
       const name = archetypeUse.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
       const message = `Мой архетип здоровья: ${name} \n\n ${archetypeUse.description}`;
       bridge.send('VKWebAppShowWallPostBox', {
@@ -141,7 +141,7 @@ const Result = () => {
   }
 
   const onStory = () => {
-    if (archetype) {
+    if (archetypeUse) {
       bridge.send('VKWebAppShowStoryBox', {
         background_type: 'image',
         url: archetypeUse.storyUrl,
