@@ -11,16 +11,35 @@ import { AppDispatch, AppState } from '../../store/store';
 import { getResult } from '../../store/test/test.slice';
 import bridge from '@vkontakte/vk-bridge';
 import classNames from 'classnames';
+import { archetypeUser } from '../../store/user/user.slice';
+import { Iresult } from '../../results';
+
+import paris from '../../assets/images/paris.png'
+import parisPC from '../../assets/images/paris-pc.png'
 
 
 const Result = () => {
 
   const navigate = useNavigate()
   const { result } = useSelector((state: AppState) => state.test, shallowEqual)
+  const { user, archetype, archetypeEmpty } = useSelector((state: AppState) => state.user, shallowEqual)
+
+
+
   const dispatch: AppDispatch = useDispatch()
 
   const [modal, setModal] = useState<boolean>(false)
   const [PC, setPC] = useState<boolean>(false)
+
+  let img
+  let archetypeUse: Iresult
+  if (archetype) {
+    archetypeUse = archetype
+    img = PC ? process.env.REACT_APP_API_URL + 'public/results/' + archetype.imgPc + '.png' : process.env.REACT_APP_API_URL + 'public/results/' + archetype.img + '.png'
+  } else {
+    archetypeUse = archetypeEmpty
+    img = PC ? parisPC : paris
+  }
 
   const [isTrimmed, setIsTrimmed] = useState(false);
   const textRef = useRef<HTMLDivElement | null>(null);
@@ -33,6 +52,14 @@ const Result = () => {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (user.id && result) {
+      dispatch(archetypeUser({ uid: user.id.toString(), archetype: result }))
+    } else {
+      dispatch(archetypeUser({ uid: '1', archetype: 'парижанка' }))
+    }
+  }, [user.id, result, dispatch]);
 
 
   const handleShowMore = () => {
@@ -103,28 +130,33 @@ const Result = () => {
 
 
   const onWall = () => {
-    const name = result.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
-    const message = `Мой архетип здоровья: ${name} \n\n ${result.description}`;
-    bridge.send('VKWebAppShowWallPostBox', {
-      message: message,
-      attachments: `${result.postUrl}, https://vk.com/app51725961`
-    }).catch(() => console.log('error'))
+    if (archetype) {
+      const name = archetypeUse.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
+      const message = `Мой архетип здоровья: ${name} \n\n ${archetypeUse.description}`;
+      bridge.send('VKWebAppShowWallPostBox', {
+        message: message,
+        attachments: `${archetypeUse.postUrl}, https://vk.com/app51725961`
+      }).catch(() => console.log('error'))
+    }
   }
 
   const onStory = () => {
-    bridge.send('VKWebAppShowStoryBox', {
-      background_type: 'image',
-      url: result.storyUrl,
-      attachment: {
-        text: 'open',
-        type: 'url',
-        url: 'https://vk.com/app51725961',
-      },
-    }).catch(() => console.log('error'))
+    if (archetype) {
+      bridge.send('VKWebAppShowStoryBox', {
+        background_type: 'image',
+        url: archetypeUse.storyUrl,
+        attachment: {
+          text: 'open',
+          type: 'url',
+          url: 'https://vk.com/app51725961',
+        },
+      }).catch(() => console.log('error'))
+    }
   }
 
   return (
     <>
+
       <Modal isOpen={modal} onClose={onClose}>
         <TextBorder text='поделится результатом' center theme={ThemeTextBorder.GREENBLUE} outlineClass={styles.modal_title_outline} className={styles.modal_title} />
         <div className={styles.modal_btns}>
@@ -137,30 +169,37 @@ const Result = () => {
           <Logo subtitle />
           <div className={styles.block}>
             <TextBorder text='твой архетип здоровья' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
-            <div className={styles.img_block}>
-              <img alt='result' src={PC ? result.imgPc : result.img} className={styles.img} />
-              <div className={styles.name_block}>
-                <TextBorder text={result.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
-              </div>
-            </div>
-            <Bubble className={classNames(styles.info_bubble, { [styles.info_bubble_expanded]: isTrimmed })}>
-              <div
-                className={classNames(styles.info_wrapper, { [styles.info_bubble_expanded]: isTrimmed })}
-                ref={textRef}
-              >
-                <p className={styles.info}>
-                  {result.description}
-                </p>
-              </div>
-              {!isTrimmed ?
-                <span
-                  className={styles.link}
-                  onClick={handleShowMore}
-                >
-                  Узнать больше
-                </span> : null
-              }
-            </Bubble>
+            {archetypeUse ?
+              <>
+                <div className={styles.img_block}>
+                  <img
+                    alt='result'
+                    src={img}
+                    className={styles.img}
+                  />
+                  <div className={styles.name_block}>
+                    <TextBorder text={archetypeUse.name} theme={ThemeTextBorder.GREENBLUE} className={styles.name} />
+                  </div>
+                </div>
+                <Bubble className={classNames(styles.info_bubble, { [styles.info_bubble_expanded]: isTrimmed })}>
+                  <div
+                    className={classNames(styles.info_wrapper, { [styles.info_bubble_expanded]: isTrimmed })}
+                    ref={textRef}
+                  >
+                    <p className={styles.info}>
+                      {archetypeUse.description}
+                    </p>
+                  </div>
+                  {!isTrimmed ?
+                    <span
+                      className={styles.link}
+                      onClick={handleShowMore}
+                    >
+                      Узнать больше
+                    </span> : null
+                  }
+                </Bubble>
+              </> : null}
           </div>
           <div className={styles.btns}>
             <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' onClick={onNext} />

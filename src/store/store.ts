@@ -1,4 +1,3 @@
-import { doctors } from './../doctors';
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import { useDispatch } from 'react-redux'
 import { testSlice } from "./test/test.slice"

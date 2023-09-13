@@ -1,6 +1,4 @@
 import { Idoctor, doctors } from './../../doctors';
-import { Iresult, resultName, results } from '../../results';
-import { Iquestion } from './../../types/interface';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 

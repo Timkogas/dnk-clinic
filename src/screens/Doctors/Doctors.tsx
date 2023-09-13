@@ -48,7 +48,6 @@ const Doctors = () => {
               {type !== '' ?
 
                 <>
-                  <p className={styles.subtitle}>{type}</p>
                   <div className={styles.list}>
                     {doctors?.map((el, i) => {
                       return (
@@ -65,7 +64,6 @@ const Doctors = () => {
                 </>
                 :
                 <>
-                  <p className={styles.subtitle}>Терапевт</p>
                   <div className={styles.list}>
 
                     {doctors?.map((el, i) => {

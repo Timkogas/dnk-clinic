@@ -1,4 +1,4 @@
-import { Iresult, resultName, results } from '../../results';
+import { resultName } from '../../results';
 import { Iquestion } from './../../types/interface';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
@@ -175,7 +175,7 @@ export interface ITest {
   questions: Iquestion[]
   step: number
   answers: number[]
-  result: Iresult;
+  result: resultName;
 }
 
 
@@ -183,7 +183,7 @@ const initialState: ITest = {
   questions: questions,
   step: 0,
   answers: [],
-  result: results[0],
+  result: 'парижанка',
 }
 
 const mapOptions: { [key: string]: number } = {
@@ -228,8 +228,8 @@ const isMatching = (answers: string, userAnswers: number[], circle: number = 0):
   }
 }
 
-const findResult = (types: { [key: string]: string }, a: number[]): Iresult => {
-  let name: string = ''
+const findResult = (types: { [key: string]: resultName }, a: number[]): resultName => {
+  let name = ''
   for (let type in types) {
     if (isMatching(type, a)) {
       name = types[type];
@@ -255,13 +255,16 @@ const findResult = (types: { [key: string]: string }, a: number[]): Iresult => {
     }
   }
 
-  return results.find((el)=>el.name === name) as Iresult
+  return name as resultName
 }
 
 export const testSlice = createSlice({
   name: namespace,
   initialState: initialState,
   reducers: {
+    setResult: (state, action: PayloadAction<resultName>) => {
+      state.result = action.payload
+    },
     plusStep: (state, action: PayloadAction<number>) => {
       state.answers = [...state.answers, action.payload]
       if (state.questions.length - 1 === state.step) return
@@ -274,7 +277,7 @@ export const testSlice = createSlice({
     resetSteps: (state) => {
       state.step = 0
       state.answers = []
-      state.result = results[0]
+      state.result = 'парижанка'
       state.questions = questions
     },
     getResult: (state) => {
@@ -306,4 +309,4 @@ export const testSlice = createSlice({
   },
 })
 
-export const { plusStep, minusStep, resetSteps, getResult } = testSlice.actions;
+export const { plusStep, minusStep, resetSteps, getResult, setResult } = testSlice.actions;

@@ -5,22 +5,39 @@ import styles from './Start.module.scss'
 import { useCallback, useEffect } from 'react';
 
 import bubble from '../../assets/images/start-bubble.png'
-import { AppDispatch } from '../../store/store';
-import { useDispatch } from 'react-redux';
-import { getVKUser } from '../../store/user/user.slice';
+import { AppDispatch, AppState } from '../../store/store';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { checkUser, getVKUser, pushUser } from '../../store/user/user.slice';
+import bridge from '@vkontakte/vk-bridge';
+import { setResult } from '../../store/test/test.slice';
 
 
 const Start = () => {
   const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch()
+  const { user, archetype } = useSelector((state: AppState) => state.user, shallowEqual)
 
   useEffect(()=>{
    dispatch(getVKUser())
-  }, [dispatch])
+   if (user.id) {
+    dispatch(checkUser(user.id.toString()))
+    bridge.send('VKWebAppAllowNotifications', {}).then((data) => {
+      if (data.result) {
+        dispatch(pushUser(user.id.toString()))
+      }
+    })
+  }
+  }, [dispatch,user.id])
 
+   console.log(archetype, 'arc')
   const onStart = useCallback(() => {
-    navigate("/test");
-  }, [navigate])
+    if (archetype?.name) {
+      dispatch(setResult(archetype.name))
+      navigate("/result");
+    } else {
+      navigate("/test");
+    }
+  }, [navigate, archetype, dispatch])
 
   const onSignUp = useCallback(() => {
     navigate("/signup");

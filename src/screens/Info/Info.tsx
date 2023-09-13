@@ -2,10 +2,6 @@ import Logo from '../../components/UI/Logo/Logo';
 import styles from './Info.module.scss'
 import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
-import Button, { ThemeButton } from '../../components/UI/Button/Button';
-import classNames from 'classnames';
-import NavBar from '../../components/NavBarLayout/NavBarLayout';
-import { useNavigate } from 'react-router-dom';
 
 import web from '../../assets/images/icon-web.svg'
 import phone from '../../assets/images/icon-phone.svg'
