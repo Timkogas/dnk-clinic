@@ -9,8 +9,6 @@ import NikolaiS from './assets/images/doctors/NikolaiS.png'
 import ElenaV from './assets/images/doctors/ElenaV.png'
 import MarinaY from './assets/images/doctors/MarinaY.png'
 
-
-
 export interface Idoctor {
   id: number
   name: string

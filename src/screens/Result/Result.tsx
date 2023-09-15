@@ -8,7 +8,6 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../../store/store';
-import { getResult } from '../../store/test/test.slice';
 import bridge from '@vkontakte/vk-bridge';
 import classNames from 'classnames';
 import { archetypeUser } from '../../store/user/user.slice';
@@ -20,11 +19,8 @@ import parisPC from '../../assets/images/paris-pc.png'
 
 const Result = () => {
 
-  const navigate = useNavigate()
-  const { result } = useSelector((state: AppState) => state.test, shallowEqual)
+  const { answers } = useSelector((state: AppState) => state.test, shallowEqual)
   const { user, archetype, archetypeEmpty } = useSelector((state: AppState) => state.user, shallowEqual)
-
-
 
   const dispatch: AppDispatch = useDispatch()
 
@@ -33,9 +29,10 @@ const Result = () => {
 
   let img
   let archetypeUse: Iresult
+ 
   if (archetype) {
     archetypeUse = archetype
-    img = PC ? process.env.REACT_APP_API_URL + 'public/results/' + archetype.imgPc + '.png' : process.env.REACT_APP_API_URL + 'public/results/' + archetype.img + '.png'
+    img = PC ? process.env.REACT_APP_API_URL + 'public/results/' + archetypeUse.imgPc + '.png' : process.env.REACT_APP_API_URL + 'public/results/' + archetypeUse.img + '.png'
   } else {
     archetypeUse = archetypeEmpty
     img = PC ? parisPC : paris
@@ -54,12 +51,10 @@ const Result = () => {
   }, []);
 
   useEffect(() => {
-    if (user.id && result) {
-      dispatch(archetypeUser({ uid: user.id.toString(), archetype: result }))
-    } else {
-      dispatch(archetypeUser({ uid: '1', archetype: 'парижанка' }))
+    if (user.id) {
+      dispatch(archetypeUser({ uid: user.id.toString(), answers: answers }))
     }
-  }, [user.id, result, dispatch]);
+  }, [user.id, answers, dispatch]);
 
 
   const handleShowMore = () => {
@@ -68,14 +63,20 @@ const Result = () => {
     }
   };
 
+  const onClose =() => {
+    setModal(false)
+  }
+  const navigate = useNavigate()
   useEffect(() => {
-    dispatch(getResult())
-  }, [dispatch])
+    const onCloseModal = () => {
+      setModal(false)
+    }
 
-  useEffect(() => {
     const onBack = () => {
-      if (window.history.length > 15) {
-        window.history.go(-16);
+      if (modal) {
+        onCloseModal()
+      } else {
+        navigate('/')
       }
     }
 
@@ -87,33 +88,15 @@ const Result = () => {
       }
     };
 
-    window.addEventListener("popstate", onBack, false);
+    window.addEventListener("popstate", onBack);
     window.addEventListener('resize', handleResize);
 
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener("popstate", onBack);
     };
-  }, [dispatch])
-
-  const onClose = useCallback(() => {
-    setModal(false)
-  }, [])
-
-  useEffect(() => {
-
-    const onBack = () => {
-      if (modal) {
-        onClose()
-      }
-    }
-
-    window.addEventListener("popstate", onBack, false);
-
-    return () => window.removeEventListener("popstate", onBack, false);
-  }, [navigate, modal, onClose])
-
-
+  }, [navigate, modal])
 
   const onOpen = useCallback(() => {
     setModal(true)

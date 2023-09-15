@@ -20,12 +20,8 @@ export const checkUser = createAppAsyncThunk(`checkUser`, async (uid: string) =>
   return userApi.check(uid)
 })
 
-export const pushUser = createAppAsyncThunk(`checkUser`, async (uid: string) => {
-  return userApi.push(uid)
-})
-
-export const archetypeUser = createAppAsyncThunk(`archetypeUser`, async ({uid, archetype}: {uid: string, archetype: resultName}) => {
-  return userApi.archetype(uid, archetype)
+export const archetypeUser = createAppAsyncThunk(`archetypeUser`, async ({uid, answers}: {uid: string, answers: number[]}) => {
+  return userApi.archetype(uid, answers)
 })
 
 export interface IUser {
@@ -65,7 +61,6 @@ export const userSlice = createSlice({
         state.user = action.payload as UserInfo
       })
       .addCase(checkUser.fulfilled, (state, action) => {
-        console.log('checkasd', action?.payload?.data?.user?.archetype)
         if (action?.payload?.data?.user?.archetype !== undefined) {
           state.archetype = action?.payload?.data?.user?.archetype
         }

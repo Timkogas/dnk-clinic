@@ -65,20 +65,19 @@ const Test = () => {
   }, [])
 
   const onNextClick = useCallback(() => {
-    window.history.pushState({}, '', null);
     const result = first ? age : answer
     if (first && Number(age) < 18) {
       navigate('/young')
       return
     }
-
     dispatch(plusStep(Number(result)))
     setAnswer(null)
     if (step === questions.length - 1) navigate('/result')
   }, [dispatch, step, questions, navigate, answer, age, first])
 
   const onBackClick = () => {
-    window.history.go(-1)
+    setAnswer(null)
+    dispatch(minusStep())
   }
 
 
