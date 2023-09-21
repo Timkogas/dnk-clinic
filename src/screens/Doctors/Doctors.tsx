@@ -6,22 +6,15 @@ import Select from '../../components/UI/Select/Select';
 import { useState, useCallback, useEffect } from 'react';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { doctors } from '../../doctors';
+import { doctorCategory, doctors } from '../../doctors';
 
 const options = [
   { text: 'Все врачи', value: '' },
-  { text: 'Гинеколог', value: 'Гинеколог' },
-  { text: 'Терапевт', value: 'Терапевт' },
-  { text: 'Пластический хирург', value: 'Пластический хирург' },
-  { text: 'Косметолог', value: 'Косметолог' },
+  { text: 'Гинеколог', value: doctorCategory.GIN },
+  { text: 'Терапевт', value: doctorCategory.TER },
+  { text: 'Пластический хирург', value: doctorCategory.XIR },
+  { text: 'Косметолог', value: doctorCategory.KOS },
 ]
-
-const profs: { [key: string]: string[] } = {
-  'Гинеколог': ['акушер-гинеколог', 'гинеколог'],
-  'Терапевт': ['терапевт'],
-  'Пластический хирург': ['пластический хирург'],
-  'Косметолог': ['врач-косметолог', 'дерматовенеролог', 'трихолог'],
-}
 
 const Doctors = () => {
 
@@ -33,14 +26,7 @@ const Doctors = () => {
 
   useEffect(() => {
     if (type !== '') {
-      const filtered = doctors.filter(doctor => {
-        return doctor.prof.some(profValue => {
-          return profs[type].some(profType => {
-            return profValue.includes(profType)
-          })
-        }
-        );
-      });
+      const filtered = doctors.filter(doctor => doctor.category === type);
       setFilteredDoctors(filtered);
     } else {
       setFilteredDoctors(doctors);

@@ -7,9 +7,12 @@ import Input from '../../components/UI/Input/Input';
 import { useState, useCallback, useEffect } from 'react'
 import Select from '../../components/UI/Select/Select';
 import { AppState } from '../../store/store';
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { calculateAge } from '../../helpers';
 import bridge from '@vkontakte/vk-bridge';
+import axios from 'axios';
+import { resetCommentDoctor, resetCommentSecret } from '../../store/user/user.slice';
+import classNames from 'classnames';
 
 interface Iform {
   name: string;
@@ -22,7 +25,9 @@ interface Iform {
 
 const SignUp = () => {
 
-  const { user } = useSelector((state: AppState) => state.user, shallowEqual)
+  const { user, commentSecret, commentDoctor } = useSelector((state: AppState) => state.user, shallowEqual)
+  const dispatch = useDispatch()
+  const [send, setSend] = useState<boolean>(false)
 
   const [data, setData] = useState<Iform>(
     {
@@ -49,7 +54,11 @@ const SignUp = () => {
         // Ошибка
         console.log(error);
       });
-  }, [])
+    return () => {
+      dispatch(resetCommentDoctor())
+      dispatch(resetCommentSecret())
+    }
+  }, [dispatch])
 
   useEffect(() => {
     setData({
@@ -106,6 +115,31 @@ const SignUp = () => {
     }));
   }, [])
 
+  const onClick = useCallback(() => {
+    if (process.env.REACT_APP_CRM_URL) {
+      axios.post(process.env.REACT_APP_CRM_URL, {
+        fields: {
+          TITLE: "VK mini apps",
+          NAME: data.name,
+          LAST_NAME: data.secondName,
+          ADDRESS_CITY: data.place,
+          PHONE: [{ VALUE: "+" + data.phone, VALUE_TYPE: "WORK" }],
+          COMMENTS: `Возраст: ${data.age}. Пол: ${data.sex} \n ${commentSecret !== '' ? commentSecret : commentDoctor}`
+        }
+      }).then(() => {
+        setData({
+          name: '',
+          secondName: '',
+          age: '',
+          place: '',
+          phone: '',
+          sex: 'мужской',
+        })
+        setSend(true)
+      })
+    }
+  }, [data, commentSecret, commentDoctor])
+
   return (
     <>
       <div className={styles.bg}>
@@ -124,7 +158,16 @@ const SignUp = () => {
 
               <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 
-              <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} />
+              <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} onClick={onClick} disabled={Object.values(data).some(value => value === '')} />
+
+
+              <div className={classNames({ [styles.signup_bubble_send]: send, [styles.signup_bubble_send_inactive]: !send })}>
+                <TextBorder text='Вы записаны!' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
+                <p className={classNames(styles.info_text)}>
+                  Специалисты клиники
+                  с вами свяжутся в ближайшее время.
+                </p>
+              </div>
             </Bubble>
 
 

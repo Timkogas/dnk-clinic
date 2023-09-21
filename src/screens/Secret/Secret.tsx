@@ -6,12 +6,15 @@ import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { AppState } from '../../store/store';
-import { shallowEqual, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Iresult } from '../../results';
+import { setCommentSecret } from '../../store/user/user.slice';
 
 
 const Secret = () => {
   const { archetype, archetypeEmpty } = useSelector((state: AppState) => state.user, shallowEqual)
+  const dispatch = useDispatch()
+
   let archetypeUse: Iresult
   if (archetype) {
     archetypeUse = archetype
@@ -20,7 +23,8 @@ const Secret = () => {
   }
   const navigate = useNavigate()
 
-  const onSignUp = () => {
+  const onSignUp = (rec: string) => {
+    dispatch(setCommentSecret("Секрет долголетия - " + rec))
     navigate('/signup')
   }
 
@@ -54,7 +58,7 @@ const Secret = () => {
                           {i + 1}. {rec}
                         </p>
 
-                        <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={onSignUp} />
+                        <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} outlineClass={styles.btn_outline} onClick={() => onSignUp(rec)} />
                       </div>
                     )
                   })}

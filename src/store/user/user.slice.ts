@@ -1,6 +1,6 @@
 import { resultName } from './../../results';
 import bridge, { UserInfo } from '@vkontakte/vk-bridge';
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { createAppAsyncThunk } from "../createAppAsyncThunk";
 import { userApi } from '../../api/usersApi';
 import { Iresult } from '../../results';
@@ -29,6 +29,8 @@ export interface IUser {
   archetypeEmpty: Iresult
   archetype: Iresult | null
   loading: boolean
+  commentSecret: string
+  commentDoctor: string
 }
 
 
@@ -52,9 +54,24 @@ export const userSlice = createSlice({
       postUrl: 'photo-221991753_457239057',
     },
     archetype: null,
-    loading: false
+    loading: false,
+    commentSecret: '',
+    commentDoctor: ''
   } as IUser,
-  reducers: {},
+  reducers: {
+    setCommentSecret: (state, action: PayloadAction<string>) => {
+      state.commentSecret = action.payload
+    },
+    setCommentDoctor: (state, action: PayloadAction<string>) => {
+      state.commentDoctor = action.payload
+    },
+    resetCommentSecret: (state) => {
+      state.commentSecret = ''
+    },
+    resetCommentDoctor: (state,) => {
+      state.commentDoctor = ''
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getVKUser.fulfilled, (state, action) => {
@@ -77,3 +94,5 @@ export const userSlice = createSlice({
       })
   }
 })
+
+export const { setCommentSecret, setCommentDoctor, resetCommentSecret, resetCommentDoctor } = userSlice.actions;

@@ -9,6 +9,7 @@ import { useCallback, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, AppState } from '../../store/store';
 import { getDoctor } from '../../store/doctors/doctors.slice';
+import { setCommentDoctor } from '../../store/user/user.slice';
 
 
 const Doctor = () => {
@@ -22,8 +23,9 @@ const Doctor = () => {
   }, [dispatch, params])
 
   const onSignUp = useCallback(() => {
+    dispatch(setCommentDoctor(currentDoctor.category + ' ' + currentDoctor.name))
     navigate("/signup");
-  }, [navigate])
+  }, [navigate, dispatch, currentDoctor])
 
   return (
     <>
