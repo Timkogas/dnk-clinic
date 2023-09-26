@@ -11,10 +11,10 @@ import { AppDispatch, AppState } from '../../store/store';
 import bridge from '@vkontakte/vk-bridge';
 import classNames from 'classnames';
 import { archetypeUser } from '../../store/user/user.slice';
-import { Iresult } from '../../results';
 
 import paris from '../../assets/images/paris.png'
 import parisPC from '../../assets/images/paris-pc.png'
+import { Iresult } from '../../types/interface';
 
 
 const Result = () => {

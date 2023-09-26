@@ -1,9 +1,10 @@
-import { resultName } from './../../results';
+
 import bridge, { UserInfo } from '@vkontakte/vk-bridge';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { createAppAsyncThunk } from "../createAppAsyncThunk";
 import { userApi } from '../../api/usersApi';
-import { Iresult } from '../../results';
+import { Iresult } from '../../types/interface';
+
 
 
 

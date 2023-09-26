@@ -1,4 +1,3 @@
-import { resultName } from '../../results';
 import { Iquestion } from './../../types/interface';
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 

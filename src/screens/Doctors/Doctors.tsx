@@ -6,7 +6,10 @@ import Select from '../../components/UI/Select/Select';
 import { useState, useCallback, useEffect } from 'react';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import { useNavigate } from 'react-router-dom';
-import { doctorCategory, doctors } from '../../doctors';
+import { doctorCategory } from '../../types/enums';
+import { useSelector } from 'react-redux';
+import { AppState, useAppDispatch } from '../../store/store';
+import { doctorGetAll } from '../../store/doctors/doctors.slice';
 
 const options = [
   { text: 'Все врачи', value: '' },
@@ -19,9 +22,18 @@ const options = [
 const Doctors = () => {
 
   const [type, setType] = useState<string>('')
+
+  const { doctors } = useSelector((state: AppState) => state.doctors)
+  const dispatch = useAppDispatch()
+
   const onChange = useCallback((value: string) => {
     setType(value);
   }, [])
+
+  useEffect(() => {
+    dispatch(doctorGetAll())
+  }, [dispatch]);
+  
   const [filteredDoctors, setFilteredDoctors] = useState<any[]>([]);
 
   useEffect(() => {
@@ -31,7 +43,7 @@ const Doctors = () => {
     } else {
       setFilteredDoctors(doctors);
     }
-  }, [type]);
+  }, [type, doctors]);
 
   const navigate = useNavigate();
 
@@ -55,12 +67,12 @@ const Doctors = () => {
                   <div className={styles.list}>
                     {filteredDoctors.map((el, i) => {
                       return (
-                        <Bubble className={styles.bubble_card} key={el.id}>
+                        <Bubble className={styles.bubble_card} key={el._id}>
                           <Bubble className={styles.bubble_img_wrapper}>
-                            <img src={el.img} alt='doctor' className={styles.bubble_img} />
+                            <img src={process.env.REACT_APP_API_URL + 'public/doctorsImg/' + el.img + '.png'} alt='doctor' className={styles.bubble_img} />
                           </Bubble>
                           <p className={styles.name}>{el.name}</p>
-                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el.id) }} />
+                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el._id) }} />
                         </Bubble>
                       );
                     })}
@@ -71,12 +83,12 @@ const Doctors = () => {
                   <div className={styles.list}>
                     {filteredDoctors.map((el, i) => {
                       return (
-                        <Bubble className={styles.bubble_card} key={el.id}>
+                        <Bubble className={styles.bubble_card} key={el._id}>
                           <Bubble className={styles.bubble_img_wrapper}>
-                            <img src={el.img} alt='doctor' className={styles.bubble_img} />
+                            <img src={process.env.REACT_APP_API_URL + 'public/doctorsImg/' + el.img + '.png'} alt='doctor' className={styles.bubble_img} />
                           </Bubble>
                           <p className={styles.name}>{el.name}</p>
-                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el.id) }} />
+                          <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el._id) }} />
                         </Bubble>
                       );
                     })}

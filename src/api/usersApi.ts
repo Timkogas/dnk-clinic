@@ -1,6 +1,5 @@
 
 import bridge from "@vkontakte/vk-bridge"
-import { resultName } from "../results"
 import { instance } from "./instance"
 
 interface Response {

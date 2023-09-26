@@ -7,8 +7,8 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { AppState } from '../../store/store';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { Iresult } from '../../results';
 import { setCommentSecret } from '../../store/user/user.slice';
+import { Iresult } from '../../types/interface';
 
 
 const Secret = () => {
