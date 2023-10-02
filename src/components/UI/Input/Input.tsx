@@ -52,6 +52,7 @@ const Input: FC<InputProps> = props => {
           }
           placeholder='+7'
           className={classNames(styles.input, { [styles.light]: light }, className)}
+          {...otherProps}
         /> :
         <input
           value={value}

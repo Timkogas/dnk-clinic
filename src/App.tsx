@@ -9,6 +9,7 @@ import Info from "./screens/Info/Info";
 import Doctors from "./screens/Doctors/Doctors";
 import Doctor from "./screens/Doctor/Doctor";
 import Young from "./screens/Young/Young";
+import Document from "./screens/Document/Document";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path='/test' element={<Test />} />
       <Route path='/result' element={<Result />} />
       <Route path='/young' element={<Young />} />
+      <Route path='/document' element={<Document />} />
       <Route element={<NavBarLayout />}>
         <Route path='/secret' element={<Secret />} />
         <Route path='/doctors' element={<Doctors />} />

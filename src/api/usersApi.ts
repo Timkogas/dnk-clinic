@@ -12,12 +12,12 @@ class UserApi {
     public check = async (uid: string): Promise<Response | undefined> => {
         try {
             const response = await instance.post(`/user/check`, { uid: uid })
-            if (!response.data.data.user.notifications) {
-                const data = await bridge.send('VKWebAppAllowNotifications', {})
-                if (data.result) {
-                    await instance.post(`/user/push`, { uid: uid })
-                }
-            }
+            // if (!response.data.data.user.notifications) {
+            //     const data = await bridge.send('VKWebAppAllowNotifications', {})
+            //     if (data.result) {
+            //         await instance.post(`/user/push`, { uid: uid })
+            //     }
+            // }
             return response.data
         } catch {
             console.log('error check')

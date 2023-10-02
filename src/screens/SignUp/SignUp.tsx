@@ -28,6 +28,8 @@ const SignUp = () => {
   const { user, commentSecret, commentDoctor } = useSelector((state: AppState) => state.user, shallowEqual)
   const dispatch = useDispatch()
   const [send, setSend] = useState<boolean>(false)
+  const [phone, setPhone] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
 
   const [data, setData] = useState<Iform>(
     {
@@ -41,19 +43,6 @@ const SignUp = () => {
   )
 
   useEffect(() => {
-    bridge.send('VKWebAppGetPhoneNumber')
-      .then((data) => {
-        if (data.phone_number) {
-          setData(prevData => ({
-            ...prevData,
-            phone: data.phone_number.toString()
-          }));
-        }
-      })
-      .catch((error) => {
-        // Ошибка
-        console.log(error);
-      });
     return () => {
       dispatch(resetCommentDoctor())
       dispatch(resetCommentSecret())
@@ -137,8 +126,36 @@ const SignUp = () => {
         })
         setSend(true)
       })
+        .catch(() => {
+          setError(true)
+        })
+    } else {
+      setError(true)
     }
   }, [data, commentSecret, commentDoctor])
+
+  const onClickPhone = () => {
+    if (!phone) {
+      setPhone(true)
+      bridge.send('VKWebAppGetPhoneNumber')
+        .then((data) => {
+          if (data.phone_number) {
+            setData(prevData => ({
+              ...prevData,
+              phone: data.phone_number.toString()
+            }));
+          }
+        })
+        .catch((error) => {
+          // Ошибка
+          console.log(error);
+        });
+    }
+  }
+
+  const onRefresh = () => {
+    setError(false)
+  }
 
   return (
     <>
@@ -154,7 +171,7 @@ const SignUp = () => {
               <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input} />
               <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} />
               <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} className={styles.input} />
-              <Input light placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
+              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
 
               <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 
@@ -166,6 +183,14 @@ const SignUp = () => {
                 <p className={classNames(styles.info_text)}>
                   Специалисты клиники
                   с вами свяжутся в ближайшее время.
+                </p>
+              </div>
+
+              <div className={classNames({ [styles.signup_bubble_send]: error, [styles.signup_bubble_send_inactive]: !error })}>
+                <TextBorder text='Ошибка!' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
+                <p className={classNames(styles.info_text)}>
+                  Произошла неизвестная ошибка
+                  <Button text='Обновить' theme={ThemeButton.RED} className={styles.btn} onClick={onRefresh} />
                 </p>
               </div>
             </Bubble>

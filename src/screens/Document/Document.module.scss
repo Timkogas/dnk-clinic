@@ -1,0 +1,22 @@
+@import "../../assets/styles/media_mixins.scss";
+
+.screen {
+  padding: 2% 0 2% 0;
+  padding-left: var(--containter-padding);
+  padding-right: var(--containter-padding);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.block {
+  font-size: 16px;
+  font-family: 'CeraRoundPro-Medium';
+  color: rgb(36, 36, 36);
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}

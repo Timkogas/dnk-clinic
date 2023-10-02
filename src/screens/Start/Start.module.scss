@@ -35,7 +35,7 @@
 
 .btns {
   width: 100%;
-
+  margin-bottom: 30px;
   @include _800  {
     max-width: var(--containter-width);
     margin: 0 auto;
@@ -44,4 +44,21 @@
 
 .btn_first {
   margin-bottom: 10px;
+}
+
+.document {
+  font-family: 'CeraRoundPro-Medium';
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  color: rgb(34, 34, 34);
+  @include _800  {
+    max-width: var(--containter-width);
+    margin: 0 auto;
+  }
+  &_link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(43, 55, 219);
+  }
 }

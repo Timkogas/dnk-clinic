@@ -15,15 +15,15 @@ const Start = () => {
   const dispatch: AppDispatch = useDispatch()
   const { user, archetype } = useSelector((state: AppState) => state.user, shallowEqual)
 
-  useEffect(()=>{
-   dispatch(getVKUser())
+  useEffect(() => {
+    dispatch(getVKUser())
   }, [dispatch])
 
-  useEffect(()=>{
+  useEffect(() => {
     if (user.id) {
-     dispatch(checkUser(user.id.toString()))
-   }
-   }, [dispatch, user.id])
+      dispatch(checkUser(user.id.toString()))
+    }
+  }, [dispatch, user.id])
 
   const onStart = useCallback(() => {
     if (archetype?.name) {
@@ -37,6 +37,10 @@ const Start = () => {
     navigate("/signup");
   }, [navigate])
 
+  const onDocument = useCallback(() => {
+    navigate("/document");
+  }, [navigate])
+
   return (
     <>
 
@@ -48,6 +52,9 @@ const Start = () => {
         <div className={styles.btns}>
           <Button theme={ThemeButton.RED} text='узнать свой секрет' className={styles.btn_first} onClick={onStart} />
           <Button theme={ThemeButton.RED} text='записаться' onClick={onSignUp} />
+          <p className={styles.document}>
+            Продолжая пользоваться приложением, вы соглашаетесь с обработкой персональных данных и <span onClick={onDocument} className={styles.document_link}>политикой конфиденциальности</span>.
+          </p>
         </div>
       </div>
     </>

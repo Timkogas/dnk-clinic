@@ -47,11 +47,7 @@ const Info = () => {
 
 
           </div>
-          <TextBorder className={styles.title} text='Скачайте наше приложение' theme={ThemeTextBorder.GREENBLUE} center></TextBorder>
-          <div className={styles.markets}>
-            <img src={google} alt='google' className={styles.market} />
-            <img src={apple} alt='apple' className={styles.market} />
-          </div>
+          
           <div className={styles.block}></div>
         </div>
       </div>
