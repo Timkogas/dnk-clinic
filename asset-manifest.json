@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dnk-clinic/static/css/main.4b9ee35b.css",
-    "main.js": "/dnk-clinic/static/js/main.a0ed59cd.js",
+    "main.css": "/dnk-clinic/static/css/main.13edb29e.css",
+    "main.js": "/dnk-clinic/static/js/main.d108178b.js",
     "static/media/paris.png": "/dnk-clinic/static/media/paris.823762db07ac4c4c4801.png",
     "static/media/start-bubble.png": "/dnk-clinic/static/media/start-bubble.038603507485694f090c.png",
     "static/media/CeraRoundPro-Bold.otf": "/dnk-clinic/static/media/CeraRoundPro-Bold.20247302b83f7510d60b.otf",
@@ -16,7 +16,6 @@
     "static/media/bg-start.png": "/dnk-clinic/static/media/bg-start.73aed5ff6f628805b380.png",
     "static/media/bg-info.png": "/dnk-clinic/static/media/bg-info.66cbdf051049184126c3.png",
     "static/media/bg-doctors.png": "/dnk-clinic/static/media/bg-doctors.d4907b8b3157d9793ca2.png",
-    "static/media/google.png": "/dnk-clinic/static/media/google.e0d75679e4e56ae4ae09.png",
     "static/media/icon-doctors.svg": "/dnk-clinic/static/media/icon-doctors.2576704f1e59527b0e69cbe6f7e942f0.svg",
     "static/media/icon-web.svg": "/dnk-clinic/static/media/icon-web.5caaa0db4ef88bb755049a246e0b1383.svg",
     "static/media/icon-file.svg": "/dnk-clinic/static/media/icon-file.4c99aba596d17646f44a128ec9bee1fe.svg",
@@ -27,11 +26,11 @@
     "static/media/select-dropdown-active.svg": "/dnk-clinic/static/media/select-dropdown-active.9ace6a29474c2e0770b6936cdc9a6bc5.svg",
     "static/media/select-dropdown.svg": "/dnk-clinic/static/media/select-dropdown.2402e7d5a12e010918fd05d7de8f4822.svg",
     "static/media/modal-close.svg": "/dnk-clinic/static/media/modal-close.3bcc36c73ce70d18350a99f6b6d1315c.svg",
-    "main.4b9ee35b.css.map": "/dnk-clinic/static/css/main.4b9ee35b.css.map",
-    "main.a0ed59cd.js.map": "/dnk-clinic/static/js/main.a0ed59cd.js.map"
+    "main.13edb29e.css.map": "/dnk-clinic/static/css/main.13edb29e.css.map",
+    "main.d108178b.js.map": "/dnk-clinic/static/js/main.d108178b.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b9ee35b.css",
-    "static/js/main.a0ed59cd.js"
+    "static/css/main.13edb29e.css",
+    "static/js/main.d108178b.js"
   ]
 }
