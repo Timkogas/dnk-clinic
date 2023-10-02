@@ -73,17 +73,18 @@ const Doctor = () => {
     }
   }
 
-  const videoSource = process.env.REACT_APP_API_URL + 'public/doctorsVideo/IvanI.mp4';
+  const videoSource = process.env.REACT_APP_API_URL + `public/doctorsVideo/${currentDoctor.video}.mp4`;
 
   return (
     <>
-
-      <Modal isOpen={modal} onClose={onClose} className={styles.modal_video}>
-        <video ref={videoRef} controls className={styles.video}>
-          <source src={videoSource} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </Modal>
+      {currentDoctor.video ?
+        <Modal isOpen={modal} onClose={onClose} className={styles.modal_video}>
+          <video ref={videoRef} controls className={styles.video}>
+            <source src={currentDoctor.video ? videoSource : ''} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </Modal>
+        : <></>}
 
       <div className={styles.bg}>
         <div className={styles.screen}>

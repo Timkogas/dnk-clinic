@@ -19,8 +19,6 @@ function App() {
       <Route path='/test' element={<Test />} />
       <Route path='/result' element={<Result />} />
       <Route path='/young' element={<Young />} />
-
-
       <Route element={<NavBarLayout />}>
         <Route path='/secret' element={<Secret />} />
         <Route path='/doctors' element={<Doctors />} />
