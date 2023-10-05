@@ -13,6 +13,7 @@ import bridge from '@vkontakte/vk-bridge';
 import axios from 'axios';
 import { resetCommentDoctor, resetCommentSecret } from '../../store/user/user.slice';
 import classNames from 'classnames';
+import { instance } from '../../api/instance';
 
 interface Iform {
   name: string;
@@ -103,10 +104,10 @@ const SignUp = () => {
       sex: value
     }));
   }, [])
-
+  
   const onClick = useCallback(() => {
     if (process.env.REACT_APP_CRM_URL) {
-      axios.post(process.env.REACT_APP_CRM_URL, {
+      instance.post('/user/registration', {
         fields: {
           TITLE: "VK mini apps",
           NAME: data.name,
@@ -115,16 +116,20 @@ const SignUp = () => {
           PHONE: [{ VALUE: "+" + data.phone, VALUE_TYPE: "WORK" }],
           COMMENTS: `Возраст: ${data.age}. Пол: ${data.sex} \n ${commentSecret !== '' ? commentSecret : commentDoctor}`
         }
-      }).then(() => {
-        setData({
-          name: '',
-          secondName: '',
-          age: '',
-          place: '',
-          phone: '',
-          sex: 'мужской',
-        })
-        setSend(true)
+      }).then((data) => {
+        if (data.data.error) {
+          setError(true)
+        } else {
+          setData({
+            name: '',
+            secondName: '',
+            age: '',
+            place: '',
+            phone: '',
+            sex: 'мужской',
+          })
+          setSend(true)
+        }
       })
         .catch(() => {
           setError(true)

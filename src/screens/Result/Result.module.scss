@@ -33,6 +33,7 @@
 }
 
 .title {
+  margin-bottom: 6%;
   @include _800 {
     font-size: 25px;
     line-height: 27px;
