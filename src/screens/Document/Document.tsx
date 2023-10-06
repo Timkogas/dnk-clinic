@@ -1,12 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
-import Logo from '../../components/UI/Logo/Logo';
 import styles from './Document.module.scss'
 import { useCallback } from 'react';
-
-import bubble from '../../assets/images/start-bubble.png'
-
-
 
 const Document = () => {
     const navigate = useNavigate();

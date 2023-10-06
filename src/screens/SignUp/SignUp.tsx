@@ -10,7 +10,6 @@ import { AppState } from '../../store/store';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { calculateAge } from '../../helpers';
 import bridge from '@vkontakte/vk-bridge';
-import axios from 'axios';
 import { resetCommentDoctor, resetCommentSecret } from '../../store/user/user.slice';
 import classNames from 'classnames';
 import { instance } from '../../api/instance';
@@ -106,7 +105,6 @@ const SignUp = () => {
   }, [])
   
   const onClick = useCallback(() => {
-    if (process.env.REACT_APP_CRM_URL) {
       instance.post('/user/registration', {
         fields: {
           TITLE: "VK mini apps",
@@ -134,9 +132,6 @@ const SignUp = () => {
         .catch(() => {
           setError(true)
         })
-    } else {
-      setError(true)
-    }
   }, [data, commentSecret, commentDoctor])
 
   const onClickPhone = () => {

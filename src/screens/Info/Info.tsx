@@ -6,9 +6,6 @@ import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBor
 import web from '../../assets/images/icon-web.svg'
 import phone from '../../assets/images/icon-phone.svg'
 
-import google from '../../assets/images/google.png'
-import apple from '../../assets/images/apple.png'
-
 const Info = () => {
 
   return (

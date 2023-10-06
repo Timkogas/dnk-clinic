@@ -1,5 +1,3 @@
-
-import bridge from "@vkontakte/vk-bridge"
 import { instance } from "./instance"
 
 interface Response {
@@ -9,9 +7,9 @@ interface Response {
 }
 
 class UserApi {
-    public check = async (uid: string): Promise<Response | undefined> => {
+    public check = async (): Promise<Response | undefined> => {
         try {
-            const response = await instance.post(`/user/check`, { uid: uid })
+            const response = await instance.post(`/user/check`)
             // if (!response.data.data.user.notifications) {
             //     const data = await bridge.send('VKWebAppAllowNotifications', {})
             //     if (data.result) {
@@ -24,9 +22,9 @@ class UserApi {
         }
     }
 
-    public archetype = async (uid: string, answers: number[]): Promise<Response | undefined> => {
+    public archetype = async (answers: number[]): Promise<Response | undefined> => {
         try {
-            const response = await instance.post(`/user/archetype`, { uid: uid, answers: answers })
+            const response = await instance.post(`/user/archetype`, { answers: answers })
             return response.data
         } catch {
             console.log('error archetype')

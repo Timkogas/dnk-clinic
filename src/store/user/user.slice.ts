@@ -17,12 +17,12 @@ export const getVKUser = createAppAsyncThunk(`getVKUser`, async () => {
   return data
 })
 
-export const checkUser = createAppAsyncThunk(`checkUser`, async (uid: string) => {
-  return userApi.check(uid)
+export const checkUser = createAppAsyncThunk(`checkUser`, async () => {
+  return userApi.check()
 })
 
-export const archetypeUser = createAppAsyncThunk(`archetypeUser`, async ({uid, answers}: {uid: string, answers: number[]}) => {
-  return userApi.archetype(uid, answers)
+export const archetypeUser = createAppAsyncThunk(`archetypeUser`, async ({answers}: {answers: number[]}) => {
+  return userApi.archetype(answers)
 })
 
 export interface IUser {

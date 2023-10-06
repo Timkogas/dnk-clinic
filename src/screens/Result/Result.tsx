@@ -52,7 +52,7 @@ const Result = () => {
 
   useEffect(() => {
     if (user.id) {
-      dispatch(archetypeUser({ uid: user.id.toString(), answers: answers }))
+      dispatch(archetypeUser({answers: answers }))
     }
   }, [user.id, answers, dispatch]);
 

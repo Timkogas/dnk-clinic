@@ -21,7 +21,7 @@ const Start = () => {
 
   useEffect(() => {
     if (user.id) {
-      dispatch(checkUser(user.id.toString()))
+      dispatch(checkUser())
     }
   }, [dispatch, user.id])
 
