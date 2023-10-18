@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import styles from './Document.module.scss'
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import CopyNotification from '../../components/Copy/Copy';
 
 const Document = () => {
     const navigate = useNavigate();
@@ -22,12 +23,22 @@ const Document = () => {
             textarea.remove();
             document.documentElement.scrollTop = 0;
             window.scrollTo(0, 0);
+
         });
+
+        setIsVisible(true);
+
+        setTimeout(() => {
+            setIsVisible(false);
+        }, 2000);
     }
+
+    const [isVisible, setIsVisible] = useState(false);
+
 
     return (
         <>
-
+             <CopyNotification message="Скопировано!" isVisible={isVisible} />
             <div className={styles.screen}>
                 <div className={styles.block}>
                     <p>

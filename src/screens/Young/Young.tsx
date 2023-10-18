@@ -3,28 +3,37 @@ import Bubble from '../../components/Bubble/Bubble';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import Logo from '../../components/UI/Logo/Logo';
 import styles from './Young.module.scss'
+import CopyNotification from '../../components/Copy/Copy';
+import { useState } from 'react';
 
 const Young = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate()
   const onClick = () => {
     const link = 'https://vk.com/app51759006'
     navigator.clipboard.writeText(link).then(() => { }).catch(() => {
-        const textarea = document.createElement('textarea');
-        document.body.appendChild(textarea);
-        textarea.innerHTML = link;
-        textarea.focus();
-        textarea.select();
-        document.execCommand('copy');
-        textarea.remove();
-        document.documentElement.scrollTop = 0;
-        window.scrollTo(0, 0);
+      const textarea = document.createElement('textarea');
+      document.body.appendChild(textarea);
+      textarea.innerHTML = link;
+      textarea.focus();
+      textarea.select();
+      document.execCommand('copy');
+      textarea.remove();
+      document.documentElement.scrollTop = 0;
+      window.scrollTo(0, 0);
     });
-    navigate('/')
+    setIsVisible(true);
+
+    setTimeout(() => {
+      setIsVisible(false);
+      navigate('/')
+    }, 1500);
   }
-  
+
   return (
     <div className={styles.bg}>
       <div className={styles.screen}>
+        <CopyNotification message={`Скопировано! \n Переход на главную....`} isVisible={isVisible} />
         <div>
           <Logo subtitle />
 
@@ -38,7 +47,7 @@ const Young = () => {
               И мы с удовольствием ждем тебя
               и твою семью на Чек-Ап здоровья! Попроси своих родителей записать вас на прием – отправь маме ссылку.
 
-              <Button theme={ThemeButton.RED} text={'ССЫЛКА НА ЧЕК-АП ЗДОРОВЬЯ'} onClick={onClick} className={styles.btn}/>
+              <Button theme={ThemeButton.RED} text={'ССЫЛКА НА ЧЕК-АП ЗДОРОВЬЯ'} onClick={onClick} className={styles.btn} />
             </Bubble>
 
           </div>
