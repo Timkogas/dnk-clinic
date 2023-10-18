@@ -16,7 +16,15 @@
   font-family: 'CeraRoundPro-Medium';
   color: rgb(36, 36, 36);
 
+  margin-top: 60px;
+
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.email {
+  color: rgb(43, 55, 219);
+  text-decoration: underline;
+  cursor: pointer;
 }

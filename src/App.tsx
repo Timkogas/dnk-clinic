@@ -1,5 +1,5 @@
 import Start from "./screens/Start/Start";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Test from "./screens/Test/Test";
 import Result from "./screens/Result/Result";
 import Secret from "./screens/Secret/Secret";
@@ -10,9 +10,38 @@ import Doctors from "./screens/Doctors/Doctors";
 import Doctor from "./screens/Doctor/Doctor";
 import Young from "./screens/Young/Young";
 import Document from "./screens/Document/Document";
+import { useEffect } from "react";
+import bridge from "@vkontakte/vk-bridge";
 
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleOffline = () => {
+      alert("Потеряно соединение с интернетом!\nНажмите 'ок', только после того как восстановите сеть.");
+    };
+
+    const handleOnline = () => {
+      navigate("/");
+    };
+
+    window.addEventListener('offline', handleOffline);
+    window.addEventListener('online', handleOnline);
+
+    return () => {
+      window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('online', handleOnline);
+    };
+  }, [navigate])
+
+  useEffect(() => {
+    bridge.send("VKWebAppSetViewSettings", {
+      status_bar_style: "dark",
+      action_bar_color: "#ffffff",
+    });
+  }, [])
+
   return (
     <Routes>
 

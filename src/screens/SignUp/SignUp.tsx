@@ -42,6 +42,7 @@ const SignUp = () => {
     }
   )
 
+
   useEffect(() => {
     return () => {
       dispatch(resetCommentDoctor())
@@ -61,11 +62,12 @@ const SignUp = () => {
   }, [user])
 
   const onChangeAge = useCallback((value: string) => {
-    const result = value.replace(/\D/g, '')
-    if (result.length > 3) return
+    const min = 1
+    const max = 120
+    const newValue = Math.max(min, Math.min(max, Number(parseInt(value))));
     setData(prevData => ({
       ...prevData,
-      age: result
+      age: newValue.toString()
     }));
   }, [])
 
@@ -103,35 +105,35 @@ const SignUp = () => {
       sex: value
     }));
   }, [])
-  
+
   const onClick = useCallback(() => {
-      instance.post('/user/registration', {
-        fields: {
-          TITLE: "VK mini apps",
-          NAME: data.name,
-          LAST_NAME: data.secondName,
-          ADDRESS_CITY: data.place,
-          PHONE: [{ VALUE: "+" + data.phone, VALUE_TYPE: "WORK" }],
-          COMMENTS: `Возраст: ${data.age}. Пол: ${data.sex} \n ${commentSecret !== '' ? commentSecret : commentDoctor}`
-        }
-      }).then((data) => {
-        if (data.data.error) {
-          setError(true)
-        } else {
-          setData({
-            name: '',
-            secondName: '',
-            age: '',
-            place: '',
-            phone: '',
-            sex: 'мужской',
-          })
-          setSend(true)
-        }
-      })
-        .catch(() => {
-          setError(true)
+    instance.post('/user/registration', {
+      fields: {
+        TITLE: "VK mini apps",
+        NAME: data.name,
+        LAST_NAME: data.secondName,
+        ADDRESS_CITY: data.place,
+        PHONE: [{ VALUE: "+" + data.phone, VALUE_TYPE: "WORK" }],
+        COMMENTS: `Возраст: ${data.age}. Пол: ${data.sex} \n ${commentSecret !== '' ? commentSecret : commentDoctor}`
+      }
+    }).then((data) => {
+      if (data.data.error) {
+        setError(true)
+      } else {
+        setData({
+          name: '',
+          secondName: '',
+          age: '',
+          place: '',
+          phone: '',
+          sex: 'мужской',
         })
+        setSend(true)
+      }
+    })
+      .catch(() => {
+        setError(true)
+      })
   }, [data, commentSecret, commentDoctor])
 
   const onClickPhone = () => {
@@ -167,15 +169,21 @@ const SignUp = () => {
             <TextBorder text='записаться' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
 
             <Bubble className={styles.signup_bubble}>
-              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input} />
-              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input} />
-              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} />
-              <Input light placeholder='Регион' onChange={onChangePlace} value={data.place} className={styles.input} />
-              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
+              <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input} maxLength={100} />
+              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input}  maxLength={100}/>
+              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} type='number' />
+              <Input light placeholder='Город' onChange={onChangePlace} value={data.place} className={styles.input}  maxLength={100}/>
+              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input}/>
 
               <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 
-              <Button text='записаться' theme={ThemeButton.RED} className={styles.btn} onClick={onClick} disabled={Object.values(data).some(value => value === '')} />
+              <Button
+                text='записаться'
+                theme={ThemeButton.RED}
+                className={styles.btn}
+                onClick={onClick}
+                disabled={Object.values(data).some(value => value === '') || data.phone.length !== 11}
+              />
 
 
               <div className={classNames({ [styles.signup_bubble_send]: send, [styles.signup_bubble_send_inactive]: !send })}>

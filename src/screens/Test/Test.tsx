@@ -59,9 +59,10 @@ const Test = () => {
   }
 
   const onChangeAge = useCallback((value: string) => {
-    const result = value.replace(/\D/g, '')
-    if (result.length > 3) return
-    setAge(result)
+    const min = 1
+    const max = 120
+    const newValue = Math.max(min, Math.min(max, Number(parseInt(value))));
+    setAge(newValue.toString());
   }, [])
 
   const onNextClick = useCallback(() => {
@@ -103,7 +104,7 @@ const Test = () => {
             <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline} />
             <Bubble className={first ? styles.bubble_first : styles.bubble_second}>
               {first ?
-                <Input type='text' onChange={onChangeAge} value={age} />
+                <Input type="number" onChange={onChangeAge} value={age} />
                 :
                 <CheckBox options={questions[step].options!} onChange={onChangeAnswer} selectedValue={answer} />
               }

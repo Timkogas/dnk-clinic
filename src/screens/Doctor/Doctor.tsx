@@ -77,7 +77,7 @@ const Doctor = () => {
 
   return (
     <>
-      {currentDoctor.video ?
+      {currentDoctor.video.length > 2 ?
         <Modal isOpen={modal} onClose={onClose} className={styles.modal_video}>
           <video ref={videoRef} controls className={styles.video}>
             <source src={currentDoctor.video ? videoSource : ''} type="video/mp4" />
@@ -103,7 +103,7 @@ const Doctor = () => {
                     )
                   })}
                   <p className={styles.name}>{currentDoctor.name}</p>
-                  <Button theme={ThemeButton.BLUE} text='Видео' className={styles.video_btn} onClick={onVideo} />
+                  {currentDoctor.video.length > 2 ?<Button theme={ThemeButton.BLUE} text='Видео' className={styles.video_btn} onClick={onVideo} /> : null}
                 </div>
               </div>
 

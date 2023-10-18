@@ -51,7 +51,7 @@ const Start = () => {
         </div>
         <div className={styles.btns}>
           <Button theme={ThemeButton.RED} text='узнать свой секрет' className={styles.btn_first} onClick={onStart} />
-          <Button theme={ThemeButton.RED} text='записаться' onClick={onSignUp} />
+          <Button theme={ThemeButton.RED} text='записаться' className={styles.btn_second} onClick={onSignUp} />
           <p className={styles.document}>
             Продолжая пользоваться приложением, вы соглашаетесь с обработкой персональных данных и <span onClick={onDocument} className={styles.document_link}>политикой конфиденциальности</span>.
           </p>

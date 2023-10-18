@@ -6,7 +6,8 @@
   background: url('../../assets/images/bg-test.png') center top;
   background-repeat: no-repeat;
   background-size: 100% 100vh;
-
+  background-attachment:fixed;
+  
   @include _800 {
     background: url('../../assets/images/bg-test-pc.png') center top no-repeat;
     background-size: auto contain;

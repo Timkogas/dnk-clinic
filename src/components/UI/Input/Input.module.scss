@@ -18,14 +18,22 @@
   color: white;
   padding: 0 25px;
 
-  @include _800  {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  @include _800 {
     height: 49px;
   }
 }
 
 .light {
   background-color: #D4EDF2;
-  color:  #1C1C1C;
+  color: #1C1C1C;
   height: 34px;
   font-size: 16px;
   border-color: var(--color-dark-greenblue);
@@ -35,7 +43,7 @@
     font-size: 19px;
   }
 
-  @include _800  {
+  @include _800 {
     height: 60px;
   }
 }

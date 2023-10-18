@@ -50,7 +50,7 @@ const Doctors = () => {
   const onMore = useCallback((id: number) => {
     navigate(`/doctors/${id}`);
   }, [navigate])
-
+  console.log(doctors)
   return (
     <>
       <div className={styles.bg}>
@@ -71,7 +71,7 @@ const Doctors = () => {
                           <Bubble className={styles.bubble_img_wrapper}>
                             <img src={process.env.REACT_APP_API_URL + 'public/doctorsImg/' + el.img + '.png'} alt='doctor' className={styles.bubble_img} />
                           </Bubble>
-                          <p className={styles.name}>{el.name}</p>
+                          <p className={styles.name}>{el.name}<span className={styles.category}>{el.category}</span></p>
                           <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el._id) }} />
                         </Bubble>
                       );
@@ -87,7 +87,7 @@ const Doctors = () => {
                           <Bubble className={styles.bubble_img_wrapper}>
                             <img src={process.env.REACT_APP_API_URL + 'public/doctorsImg/' + el.img + '.png'} alt='doctor' className={styles.bubble_img} />
                           </Bubble>
-                          <p className={styles.name}>{el.name}</p>
+                          <p className={styles.name}>{el.name}<span  className={styles.category}>{el.category}</span></p>
                           <Button theme={ThemeButton.RED} text='Подробнее' className={styles.btn} onClick={() => { onMore(el._id) }} />
                         </Bubble>
                       );
