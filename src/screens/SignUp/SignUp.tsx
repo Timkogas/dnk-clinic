@@ -65,10 +65,17 @@ const SignUp = () => {
     const min = 1
     const max = 120
     const newValue = Math.max(min, Math.min(max, Number(parseInt(value))));
-    setData(prevData => ({
-      ...prevData,
-      age: newValue.toString()
-    }));
+    if (isNaN(newValue)) {
+      setData(prevData => ({
+        ...prevData,
+        age: ''
+      }));
+    } else {
+      setData(prevData => ({
+        ...prevData,
+        age: newValue.toString()
+      }));
+    }
   }, [])
 
   const onChangeFirstName = useCallback((value: string) => {
@@ -88,8 +95,9 @@ const SignUp = () => {
   const onChangePlace = useCallback((value: string) => {
     setData(prevData => ({
       ...prevData,
-      place: value
+      place: value.replace(/[^a-zA-Zа-яА-Я]/g, '')
     }));
+
   }, [])
 
   const onChangeNumber = useCallback((value: string) => {
@@ -170,10 +178,10 @@ const SignUp = () => {
 
             <Bubble className={styles.signup_bubble}>
               <Input light placeholder='Имя' onChange={onChangeFirstName} value={data.name} className={styles.input} maxLength={100} />
-              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input}  maxLength={100}/>
-              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} type='number' />
-              <Input light placeholder='Город' onChange={onChangePlace} value={data.place} className={styles.input}  maxLength={100}/>
-              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input}/>
+              <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input} maxLength={100} />
+              <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} type='number' onWheel={event => event.currentTarget.blur()} />
+              <Input light placeholder='Город' onChange={onChangePlace} value={data.place} className={styles.input} maxLength={100} />
+              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
 
               <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 

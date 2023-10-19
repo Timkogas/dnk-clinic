@@ -24,7 +24,7 @@ const Info = () => {
                     +7 (351) 214-23-03, г. Челябинск
                   </p>
                   <p className={styles.info_text}>
-                    +7 (3519) 214-23-03, г. Магнитогорск
+                    +7 (3519) 21-03-03, г. Магнитогорск
                   </p>
                   <p className={styles.info_text}>
                     +7 (7142) 93-15-27, г. Костанай
@@ -36,7 +36,7 @@ const Info = () => {
                 <img src={web} alt='icon' className={styles.icon} />
                 <div className={styles.numbers}>
                   <a className={styles.link} href="https://dnk74.ru" target="_blank" rel="noopener noreferrer">
-                    www.dnk74.ru
+                    www.dnk174.ru
                   </a>
                 </div>
               </div>
@@ -44,7 +44,7 @@ const Info = () => {
 
 
           </div>
-          
+
           <div className={styles.block}></div>
         </div>
       </div>
