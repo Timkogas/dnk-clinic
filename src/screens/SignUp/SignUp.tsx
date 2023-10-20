@@ -4,7 +4,7 @@ import Bubble from '../../components/Bubble/Bubble';
 import TextBorder, { ThemeTextBorder } from '../../components/TextBorder/TextBorder';
 import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import Select from '../../components/UI/Select/Select';
 import { AppState } from '../../store/store';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
@@ -24,7 +24,6 @@ interface Iform {
 }
 
 const SignUp = () => {
-
   const { user, commentSecret, commentDoctor } = useSelector((state: AppState) => state.user, shallowEqual)
   const dispatch = useDispatch()
   const [send, setSend] = useState<boolean>(false)
@@ -81,21 +80,21 @@ const SignUp = () => {
   const onChangeFirstName = useCallback((value: string) => {
     setData(prevData => ({
       ...prevData,
-      name: value
+      name: value.replace(/[^a-zA-Zа-яА-Я\s-]/g, '')
     }));
   }, [])
 
   const onChangeSecondName = useCallback((value: string) => {
     setData(prevData => ({
       ...prevData,
-      secondName: value
+      secondName: value.replace(/[^a-zA-Zа-яА-Я\s-]/g, '')
     }));
   }, [])
 
   const onChangePlace = useCallback((value: string) => {
     setData(prevData => ({
       ...prevData,
-      place: value.replace(/[^a-zA-Zа-яА-Я]/g, '')
+      place: value.replace(/[^a-zA-Zа-яА-Я\s-]/g, '')
     }));
 
   }, [])
@@ -146,6 +145,10 @@ const SignUp = () => {
 
   const onClickPhone = () => {
     if (!phone) {
+      const inputElement = document.getElementById('phone_input'); // 
+      if (inputElement) {
+        inputElement.blur();
+      }
       setPhone(true)
       bridge.send('VKWebAppGetPhoneNumber')
         .then((data) => {
@@ -181,7 +184,7 @@ const SignUp = () => {
               <Input light placeholder='Фамилия' onChange={onChangeSecondName} value={data.secondName} className={styles.input} maxLength={100} />
               <Input light placeholder='Возраст' onChange={onChangeAge} value={data.age} className={styles.input} type='number' onWheel={event => event.currentTarget.blur()} />
               <Input light placeholder='Город' onChange={onChangePlace} value={data.place} className={styles.input} maxLength={100} />
-              <Input light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
+              <Input id="phone_input" light onClick={onClickPhone} placeholder='+7' value={data.phone} phone onChange={onChangeNumber} className={styles.input} />
 
               <Select options={[{ text: 'Мужской', value: 'мужской' }, { text: 'Женский', value: 'женский' }]} value={data.sex} onChange={onChangeSex} className={styles.input} />
 

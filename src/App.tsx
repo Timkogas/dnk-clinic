@@ -38,7 +38,7 @@ function App() {
   useEffect(() => {
     bridge.send("VKWebAppSetViewSettings", {
       status_bar_style: "dark",
-      action_bar_color: "#ffffff",
+      action_bar_color: "#00ffff",
     });
   }, [])
 
