@@ -10,16 +10,19 @@ import Doctors from "./screens/Doctors/Doctors";
 import Doctor from "./screens/Doctor/Doctor";
 import Young from "./screens/Young/Young";
 import Document from "./screens/Document/Document";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import bridge from "@vkontakte/vk-bridge";
+import Modal from "./components/UI/Modal/Modal";
+import Button, { ThemeButton } from "./components/UI/Button/Button";
 
 
 function App() {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleOffline = () => {
-      alert("Потеряно соединение с интернетом!\nНажмите 'ок', только после того как восстановите сеть.");
+      setIsVisible(true)
     };
 
     const handleOnline = () => {
@@ -43,22 +46,30 @@ function App() {
   }, [])
 
   return (
-    <Routes>
+    <>
+      <Modal onClose={() => { setIsVisible(false) }} isOpen={isVisible}>
+        <p style={{ fontFamily: 'CeraRoundPro-Medium', fontSize: '16px', color: '#fff', marginBottom: '20px' }}>
+          Потеряно соединение с интернетом!<br />Нажмите 'ок', только после того, как восстановите сеть.
+        </p>
+        <Button text='ок' theme={ThemeButton.BLUE} onClick={() => { setIsVisible(false) }} />
+      </Modal>
+      <Routes>
 
-      <Route path='/' element={<Start />} />
-      <Route path='/test' element={<Test />} />
-      <Route path='/result' element={<Result />} />
-      <Route path='/young' element={<Young />} />
-      <Route path='/document' element={<Document />} />
-      <Route element={<NavBarLayout />}>
-        <Route path='/secret' element={<Secret />} />
-        <Route path='/doctors' element={<Doctors />} />
-        <Route path='/doctors/:id' element={<Doctor />} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/info' element={<Info />} />
-      </Route>
+        <Route path='/' element={<Start />} />
+        <Route path='/test' element={<Test />} />
+        <Route path='/result' element={<Result />} />
+        <Route path='/young' element={<Young />} />
+        <Route path='/document' element={<Document />} />
+        <Route element={<NavBarLayout />}>
+          <Route path='/secret' element={<Secret />} />
+          <Route path='/doctors' element={<Doctors />} />
+          <Route path='/doctors/:id' element={<Doctor />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/info' element={<Info />} />
+        </Route>
 
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

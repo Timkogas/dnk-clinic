@@ -21,9 +21,9 @@ const Start = () => {
 
   useEffect(() => {
     if (user.id) {
-      dispatch(checkUser())
+      dispatch(checkUser(user))
     }
-  }, [dispatch, user.id])
+  }, [dispatch, user])
 
   const onStart = useCallback(() => {
     if (archetype?.name) {

@@ -17,8 +17,8 @@ export const getVKUser = createAppAsyncThunk(`getVKUser`, async () => {
   return data
 })
 
-export const checkUser = createAppAsyncThunk(`checkUser`, async () => {
-  return userApi.check()
+export const checkUser = createAppAsyncThunk(`checkUser`, async (vkData: UserInfo) => {
+  return userApi.check(vkData)
 })
 
 export const archetypeUser = createAppAsyncThunk(`archetypeUser`, async ({answers}: {answers: number[]}) => {
