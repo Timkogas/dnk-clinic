@@ -1,4 +1,4 @@
-import { UserInfo } from "@vkontakte/vk-bridge"
+import bridge, { UserInfo } from "@vkontakte/vk-bridge"
 import { instance } from "./instance"
 
 interface Response {
@@ -11,12 +11,12 @@ class UserApi {
     public check = async (vkData: UserInfo): Promise<Response | undefined> => {
         try {
             const response = await instance.post(`/user/check`, { vkData: vkData })
-            // if (!response.data.data.user.notifications) {
-            //     const data = await bridge.send('VKWebAppAllowNotifications', {})
-            //     if (data.result) {
-            //         await instance.post(`/user/push`, { uid: uid })
+
+            // await bridge.send("VKWebAppGetLaunchParams").then(async (data) => {
+            //     if (data?.vk_are_notifications_enabled !== 1) {
+            //         await bridge.send('VKWebAppAllowNotifications')
             //     }
-            // }
+            // })
             return response.data
         } catch {
             console.log('error check')

@@ -198,10 +198,9 @@ const SignUp = () => {
 
 
               <div className={classNames({ [styles.signup_bubble_send]: send, [styles.signup_bubble_send_inactive]: !send })}>
-                <TextBorder text='Вы записаны!' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
+                <TextBorder text='Спасибо за вашу заявку!' center theme={ThemeTextBorder.GREENBLUE} className={styles.title} outlineClass={styles.title_outline} />
                 <p className={classNames(styles.info_text)}>
-                  Специалисты клиники
-                  с вами свяжутся в ближайшее время.
+                  Менеджер свяжется с вами в течение 15 минут!
                 </p>
               </div>
 

@@ -67,6 +67,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/info' element={<Info />} />
         </Route>
+        <Route path='*' element={<Start />} />
 
       </Routes>
     </>

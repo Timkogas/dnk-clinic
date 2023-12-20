@@ -65,7 +65,7 @@ const Doctors = () => {
                 <>
                   <p className={styles.subtitle}>{type}</p>
                   <div className={styles.list}>
-                    {filteredDoctors.map((el, i) => {
+                    {filteredDoctors?.map((el, i) => {
                       return (
                         <Bubble className={styles.bubble_card} key={el._id}>
                           <Bubble className={styles.bubble_img_wrapper}>
@@ -81,7 +81,7 @@ const Doctors = () => {
               ) : (
                 <>
                   <div className={styles.list}>
-                    {filteredDoctors.map((el, i) => {
+                    {filteredDoctors?.map((el, i) => {
                       return (
                         <Bubble className={styles.bubble_card} key={el._id}>
                           <Bubble className={styles.bubble_img_wrapper}>

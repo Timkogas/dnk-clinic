@@ -115,10 +115,10 @@ const Result = () => {
   const onWall = () => {
     if (archetypeUse) {
       const name = archetypeUse.name.split(' ').map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(' ')
-      const message = `Мой архетип здоровья: ${name} \n\n ${archetypeUse.description} \n Это мой архетип здоровья. Узнай свой секрет долголетия здесь:`;
+      const message = `Теперь я знаю свой секрет долголетия!\n\n Мой архетип здоровья: ${name} \n\n ${archetypeUse.description} \n\n Это мой архетип здоровья. \n\n Узнай свой секрет долголетия здесь:`;
       bridge.send('VKWebAppShowWallPostBox', {
         message: message,
-        attachments: `${archetypeUse.postUrl}, https://vk.com/app51725961`
+        attachments: `${archetypeUse.postUrl}, https://vk.com/app51759006`
       }).catch(() => console.log('error'))
     }
   }
@@ -131,7 +131,7 @@ const Result = () => {
         attachment: {
           text: 'open',
           type: 'url',
-          url: 'https://vk.com/app51725961',
+          url: 'https://vk.com/app51759006',
         },
       }).catch(() => console.log('error'))
     }

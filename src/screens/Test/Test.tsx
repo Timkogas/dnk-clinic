@@ -12,6 +12,7 @@ import { useCallback, useState, useEffect } from 'react'
 import { minusStep, plusStep, resetSteps } from '../../store/test/test.slice';
 import { useNavigate } from 'react-router-dom';
 import { calculateAge } from '../../helpers';
+import bridge from '@vkontakte/vk-bridge';
 
 const Test = () => {
 
@@ -24,11 +25,19 @@ const Test = () => {
 
   const [age, setAge] = useState<string>('')
   const [answer, setAnswer] = useState<number | null>(null)
+  const [enabledPush, setEnabledPush] = useState<boolean>(false)
+  const [showPush, setShowPush] = useState<boolean>(false)
+
 
   const first = questions[step].first
 
   useEffect(() => {
     dispatch(resetSteps())
+    bridge.send("VKWebAppGetLaunchParams").then(async (data) => {
+      if (data?.vk_are_notifications_enabled !== 1) {
+        setEnabledPush(true)
+      }
+    })
   }, [dispatch])
 
   useEffect(() => {
@@ -53,6 +62,10 @@ const Test = () => {
     return () => window.removeEventListener("popstate", onBack, false);
   }, [step, dispatch, navigate])
 
+  useEffect(() => {
+    if (showPush) setAnswer(1)
+  }, [showPush])
+
 
   const onChangeAnswer = (value: number) => {
     setAnswer(value)
@@ -73,12 +86,31 @@ const Test = () => {
     const result = first ? age : answer
     if (first && Number(age) < 18) {
       navigate('/young')
+    }
+
+    if (step === questions.length - 1 && enabledPush && !showPush) {
+      setShowPush(true)
+    }
+
+    if (showPush) {
+      setAnswer(1)
+      if (answer === 1) {
+        bridge.send('VKWebAppAllowNotifications')
+          .then((data) => {
+            if (data.result) {
+              navigate('/result')
+            }
+          }).catch((error) => console.log('error'))
+      } else if (answer === 2) {
+        navigate('/result')
+      }
       return
     }
-    dispatch(plusStep(Number(result)))
+
     setAnswer(null)
-    if (step === questions.length - 1) navigate('/result')
-  }, [dispatch, step, questions, navigate, answer, age, first])
+    dispatch(plusStep(Number(result)))
+    if (step === questions.length - 1 && !enabledPush) navigate('/result')
+  }, [dispatch, step, questions, navigate, answer, age, first, enabledPush, showPush])
 
   const onBackClick = () => {
     setAnswer(null)
@@ -88,6 +120,9 @@ const Test = () => {
 
   const disabledBtn = (first && (age === '')) || (!first && !answer)
 
+  let btnText = questions.length - 1 === step ? "Далее" : 'Завершить'
+  btnText = questions.length - 1 === step && enabledPush ? "Далее" : 'Завершить'
+  btnText = showPush ? 'Завершить' : "Далее"
   return (
     <div className={styles.bg}>
       <div className={styles.screen}>
@@ -105,12 +140,17 @@ const Test = () => {
           </div>
 
           <div className={styles.bubble_wrapper}>
-            <TextBorder text={questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline} />
+            <TextBorder text={showPush ? 'Я согласен получать уведомления, касающиеся моего здоровья' : questions[step].question} theme={ThemeTextBorder.GREENBLUE} className={styles.bubble_title} center outlineClass={styles.bubble_title_outline} />
             <Bubble className={first ? styles.bubble_first : styles.bubble_second}>
-              {first ?
-                <Input type="number" onChange={onChangeAge} value={age} onWheel={ event => event.currentTarget.blur() } />
-                :
-                <CheckBox options={questions[step].options!} onChange={onChangeAnswer} selectedValue={answer} />
+              {
+                showPush ?
+                  <CheckBox options={[{ text: 'Да', value: 1 }, { text: 'Нет', value: 2 }]} onChange={onChangeAnswer} selectedValue={answer} /> :
+
+                  first ?
+                    <Input type="number" onChange={onChangeAge} value={age} onWheel={event => event.currentTarget.blur()} />
+                    :
+                    <CheckBox options={questions[step].options!} onChange={onChangeAnswer} selectedValue={answer} />
+
               }
             </Bubble>
             <div className={styles.btns}>
@@ -119,7 +159,7 @@ const Test = () => {
                 :
                 <Button theme={ThemeButton.BLUE} text='Назад' onClick={onBackClick} />
               }
-              <Button theme={ThemeButton.RED} text={questions.length - 1 === step ? 'Завершить' : 'Далее'} onClick={onNextClick} disabled={disabledBtn} />
+              <Button theme={ThemeButton.RED} text={btnText} onClick={onNextClick} disabled={disabledBtn} />
             </div>
           </div>
         </div>
