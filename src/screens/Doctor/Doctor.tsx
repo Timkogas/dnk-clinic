@@ -11,24 +11,29 @@ import { AppDispatch, AppState } from '../../store/store';
 import { setCommentDoctor } from '../../store/user/user.slice';
 import { doctorGetOne, resetCurrentDoctor } from '../../store/doctors/doctors.slice';
 import Modal from '../../components/UI/Modal/Modal';
+import mobx from '../../store/mobx';
 
 
 const Doctor = () => {
-  const params = useParams()
-  const navigate = useNavigate();
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
+  
+  const params = useParams();
+  const id = mobx.isODR() ? mobx.getRoute().slice(9) : params.id;
+  
   const { currentDoctor } = useSelector((state: AppState) => state.doctors, shallowEqual)
   const [modal, setModal] = useState<boolean>(false)
   const dispatch: AppDispatch = useDispatch()
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (params.id) {
-      dispatch(doctorGetOne(params.id))
+    if (id) {
+      dispatch(doctorGetOne(id))
     }
     return () => {
       dispatch(resetCurrentDoctor())
     }
-  }, [dispatch, params])
+  }, [dispatch, id])
 
   const onSignUp = useCallback(() => {
     dispatch(setCommentDoctor(currentDoctor.category + ' ' + currentDoctor.name))

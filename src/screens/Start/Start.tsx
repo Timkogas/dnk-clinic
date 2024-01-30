@@ -8,10 +8,13 @@ import bubble from '../../assets/images/start-bubble.png'
 import { AppDispatch, AppState } from '../../store/store';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { checkUser, getVKUser } from '../../store/user/user.slice';
+import mobx from '../../store/mobx';
 
 
 const Start = () => {
-  const navigate = useNavigate();
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
+
   const dispatch: AppDispatch = useDispatch()
   const { user, archetype } = useSelector((state: AppState) => state.user, shallowEqual)
 

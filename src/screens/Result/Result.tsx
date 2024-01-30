@@ -15,9 +15,12 @@ import { archetypeUser } from '../../store/user/user.slice';
 import paris from '../../assets/images/paris.png'
 import parisPC from '../../assets/images/paris-pc.png'
 import { Iresult } from '../../types/interface';
+import mobx from '../../store/mobx';
 
 
 const Result = () => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
 
   const { answers } = useSelector((state: AppState) => state.test, shallowEqual)
   const { user, archetype, archetypeEmpty } = useSelector((state: AppState) => state.user, shallowEqual)
@@ -66,7 +69,6 @@ const Result = () => {
   const onClose =() => {
     setModal(false)
   }
-  const navigate = useNavigate()
   useEffect(() => {
     const onCloseModal = () => {
       setModal(false)
@@ -185,7 +187,7 @@ const Result = () => {
               </> : null}
           </div>
           <div className={styles.btns}>
-            <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' onClick={onNext} />
+            <Button theme={ThemeButton.RED} text='узнать свой секрет долголетия' finger={true} onClick={onNext} />
             <div className={styles.btns_second}>
               <Button theme={ThemeButton.BLUE} text='поделиться' onClick={onOpen} />
               <Button theme={ThemeButton.BLUE} text='пройти заново' onClick={onRepeat} />

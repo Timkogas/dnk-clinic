@@ -13,15 +13,16 @@ import { minusStep, plusStep, resetSteps } from '../../store/test/test.slice';
 import { useNavigate } from 'react-router-dom';
 import { calculateAge } from '../../helpers';
 import bridge from '@vkontakte/vk-bridge';
+import mobx from '../../store/mobx';
 
 const Test = () => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
 
   const { questions, step } = useSelector((state: AppState) => state.test, shallowEqual)
   const { user } = useSelector((state: AppState) => state.user, shallowEqual)
 
   const dispatch: AppDispatch = useDispatch()
-
-  const navigate = useNavigate();
 
   const [age, setAge] = useState<string>('')
   const [answer, setAnswer] = useState<number | null>(null)
@@ -120,9 +121,9 @@ const Test = () => {
 
   const disabledBtn = (first && (age === '')) || (!first && !answer)
 
-  let btnText = questions.length - 1 === step ? "Далее" : 'Завершить'
-  btnText = questions.length - 1 === step && enabledPush ? "Далее" : 'Завершить'
-  btnText = showPush ? 'Завершить' : "Далее"
+  let btnText = questions.length - 1 === step ? "Далее" : 'Продолжить'
+  btnText = questions.length - 1 === step && enabledPush ? "Далее" : 'Продолжить'
+  btnText = showPush ? 'Продолжить' : "Далее"
   return (
     <div className={styles.bg}>
       <div className={styles.screen}>

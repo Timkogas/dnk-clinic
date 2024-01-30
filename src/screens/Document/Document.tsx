@@ -3,9 +3,11 @@ import Button, { ThemeButton } from '../../components/UI/Button/Button';
 import styles from './Document.module.scss'
 import { useCallback, useState } from 'react';
 import CopyNotification from '../../components/Copy/Copy';
+import mobx from '../../store/mobx';
 
 const Document = () => {
-    const navigate = useNavigate();
+    let navigate: any = useNavigate();
+    if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
 
     const onBack = useCallback(() => {
         navigate("/");
