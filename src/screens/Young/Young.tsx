@@ -5,10 +5,14 @@ import Logo from '../../components/UI/Logo/Logo';
 import styles from './Young.module.scss'
 import CopyNotification from '../../components/Copy/Copy';
 import { useState } from 'react';
+import mobx from '../../store/mobx';
 
 const Young = () => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
+
   const [isVisible, setIsVisible] = useState(false);
-  const navigate = useNavigate()
+
   const onClick = () => {
     const link = 'https://vk.com/app51759006'
     navigator.clipboard.writeText(link).then(() => { }).catch(() => {

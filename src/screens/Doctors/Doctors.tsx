@@ -10,6 +10,7 @@ import { doctorCategory } from '../../types/enums';
 import { useSelector } from 'react-redux';
 import { AppState, useAppDispatch } from '../../store/store';
 import { doctorGetAll } from '../../store/doctors/doctors.slice';
+import mobx from '../../store/mobx';
 
 const options = [
   { text: 'Все врачи', value: '' },
@@ -20,6 +21,8 @@ const options = [
 ]
 
 const Doctors = () => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
 
   const [type, setType] = useState<string>('')
 
@@ -45,12 +48,10 @@ const Doctors = () => {
     }
   }, [type, doctors]);
 
-  const navigate = useNavigate();
-
   const onMore = useCallback((id: number) => {
     navigate(`/doctors/${id}`);
   }, [navigate])
-  console.log(doctors)
+  
   return (
     <>
       <div className={styles.bg}>

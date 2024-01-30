@@ -9,9 +9,13 @@ import { AppState } from '../../store/store';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { setCommentSecret } from '../../store/user/user.slice';
 import { Iresult } from '../../types/interface';
+import mobx from '../../store/mobx';
 
 
 const Secret = () => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
+
   const { archetype, archetypeEmpty } = useSelector((state: AppState) => state.user, shallowEqual)
   const dispatch = useDispatch()
 
@@ -21,7 +25,6 @@ const Secret = () => {
   } else {
     archetypeUse = archetypeEmpty
   }
-  const navigate = useNavigate()
 
   const onSignUp = (rec: string) => {
     dispatch(setCommentSecret("Секрет долголетия - " + rec))
@@ -65,6 +68,10 @@ const Secret = () => {
                 </Bubble>
 
                 <p className={styles.warning}>*не является медицинской рекомендацией, требуется консультация специалиста</p>
+
+                <Bubble className={styles.info_bubble}>
+                  <p className={styles.bonus500}>Запишись и получи 500 бонусных рублей от ДНК Клиники</p>
+                </Bubble>
               </> : null}
 
           </div>

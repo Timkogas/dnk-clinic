@@ -14,10 +14,13 @@ import { useEffect, useState } from "react";
 import bridge from "@vkontakte/vk-bridge";
 import Modal from "./components/UI/Modal/Modal";
 import Button, { ThemeButton } from "./components/UI/Button/Button";
+import { observer } from 'mobx-react-lite';
+import mobx from "./store/mobx";
 
+export default observer(() => {
+  let navigate: any = useNavigate();
+  if (mobx.isODR()) navigate = mobx.setRoute.bind(mobx);
 
-function App() {
-  const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -45,6 +48,27 @@ function App() {
     });
   }, [])
 
+  const getStateRoute = () => {
+    const index = mobx.getRoute().indexOf('/doctors');
+    if (index !== -1 && mobx.getRoute().slice(9)) return <Doctor />
+    if (mobx.getRoute() === '/test') return <Test />
+    if (mobx.getRoute() === '/result') return <Result />
+    if (mobx.getRoute() === '/young') return <Young />
+    if (mobx.getRoute() === '/document') return <Document />
+    if (mobx.getRoute() === '/secret') return <Secret />
+    if (mobx.getRoute() === '/doctors') return <Doctors />
+    if (mobx.getRoute() === '/signup') return <SignUp />
+    if (mobx.getRoute() === '/info') return <Info />
+    return <Start />
+  }
+
+  const getStateNavbar = () => {
+    const routes = ['/secret', '/doctors', '/signup', '/info'];
+    const index = mobx.getRoute().indexOf('/doctors');
+    if (index !== -1 && mobx.getRoute().slice(9)) routes.push(mobx.getRoute());
+    return routes.find(route => route === mobx.getRoute()) && <NavBarLayout />
+  }
+
   return (
     <>
       <Modal onClose={() => { setIsVisible(false) }} isOpen={isVisible}>
@@ -53,6 +77,13 @@ function App() {
         </p>
         <Button text='ок' theme={ThemeButton.BLUE} onClick={() => { setIsVisible(false) }} />
       </Modal>
+
+      { mobx.isODR() ? 
+      <>
+        { getStateRoute() }
+        { getStateNavbar() }
+      </>
+      :
       <Routes>
 
         <Route path='/' element={<Start />} />
@@ -70,8 +101,7 @@ function App() {
         <Route path='*' element={<Start />} />
 
       </Routes>
+      }
     </>
   );
-}
-
-export default App;
+})
